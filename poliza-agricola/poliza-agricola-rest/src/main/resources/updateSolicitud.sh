@@ -1,1 +1,0 @@
-curl  http://172.16.150.223:8080/poliza-agricola-rest/resources/solicitudPolizaRestController/upDate

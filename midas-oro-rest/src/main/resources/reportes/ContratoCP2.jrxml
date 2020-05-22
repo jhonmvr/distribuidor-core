@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version last-->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ContratoCP2" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="235a2e29-35dd-4ee0-8bf3-15ea3ad313ad">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="LIST_DS" class="java.util.List"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="identificacionCliente" class="java.lang.String">
+		<fieldDescription><![CDATA[identificacionCliente]]></fieldDescription>
+	</field>
+	<field name="nombreCliente" class="java.lang.String">
+		<fieldDescription><![CDATA[nombreCliente]]></fieldDescription>
+	</field>
+	<field name="precioCompra" class="java.lang.String">
+		<fieldDescription><![CDATA[precioCompra]]></fieldDescription>
+	</field>
+	<field name="identificacionAgente" class="java.lang.String">
+		<fieldDescription><![CDATA[identificacionAgente]]></fieldDescription>
+	</field>
+	<field name="telefono" class="java.lang.String">
+		<fieldDescription><![CDATA[telefono]]></fieldDescription>
+	</field>
+	<field name="class" class="java.lang.Class">
+		<fieldDescription><![CDATA[class]]></fieldDescription>
+	</field>
+	<field name="nombreApoderado" class="java.lang.String">
+		<fieldDescription><![CDATA[nombreApoderado]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[email]]></fieldDescription>
+	</field>
+	<field name="nombreAgente" class="java.lang.String">
+		<fieldDescription><![CDATA[nombreAgente]]></fieldDescription>
+	</field>
+	<field name="fechaEmision" class="java.lang.String">
+		<fieldDescription><![CDATA[fechaEmision]]></fieldDescription>
+	</field>
+	<detail>
+		<band height="809">
+			<staticText>
+				<reportElement x="369" y="630" width="100" height="19" uuid="a2770989-f0ff-4e3e-a5e7-1d08a62f53e4"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EL VENDEDOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="89" y="630" width="100" height="19" uuid="b670b54f-8225-4f43-999a-251fe78c69f8"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Por: MONTEMIDAS]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="80" y="708" width="169" height="20" uuid="7f36707f-dae0-4167-9a91-f78874cf3741"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombreAgente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="339" y="710" width="170" height="20" uuid="8fc8237d-21dc-4a21-8435-fd42e4623fa4"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombreCliente}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="82" y="702" width="167" height="1" uuid="bd8e44da-80a3-47d9-a266-c871aa16327a"/>
+			</line>
+			<line>
+				<reportElement x="339" y="702" width="171" height="1" uuid="dffb1d26-1ebb-40d2-af94-475c0228745c"/>
+			</line>
+			<textField>
+				<reportElement x="82" y="728" width="167" height="20" uuid="b3f6b0f1-ef81-4aa0-b68c-600157355a53"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{identificacionAgente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="340" y="730" width="170" height="20" uuid="eaede0b9-5beb-4344-9761-9e6456b5dd9a"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{identificacionCliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="20" width="531" height="580" uuid="78204b5a-6fbf-4e6e-939d-0f9e8a669db5"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" y en especial declara que no proviene de ningún delito contra la propiedad ni de ninguna actividad relacionada con el cultivo, fabricación, almacenamiento, transporte o tráfico ilícito de sustancias estupefacientes o psicotrópicas; y, <b> 9.4.</b> Que con el dinero obtenido por la venta de la JOYA USADA no pretende financiar actos o grupos criminales o terroristas. Adicionalmente, el VENDEDOR se obliga a asumir la defensa de la acreedora si se produjere cualquier reclamo judicial o extrajudicial sobre la propiedad, posesión y tenencia de la JOYA USADA. En el caso de falsedad de estas declaraciones, MONTEMIDAS podrá exigir el inmediato reintegro del precio pagado con el interés de mora, así como el pago de daños y perjuicios, costas y honorarios, devolviendo la JOYA USADA y en caso de no encontrarle al VENDEDOR, consignará tales bienes ante un juez civil o penal según sea el caso.<br><br><b>DÉCIMA.- TERMINACIÓN DEL CONTRATO.-</b> El CONTRATO terminará por las siguientes causales: <b><br>10.1.</b> Por incumplimiento de cualquiera de las obligaciones que contraen el VENDEDOR y MONTEMIDAS <b>y especialmente por falsedad de las declaraciones del VENDEDOR determinadas en la cláusula anterior; 10.2.</b> Por sentencia ejecutoriada que ordene la terminación del CONTRATO; <b>10.3.</b> Por acuerdo de las partes; <b>10.4.</b> Por imposibilidad de llevar adelante este CONTRATO ya sea como consecuencia de caso fortuito o fuerza mayor; y, <b>10.5.</b> Por las demás causales que establece la ley.<br>"+
+"<br><b>DÉCIMA PRIMERA: DURACIÓN.- </b> El CONTRATO durará hasta la suscripción del ACTA DE DEVOLUCIÓN o ACTA DE PERFECCIONAMIENTO, según corresponda.<br>"+
+"<br><b>DÉCIMA SEGUNDA: JURISDICCIÓN Y TRÁMITE.-</b> Las Partes renuncian a fuero y domicilio y acuerdan libre y voluntariamente que todas las desavenencias, controversias, divergencias o cuestiones litigiosas que se deriven del presente contrato, se resolverán, antes de optar por el procedimiento judicial u otro procedimiento de resolución de conflictos, a través de mediación que se administrará por uno de los Centro de Mediación y Negociación del Municipio del Distrito Metropolitano de Quito, con sujeción a sus reglamentos y demás normas que resulten de aplicación y resulten vigentes en la fecha de solicitud de la mediación. En caso de no llegar a un acuerdo en la mediación, las controversias se resolverán mediante el procedimiento monitorio si se cumplen los requisitos, o el que corresponda de acuerdo a la ley.<br>"+
+"<br><b>DÉCIMA TERCERA: DOMICILIO CONTRACTUAL.-</b> Las partes declaran como su único domicilio para fines de citación,  notificaciones y contacto las siguientes:<br>"+
+"<br><b>14.1. MONTEMIDAS:</b> Av. Amazonas n35-139 y Japón, Edificio Amazonas Park. Teléfono: 2437055 Email: contador@montemidas.ec<br>"+
+"<br><b>14.2. VENDEDOR:</b>    teléfono:"+" "+ $F{telefono} +" "+"email:"+" "+ $F{email}+"<br>" +
+"<br><b>DÉCIMA CUARTA: ENTREGA EFECTIVA DE LIQUIDACIÓN DE BIENES USADOS.-</b> Para efecto del perfeccionamiento de la compraventa, el VENDEDOR faculta a  MONTEMIDAS para que reciba en su nombre y firme la Liquidación de Compra de Bienes Usados, previo cumplimiento de los requisitos correspondientes, o no cumplimiento con los REQUISITOS DE DEVOLUCIÓN, y se le envié por correo electrónico copia de dicho documento.<br>"+
+"<br><b>DÉCIMA QUINTA: CESIÓN.-</b> El VENDEDOR acepta expresamente, y autoriza, que el COMPRADOR puede ceder sus derechos y obligaciones bajo el presente contrato a terceros en cualquier momento.<br> "+
+"<br><b>DÉCIMA SEXTA: ACEPTACIÓN.-</b> Luego de leído el presente acuerdo, las partes se afirman y ratifican en todas y cada una de sus declaraciones y para constancia firman por duplicado el presente acuerdo en Quito, el"+" "+$F{fechaEmision}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

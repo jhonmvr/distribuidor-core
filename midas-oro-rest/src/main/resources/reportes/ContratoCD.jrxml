@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ContratoCD" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="0da59cc4-f26c-4771-a844-b2bc81433330">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="LIST_DS" class="java.util.List"/>
+	<parameter name="subReportOneName" class="java.lang.String"/>
+	<parameter name="subReportTwoName" class="java.lang.String"/>
+	<parameter name="subReportThreeName" class="java.lang.String"/>
+	<parameter name="mainReportName" class="java.lang.String"/>
+	<parameter name="REPORT_PATH" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="numeroContrato" class="java.lang.String">
+		<fieldDescription><![CDATA[numeroContrato]]></fieldDescription>
+	</field>
+	<field name="valorTasacion" class="java.lang.String">
+		<fieldDescription><![CDATA[valorTasacion]]></fieldDescription>
+	</field>
+	<field name="identificacionAgente" class="java.lang.String">
+		<fieldDescription><![CDATA[identificacionAgente]]></fieldDescription>
+	</field>
+	<field name="identificacion" class="java.lang.String">
+		<fieldDescription><![CDATA[identificacion]]></fieldDescription>
+	</field>
+	<field name="nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[nombre]]></fieldDescription>
+	</field>
+	<field name="nacionalidad" class="java.lang.String">
+		<fieldDescription><![CDATA[nacionalidad]]></fieldDescription>
+	</field>
+	<field name="nombreAporderado" class="java.lang.String">
+		<fieldDescription><![CDATA[nombreAporderado]]></fieldDescription>
+	</field>
+	<field name="telefonoCelular" class="java.lang.String">
+		<fieldDescription><![CDATA[telefonoCelular]]></fieldDescription>
+	</field>
+	<field name="valorContrato" class="java.lang.String">
+		<fieldDescription><![CDATA[valorContrato]]></fieldDescription>
+	</field>
+	<field name="nacionalidadApoderado" class="java.lang.String">
+		<fieldDescription><![CDATA[nacionalidadApoderado]]></fieldDescription>
+	</field>
+	<field name="identificacionApoderado" class="java.lang.String">
+		<fieldDescription><![CDATA[identificacionApoderado]]></fieldDescription>
+	</field>
+	<field name="fechaCreacion" class="java.lang.String">
+		<fieldDescription><![CDATA[fechaCreacion]]></fieldDescription>
+	</field>
+	<field name="class" class="java.lang.Class">
+		<fieldDescription><![CDATA[class]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[email]]></fieldDescription>
+	</field>
+	<field name="nombreAgente" class="java.lang.String">
+		<fieldDescription><![CDATA[nombreAgente]]></fieldDescription>
+	</field>
+	<field name="valorenLetras" class="java.lang.String">
+		<fieldDescription><![CDATA[valorenLetras]]></fieldDescription>
+	</field>
+	<detail>
+		<band height="160" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="2" width="595" height="40" uuid="62ebe0ec-ac15-4e11-8e76-d984efd28a78"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{LIST_DS})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{REPORT_PATH} +"ContratoCD1.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="0" y="51" width="595" height="49" uuid="35ab0114-0bb3-4fe9-9396-e13983afb9b8"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{LIST_DS})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{REPORT_PATH}+"ContratoCD2.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="0" y="119" width="595" height="41" uuid="28df8eaa-2d75-4c64-8e60-e863311b2540"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{LIST_DS})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{REPORT_PATH}+"ContratoCD3.jasper"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement x="0" y="45" width="100" height="1" uuid="65885b83-cf17-459b-afdd-9a41e43b7f27"/>
+			</break>
+		</band>
+	</detail>
+</jasperReport>

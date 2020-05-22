@@ -1,0 +1,9 @@
+com\relative\midas\service\CompraOroService.class
+com\relative\midas\CDI\ResourceCDIJEE.class
+com\relative\midas\service\ReportService.class
+com\relative\midas\service\MovimientoCajaOroService.class
+com\relative\midas\service\MidasOroService.class
+com\relative\midas\service\MovimientoOroService.class
+com\relative\midas\service\MetaOroService.class
+com\relative\midas\service\HabilitanteService.class
+com\relative\midas\service\ParametrosSingleton.class

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ContratoCP1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="f24934d2-0a67-4711-a62e-924c29a2c9e1">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="LIST_DS" class="java.util.List"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="identificacionCliente" class="java.lang.String">
+		<fieldDescription><![CDATA[identificacionCliente]]></fieldDescription>
+	</field>
+	<field name="nombreCliente" class="java.lang.String">
+		<fieldDescription><![CDATA[nombreCliente]]></fieldDescription>
+	</field>
+	<field name="precioCompra" class="java.lang.String">
+		<fieldDescription><![CDATA[precioCompra]]></fieldDescription>
+	</field>
+	<field name="identificacionAgente" class="java.lang.String">
+		<fieldDescription><![CDATA[identificacionAgente]]></fieldDescription>
+	</field>
+	<field name="telefono" class="java.lang.String">
+		<fieldDescription><![CDATA[telefono]]></fieldDescription>
+	</field>
+	<field name="class" class="java.lang.Class">
+		<fieldDescription><![CDATA[class]]></fieldDescription>
+	</field>
+	<field name="nombreApoderado" class="java.lang.String">
+		<fieldDescription><![CDATA[nombreApoderado]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[email]]></fieldDescription>
+	</field>
+	<field name="nombreAgente" class="java.lang.String">
+		<fieldDescription><![CDATA[nombreAgente]]></fieldDescription>
+	</field>
+	<field name="valorenLetras" class="java.lang.String">
+		<fieldDescription><![CDATA[valorenLetras]]></fieldDescription>
+	</field>
+	<detail>
+		<band height="824">
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="31" y="36" width="527" height="770" uuid="07414dbf-fe24-4a7f-ba4a-6e198715e8e1"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" Este servicio o parte de este podrá ser prestado por terceros.  <br><b>TASACIÓN:</b> Servicio prestado por MONTEMIDAS al VENDEDOR luego de la firma del presente instrumento y previa la suscripción del ACTA DE LIQUIDACIÓN DE COMPRA, que consiste en la evaluación de la JOYA USADA y la determinación de un valor en dólares de los Estados Unidos de América dependiendo de sus características y su precio onza troy internacional del día en el mercado, realizado por profesionales y cuyos detalles constarán en el ACTA DE LIQUIDACIÓN DE COMPRA.  <br><b>VENDEDOR:</b> Es la persona natural o jurídica detallada en el literal <b>b)</b> precedente. <br><br><b>SEGUNDA: ANTECEDENTES. -2.1.</b> El VENDEDOR, legítimo propietario de la JOYA USADA, desea transferir esta última a MONTEMIDAS, de conformidad con las condiciones establecidas en el CONTRATO. <b>2.2.</b> MONTEMIDAS desea adquirir la JOYA USADA de propiedad del VENDEDOR, de conformidad con las condiciones establecidas en el CONTRATO. <b>2.3.</b> El VENDEDOR desea contratar los servicios de MONTEMIDAS de conformidad con las condiciones establecidas en el CONTRATO.<br>"+
+"<br><b>TERCERA: OBJETO.-</b> El objeto del CONTRATO es el de establecer las condiciones por medio de las cuales: MONTEMIDAS adquirirá la JOYA USADA y, prestará servicios al VENDEDOR.<br>"+
+"<br><b>CUARTA: OBLIGACIONES DE MONTEMIDAS.-</b> A más de las demás obligaciones establecidas en el CONTRATO, MONTEMIDAS tendrá las siguientes obligaciones: <b>4.1.</b> Efectuar la TASACIÓN de la JOYA USADA. <b>4.2.</b> Suscribir el ACTA DE LIQUIDACIÓN DE COMPRA respectiva y desembolsar el ANTICIPO al VENDEDOR. <b>4.3.</b> Prestar los SERVICIOS ADMINISTRATIVOS de forma eficiente. <b>4.4.</b> Una vez cumplido el PLAZO, si se cumplen los REQUISITOS DE DEVOLUCIÓN, suscribir el ACTA DE DEVOLUCIÓN y entregar al VENDEDOR la JOYA USADA. <b>4.5.</b> Una vez cumplido el PLAZO, si se cumplen los REQUISITOS DE PERFECCIONAMIENTO, suscribir el ACTA DE PERFECCIONAMIENTO. A más de las establecidas en el CONTRATO, <b>4.6.</b> Suscribir el ACTA DE LIQUIDACIÓN DE COMPRA y asegurar la CUSTODIA y ALMACENAMIENTO de la JOYA USADA, ya sea directamente o a través de terceros.<br>"+
+"<br><b>QUINTA: OBLIGACIONES DEL VENDEDOR.-</b> A más de las establecidas en el CONTRATO, El VENDEDOR tendrá las siguientes obligaciones: <b>5.1.</b> Entregar la JOYA USADA a MONTEMIDAS para la TASACIÓN, ALMACENAMIENTO Y CUSTODIA. <b>5.2.</b> Una vez realizada la TASACIÓN, suscribir todos los documentos que son parte de este CONTRATO, incluido el FORMULARIO CONOZCA A SU CLIENTE y el ACTA DE LIQUIDACIÓN DE COMPRA. <b>5.3.</b> Una vez cumplido el PLAZO, y en caso de optar por la devolución de la JOYA USADA, cumplir con los REQUISITOS DE DEVOLUCIÓN y suscribir el ACTA DE DEVOLUCIÓN que será parte del presente CONTRATO.<br>"+
+"<br><b>SEXTA: DECLARACIÓN SOBRE LA VENTA.-</b> El VENDEDOR declara que en caso de no optar por la devolución de la JOYA USADA y/o no cumplir con los REQUISITOS DE DEVOLUCIÓN, y una vez que MONTEMIDAS suscriba el ACTA DE PERFECCIONAMIENTO, quedará transferido el dominio de la JOYA USADA a MONTEMIDAS libre de cualquier perturbación. De igual forma, MONTEMIDAS declara que una vez cumplidos los requisitos precedentes y suscrita el ACTA DE PERFECCIONAMIENTO, recibe la JOYA USADA a su entera satisfacción.<br>"+
+"<br><b>SÉPTIMA: PRECIO DE LA JOYA USADA.-</b>  Las Partes fijan como justo precio por la JOYA USADA el valor de "+ $F{valorenLetras}+" dólares de los Estados Unidos de América. Este valor será cancelado a modo de ANTICIPO, mismo que el VENDEDOR al suscribir el ACTA DE LIQUIDACIÓN DE COMPRA declara haberlo recibido en moneda de curso legal, a su entera satisfacción y sin tener nada que reclamar al respecto ni ahora ni en el futuro.<br>"+
+"<br><b>OCTAVA: PRECIO SERVICIOS.-</b> Las Partes fijan como justo precio por los servicios de TASACIÓN, SERVICIOS ADMINISTRATIVOS; y, CUSTODIA Y ALMACENAMIENTO los definidos en el ACTA DE LIQUIDACIÓN DE COMPRA correspondiente. Estos valores deberán ser cancelados por el VENDEDOR de la siguiente manera: <b>8.1. </b>El primer pago deberá efectuarse al momento de la suscripción del ACTA DE LIQUIDACIÓN DE COMPRA en los montos establecidos en dicho documento; y, <b>8.2.</b> El valor restante deberá pagarse dependiendo de las siguientes circunstancias: <b>8.2.1.</b> En caso de reunirse los REQUISITOS DE DEVOLUCIÓN, el VENDEDOR deberá cancelar dichos servicios a MONTEMIDAS al momento de la suscripción del ACTA DE DEVOLUCIÓN; o, <b>8.2.2.</b> En caso de reunirse los REQUISITOS DE PERFECCIONAMIENTO, dichos valores se entenderán cancelados a MONTEMIDAS por la transferencia de la JOYA USADA al momento de la suscripción del ACTA DE PERFECCIONAMIENTO respectiva.<br>"+
+"<br><b>NOVENA: ORIGEN LÍCITO DE LA JOYA USADA.-</b> El VENDEDOR, para efecto del saneamiento por evicción, y en general para todos los demás efectos, hace las siguientes declaraciones: <b>9.1.</b> Que la JOYA USADA es de su exclusiva propiedad y que no pertenecen a sociedad conyugal, comunidad de bienes, o haber hereditario con terceros; <b>9.2.</b> Que la JOYA USADA está libre de todo tipo de gravamen, prohibición de enajenar, limitación de dominio o posesión, obligándose al saneamiento de conformidad con la Ley; <b>9.3.</b> Que la JOYA USADA tiene un origen lícito y legítimo,"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

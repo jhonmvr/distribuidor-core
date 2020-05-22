@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version last-->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PerfeccionamientoCP" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="25a28b9d-b638-4431-9dbb-0a7a57ec39db">
+	<parameter name="BEAN_DS" class="com.relative.midas.wrapper.ActaPerfeccionamientoCompraPlazoHabilitanteWrapper"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="fechaCreacionContrato" class="java.lang.String">
+		<fieldDescription><![CDATA[fechaCreacionContrato]]></fieldDescription>
+	</field>
+	<field name="identificacionApoderado" class="java.lang.String">
+		<fieldDescription><![CDATA[identificacionApoderado]]></fieldDescription>
+	</field>
+	<field name="nombreCliente" class="java.lang.String">
+		<fieldDescription><![CDATA[nombreCliente]]></fieldDescription>
+	</field>
+	<field name="fechaCreacion" class="java.lang.String">
+		<fieldDescription><![CDATA[fechaCreacion]]></fieldDescription>
+	</field>
+	<field name="class" class="java.lang.Class">
+		<fieldDescription><![CDATA[class]]></fieldDescription>
+	</field>
+	<field name="nombreApoderado" class="java.lang.String">
+		<fieldDescription><![CDATA[nombreApoderado]]></fieldDescription>
+	</field>
+	<title>
+		<band height="801" splitType="Stretch">
+			<staticText>
+				<reportElement x="180" y="10" width="170" height="20" uuid="8d29d748-8cde-4e76-8001-fc1ca0e72220"/>
+				<textElement>
+					<font fontName="Arial" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[ACTA DE PERFECCIONAMIENTO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="40" width="550" height="40" uuid="ef171e3f-b100-4896-b5a1-215c4ac3870c"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["En la ciudad de Quito, Distrito Metropolitano, capital de la República del Ecuador, comparece a la celebración del ACTA  DE PERFECCIONAMIENTO el señor(a) "+$P{BEAN_DS}.getNombreApoderado()+", en su calidad de Apoderado Especial de MONTEMIDAS CIA. LTDA."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="80" width="550" height="40" uuid="71187b45-03ce-406b-8719-36965f5adf41"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Para efectos de lectura e interpretación de la presente ACTA DE PERFECCIONAMIENTO, se tomarán en cuenta las definiciones que constan en el Contrato de Compraventa a Plazo suscrito entre la compareciente y el señor(a) "+" "+$P{BEAN_DS}.getNombreCliente()+" el "+$P{BEAN_DS}.getFechaCreacion()+"."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="120" width="200" height="20" uuid="8af46f6e-3f0e-4572-bdd6-e7e27c167395"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CLÁUSULA PRIMERA: ANTECEDENTES. -]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="140" width="30" height="30" uuid="53319124-4ca7-416b-a57b-58e7bb5a3d30"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[1.1.-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="140" width="520" height="50" uuid="e1941edb-9f08-4046-a51c-766b68d62227"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[El VENDEDOR no expresó su deseo de que le sea devuelta la JOYA USADA y/o no cumplió con los REQUISITOS DE DEVOLUCIÓN en el plazo pertinente. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="180" width="320" height="20" uuid="af78b58e-3d38-43cd-8147-cf841da86d84"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CLÁUSULA SEGUNDA: REQUISITOS DE PERFECCIONAMIENTO. -]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="200" width="550" height="40" uuid="8d4566dd-cc16-4cca-b7d6-6dbcf81f6e9c"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[MONTEMIDAS declara que se han cumplido los REQUISITOS DE PERFECCIONAMIENTO, por lo que en base a lo establecido en la cláusula tercera y en el numeral 4.5. de la cláusula cuarta del CONTRATO se convierte en la legítima propietaria de la JOYA USADA. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="240" width="190" height="20" uuid="87193dca-47a0-43f2-bc96-1bcc60ad3812"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CLÁUSULA TERCERA: ACEPTACIÓN. -]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="240" width="360" height="20" uuid="39b8f1e7-06fa-43d7-a560-0978e16b17e1"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Luego de leída la presente ACTA DE PERFECCIONAMIENTO, la compareciente]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="258" width="550" height="40" uuid="90081485-2b77-4f5c-b474-669761bfcd72"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["afirma y ratifica toda y cada una de sus declaraciones y para constancia firma, en Quito, el"+" "+$P{BEAN_DS}.getFechaCreacionContrato()+"."]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="21" y="417" width="150" height="1" uuid="652a5a24-fd7a-48bd-af4b-0c6a3b8dc609"/>
+			</line>
+			<staticText>
+				<reportElement x="24" y="334" width="100" height="19" uuid="2da8c041-4209-494d-a5e4-a44528abebc8"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Por: MONTEMIDAS]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="23" y="429" width="180" height="25" uuid="11451c34-dca7-4eb8-8bf1-14ca3e7647a0"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{BEAN_DS}.getNombreApoderado()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="23" y="454" width="143" height="25" uuid="ae9e4c0f-0627-4a48-8d56-2f9a8e3d1866"/>
+				<textElement markup="html">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>CC:</b> "+$P{BEAN_DS}.getIdentificacionApoderado()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="10" y="0" width="151" height="31" uuid="92f78ffa-01ea-4814-911b-6cd451e12e15"/>
+				<imageExpression><![CDATA["img/logo montemidas.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+</jasperReport>

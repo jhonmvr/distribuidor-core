@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ContratoCP" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" whenResourceMissingType="Empty" uuid="e005c088-0b88-4f7a-8ad0-35d7feced203">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="LIST_DS" class="java.util.List"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="identificacionCliente" class="java.lang.String">
+		<fieldDescription><![CDATA[identificacionCliente]]></fieldDescription>
+	</field>
+	<field name="nombreCliente" class="java.lang.String">
+		<fieldDescription><![CDATA[nombreCliente]]></fieldDescription>
+	</field>
+	<field name="precioCompra" class="java.lang.String">
+		<fieldDescription><![CDATA[precioCompra]]></fieldDescription>
+	</field>
+	<field name="identificacionAgente" class="java.lang.String">
+		<fieldDescription><![CDATA[identificacionAgente]]></fieldDescription>
+	</field>
+	<field name="telefono" class="java.lang.String">
+		<fieldDescription><![CDATA[telefono]]></fieldDescription>
+	</field>
+	<field name="class" class="java.lang.Class">
+		<fieldDescription><![CDATA[class]]></fieldDescription>
+	</field>
+	<field name="nombreApoderado" class="java.lang.String">
+		<fieldDescription><![CDATA[nombreApoderado]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[email]]></fieldDescription>
+	</field>
+	<field name="nombreAgente" class="java.lang.String">
+		<fieldDescription><![CDATA[nombreAgente]]></fieldDescription>
+	</field>
+	<field name="fechaEmision" class="java.lang.String">
+		<fieldDescription><![CDATA[fechaEmision]]></fieldDescription>
+	</field>
+	<field name="numeroContrato" class="java.lang.String">
+		<fieldDescription><![CDATA[numeroContrato]]></fieldDescription>
+	</field>
+	<title>
+		<band height="821">
+			<property name="com.jaspersoft.studio.layout"/>
+			<textField>
+				<reportElement x="28" y="68" width="541" height="30" uuid="eac772f0-e943-42ab-b9a8-d1033b2c0e19"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["En Quito, capital de la República del Ecuador, comparecen a la celebración del presente Contrato de Compraventa a Plazo:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="102" width="479" height="31" uuid="36db7938-97f0-4db3-96ac-d745a4605a52"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Por una parte, El/La Señor (a) "+ $F{nombreAgente}+", en su calidad de Apoderado Especial de MONTEMIDAS CIA. LTDA. (el “COMPRADOR”); y,"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="135" width="479" height="31" uuid="f2254ef3-24af-4001-9a4b-3f6f949998be"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Por otra parte, el señor(a)  "+$F{nombreCliente}+", por sus propios y personales derechos (el “VENDEDOR”)."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="60" y="104" width="30" height="30" uuid="7e893b6b-fbbe-46cd-80fa-85e78ba9ff34"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[a)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="28" y="167" width="541" height="38" uuid="fe1d1575-bfdd-417a-ad5a-3a40328f6f52"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Los comparecientes, que para efectos de este documento podrán ser denominados como las Partes, son de nacionalidad ecuatoriana, mayores de edad, plenamente capaces para contratar y obligarse, por lo que deciden libre y voluntariamente celebrar el presente CONTRATO al tenor de las siguientes cláusulas:"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="60" y="135" width="30" height="30" uuid="7ec6a902-a77b-42df-a027-be30c6a50623"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[b)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="44" width="220" height="19" uuid="bdf126e5-107e-43a8-85b7-fd4e3166cc7f"/>
+				<textElement>
+					<font fontName="Arial" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[CONTRATO DE COMPRAVENTA A PLAZO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="465" y="17" width="100" height="30" uuid="7832c62e-686a-46bb-88a6-f0d6829ab7b5"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numeroContrato}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="28" y="207" width="541" height="573" uuid="c24825b0-6a11-43cd-9dce-ad43bf19a3ce"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>PRIMERA: GLOSARIO DE TÉRMINOS.-</b> Para la interpretación y los efectos del presente CONTRATO se considerará: <b>ACTA DE DEVOLUCIÓN:</b> Documento a ser suscrito entre MONTEMIDAS y el VENDEDOR en caso de cumplirse con los REQUISITOS DE DEVOLUCIÓN. Contendrá el detalle de los pagos efectuados por el VENDEDOR a MONTEMIDAS, y la declaración del primero de recibir la JOYA USADA de su propiedad a su entera satisfacción. Una vez suscrito dicho documento, MONTEMIDAS devolverá físicamente la JOYA USADA al VENDEDOR hasta máximo dos días hábiles.  <br><b>ACTA DE LIQUIDACIÓN DE COMPRA:</b> Documento anexo al CONTRATO que contendrá las características de la JOYA USADA, el valor resultado de la TASACIÓN, el desglose de costos por los servicios de CUSTODIA y ALMACENAMIENTO y SERVICIOS ADMINISTRATIVOS; y, el valor del ANTICIPO entregado al VENDEDOR a su entera satisfacción.  <br><b>ACTA DE PERFECCIONAMIENTO:</b> Documento suscrito por MONTEMIDAS en caso de cumplirse con los REQUISITOS DE PERFECCIONAMIENTO, momento en el cual quedará transferido el dominio de la JOYA USADA a MONTEMIDAS libre de cualquier perturbación.<br><b>ANTICIPO:</b> Suma de dinero, es decir el valor, que contra la suscripción del ACTA DE LIQUIDACIÓN DE COMPRA entregará MONTEMIDAS al VENDEDOR como justo precio por la JOYA USADA. <br><b>CONTRATO:</b> Es el presente contrato de compraventa a plazo. <br><b>FORMULARIO CONOZCA A SU CLIENTE:</b> Formulario que deberá ser llenado y suscrito por el VENDEDOR al momento de la firma del CONTRATO y cuyo objetivo es conocer la identidad del mismo para mitigar riesgos por posibles delitos contra la propiedad, lavado de activos, financiamiento del terrorismo u otros delitos.  <br><b>JOYA USADA:</b> Es uno o varios bienes muebles usados de propiedad del VENDEDOR cuyas características se encuentran en el ACTA DE LIQUIDACIÓN DE COMPRA y cuyo valor para efectos del presente contrato será el definido en la TASACIÓN del mismo. <br><b>MONTEMIDAS:</b> Es la compañía MONTEMIDAS CIA. LTDA., persona jurídica constituida bajo las leyes de la República del Ecuador, con domicilio en la ciudad de Quito. <br><b>PLAZO:</b> Es el lapso de noventa (90) días durante el cual el COMPRADOR tendrá a su cargo la CUSTODIA Y ALMACENAMIENTO de la JOYA USADA y prestará los SERVICIOS ADMINISTRATIVOS. Una vez concluido el mismo, el VENDEDOR podrá optar por la devolución de la JOYA USADA en caso de cumplirse los REQUISITOS DE DEVOLUCIÓN. Asimismo, el VENDEDOR podrá optar por la ampliación del plazo, mediante una solicitud, que deberá ser aceptada por el COMPRADOR, de extender el plazo por otro período de tiempo que se acordará por las partes. Para dar aviso y que éste se considere como válido, podrá hacerse mediante un aviso escrito con acuse de recibo físico en las oficinas del COMPRADOR o a través de los canales electrónicos que el VENDEDOR ponga a disposición y bajo las normas que allí se establezcan y, por otro lado, deberá haberse realizado el pago de los SERVICIOS ADMINISTRATIVOS a la fecha. <br><b>SERVICIOS ADMINISTRATIVOS:</b> Servicios prestados por MONTEMIDAS al VENDEDOR que consisten en la gestión y control documental de todos los procesos detallados en este CONTRATO, mantenimiento de infraestructura física y prestación de servicios al VENDEDOR. <br><b>REQUISITOS DE DEVOLUCIÓN:</b> Una vez cumplido el PLAZO, es la devolución del valor del ANTICIPO por parte del VENDEDOR a MONTEMIDAS; y, el pago del VENDEDOR a MONTEMIDAS por los servicios de TASACIÓN, SERVICIOS ADMINISTRATIVOS Y CUSTODIA Y ALMACENAMIENTO, respectivamente, que fueron detallados en el ACTA DE LIQUIDACIÓN DE COMPRA respectiva. <br><b>REQUISITOS DE PERFECCIONAMIENTO:</b> Una vez cumplido el PLAZO, en la falta de cumplimiento de los  REQUISITOS DE DEVOLUCIÓN. Dentro del término de diez (10) días de gracia después de finalizado el PLAZO, el VENDEDOR podrá optar por la devolución de la JOYA USADA, siempre y cuando cancele los valores correspondientes a los gastos de custodia y gastos administrativos incurridos en este lapso y  a partir del tercer día de vencido hasta el quinto día de vencido con un recargo del  5%, el día sexto de vencido el 6% de recargo, el día séptimo de vencido el 7% de recargo, el día octavo de vencido el 8%, el día noveno día de vencido el 9% y el día décimo de vencido el 10% de recargo el día once de vencido pasará a ser propiedad de Monte Midas y se ejecutará el contrato, sin opción a reclamo alguno por parte del cliente.  <br> <b>CUSTODIA Y ALMACENAMIENTO:</b> Servicio que consiste en el resguardo de este bien durante el PLAZO del CONTRATO en una bóveda de seguridad, que a su vez se encuentra protegida por otras seguridades. Adicionalmente, durante el resguardo de la JOYA USADA,  el bien estará asegurado contra riesgos de pérdida por su valor de TASACIÓN."]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="39" y="15" width="151" height="31" uuid="ded70c82-e03b-474a-b44e-2dce3d9dbac0"/>
+				<imageExpression><![CDATA["img/logo montemidas.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+</jasperReport>

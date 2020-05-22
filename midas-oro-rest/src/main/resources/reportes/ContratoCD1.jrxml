@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version last-->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ContratoCD1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="0" bottomMargin="0" uuid="28eca02e-97e4-4320-930a-f1a9de71adca">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="LIST_DS" class="java.lang.String"/>
+	<parameter name="TXT_GLO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="valorTasacion" class="java.lang.String">
+		<fieldDescription><![CDATA[valorTasacion]]></fieldDescription>
+	</field>
+	<field name="identificacionAgente" class="java.lang.String">
+		<fieldDescription><![CDATA[identificacionAgente]]></fieldDescription>
+	</field>
+	<field name="identificacion" class="java.lang.String">
+		<fieldDescription><![CDATA[identificacion]]></fieldDescription>
+	</field>
+	<field name="nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[nombre]]></fieldDescription>
+	</field>
+	<field name="nacionalidad" class="java.lang.String">
+		<fieldDescription><![CDATA[nacionalidad]]></fieldDescription>
+	</field>
+	<field name="nombreAporderado" class="java.lang.String">
+		<fieldDescription><![CDATA[nombreAporderado]]></fieldDescription>
+	</field>
+	<field name="telefonoCelular" class="java.lang.String">
+		<fieldDescription><![CDATA[telefonoCelular]]></fieldDescription>
+	</field>
+	<field name="valorContrato" class="java.lang.String">
+		<fieldDescription><![CDATA[valorContrato]]></fieldDescription>
+	</field>
+	<field name="nacionalidadApoderado" class="java.lang.String">
+		<fieldDescription><![CDATA[nacionalidadApoderado]]></fieldDescription>
+	</field>
+	<field name="identificacionApoderado" class="java.lang.String">
+		<fieldDescription><![CDATA[identificacionApoderado]]></fieldDescription>
+	</field>
+	<field name="fechaCreacion" class="java.lang.String">
+		<fieldDescription><![CDATA[fechaCreacion]]></fieldDescription>
+	</field>
+	<field name="class" class="java.lang.Class">
+		<fieldDescription><![CDATA[class]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[email]]></fieldDescription>
+	</field>
+	<field name="nombreAgente" class="java.lang.String">
+		<fieldDescription><![CDATA[nombreAgente]]></fieldDescription>
+	</field>
+	<field name="numeroContrato" class="java.lang.String"/>
+	<field name="valorenLetras" class="java.lang.String">
+		<fieldDescription><![CDATA[valorenLetras]]></fieldDescription>
+	</field>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<detail>
+		<band height="639">
+			<staticText>
+				<reportElement x="170" y="14" width="168" height="19" uuid="b13d9ff9-3849-4400-93bd-067c6bb2b161"/>
+				<textElement>
+					<font fontName="Arial" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[CONTRATO DE COMPRAVENTA ]]></text>
+			</staticText>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="1" y="61" width="541" height="30" uuid="81ae6b0b-af7e-49f3-9b08-c8d5e1875c0b"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["En la ciudad de Quito, Distrito Metropolitano, capital de la República del Ecuador, comparecen a la celebración del presente Contrato de Compraventa:"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="33" y="122" width="30" height="31" uuid="098915e6-09b4-44a4-9eb1-e6a415ace0b9"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[b)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="53" y="91" width="479" height="31" uuid="70a9b2b3-37db-4844-ade0-cb45b3352d45"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Por una parte, el señor(a) "+ $F{nombreAgente}+", en su calidad de Apoderado Especial de MONTEMIDAS CIA. LTDA.; y,"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="53" y="122" width="479" height="31" uuid="c175778e-53bd-4fa2-b2bc-8ff58d183f47"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Por otra parte, el señor(a) "+$F{nombre}+", por sus propios y personales derechos."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="33" y="91" width="30" height="30" uuid="4f76f201-ca40-4617-9a0f-b90589e8c158"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[a)]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="153" width="544" height="387" uuid="0e1ab7f9-62b1-4270-a227-63109dceb006"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="Arial"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Los comparecientes, que para efectos de este documento podrán ser denominados como las Partes, son de nacionalidad " + $F{nacionalidadApoderado}+" la primera y "+$F{nacionalidad}+ " /el segundo, mayores de edad, plenamente capaces para contratar y obligarse, por lo que deciden libre y voluntariamente celebrar el presente CONTRATO al tenor de las siguientes cláusulas:<br>"+
+"<br><b>CLÁUSULA PRIMERA: GLOSARIO DE TÉRMINOS.-</b><br>"+
+"<br>Para la interpretación y los efectos del presente CONTRATO se considerará:<br>"+
+"<br><b>1.1.-</b> Que los títulos de las cláusulas se han puesto simplemente para facilidad de lectura y referencia, mas no como medio de interpretación.<br>"+
+"<br><b>1.2.-</b> Que las definiciones de ciertas palabras o frases aplicarán tanto a la forma singular como al plural; y, que cuando el contexto así lo requiera, cualquier pronombre incluirá la forma masculina, femenina o neutral correspondiente.<br>"+
+"<br><b>1.3.-</b> Que las palabras o frases definidas más adelante, deberán ser interpretadas según el contexto en el que se encuentren.<br>"+
+"<br><b>1.4.-</b> Que las palabras o frases definidas más adelante, las cuales aparecen en estricto orden alfabético, tendrán los significados que constan a continuación de cada una de ellas.<br>"+
+"<br><b>ACTA DE LIQUIDACIÓN DE COMPRA:</b> Es un documento anexo al CONTRATO, y que contendrá las características de la JOYA USADA y el valor resultado de la TASACIÓN.<br>"+
+"<br><b>CONTRATO:</b> Es el presente contrato de compraventa.<br>"+
+"<br><b>FORMULARIO CONOZCA A SU CLIENTE:</b> Es un formulario que deberá ser llenado y suscrito por el VENDEDOR a la firma del presente CONTRATO y que tiene como objetivo conocer de forma integral la identidad del mismo para mitigar riesgos por posibles delitos contra la propiedad, lavado de activos o financiamiento del terrorismo.<br>"+
+"<br><b>JOYA USADA:</b> Es uno o varios bienes muebles usados de propiedad del VENDEDOR, cuyos valores para efectos del CONTRATO será el definido en la TASACIÓN del mismo.<br>"+
+"<br><b>MONTEMIDAS:</b> Es la compañía MONTEMIDAS CIA. LTDA., persona jurídica constituida bajo las leyes de la República del Ecuador, con domicilio en la ciudad de Quito.<br>"+
+"<br><b>TASACIÓN:</b> Es un servicio prestado por MONTEMIDAS al VENDEDOR luego de la firma del presente instrumento y previa la suscripción del ACTA DE LIQUIDACIÓN DE COMPRA, que consiste en la evaluación de la JOYA USADA y la determinación de un valor en "+ $F{valorenLetras}+" dólares de los Estados Unidos de América dependiendo de sus características y el precio de la onza troy internacional del día en el mercado, realizado por profesionales expertos en la materia y cuyos detalles constarán en el ACTA DE LIQUIDACIÓN DE COMPRA.  <br> "+"<br><b>VENDEDOR:</b> Es la persona natural o jurídica detallada en el literal <b>b)</b> precedente."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="559" width="240" height="20" uuid="8c70b3a9-b6e6-455e-98aa-0618390fe7dc"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CLÁUSULA SEGUNDA: ANTECEDENTES. -]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="29" y="579" width="31" height="30" uuid="8ca29f91-e745-4502-a6a7-a23b4a2e03c6"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[2.1]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="60" y="579" width="482" height="30" uuid="736b47d7-d47f-4997-ab58-220fcca9bd1c"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["El VENDEDOR, legítimo propietario de la JOYA USADA, desea transferir esta última a MONTEMIDAS, de conformidad con las condiciones establecidas en el CONTRATO."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="60" y="609" width="482" height="30" uuid="9257333d-413e-4111-8ce4-94449d284edb"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["MONTEMIDAS desea adquirir la JOYA USADA de propiedad del VENDEDOR, de conformidad con las condiciones establecidas en el CONTRATO."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="29" y="609" width="31" height="30" uuid="8e812f78-cc0c-493f-9323-b276250a313e"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[2.2]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="400" y="10" width="130" height="30" uuid="814301bf-a0d3-4202-8ed5-a14b7f34a7e5"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ID Contrato: "+$F{numeroContrato}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="10" y="10" width="151" height="31" uuid="7e688176-d590-450a-af8a-15096fd2c065"/>
+				<imageExpression><![CDATA["img/logo montemidas.png"]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version last-->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ContratoCD2" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="0" bottomMargin="0" uuid="892a711b-431f-415c-9208-4292ad76f65e">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="TXT_JU" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["JOYA USADA"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="TXT_GLO" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="valorTasacion" class="java.lang.String">
+		<fieldDescription><![CDATA[valorTasacion]]></fieldDescription>
+	</field>
+	<field name="identificacionAgente" class="java.lang.String">
+		<fieldDescription><![CDATA[identificacionAgente]]></fieldDescription>
+	</field>
+	<field name="identificacion" class="java.lang.String">
+		<fieldDescription><![CDATA[identificacion]]></fieldDescription>
+	</field>
+	<field name="nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[nombre]]></fieldDescription>
+	</field>
+	<field name="nacionalidad" class="java.lang.String">
+		<fieldDescription><![CDATA[nacionalidad]]></fieldDescription>
+	</field>
+	<field name="nombreAporderado" class="java.lang.String">
+		<fieldDescription><![CDATA[nombreAporderado]]></fieldDescription>
+	</field>
+	<field name="telefonoCelular" class="java.lang.String">
+		<fieldDescription><![CDATA[telefonoCelular]]></fieldDescription>
+	</field>
+	<field name="valorContrato" class="java.lang.String">
+		<fieldDescription><![CDATA[valorContrato]]></fieldDescription>
+	</field>
+	<field name="nacionalidadApoderado" class="java.lang.String">
+		<fieldDescription><![CDATA[nacionalidadApoderado]]></fieldDescription>
+	</field>
+	<field name="identificacionApoderado" class="java.lang.String">
+		<fieldDescription><![CDATA[identificacionApoderado]]></fieldDescription>
+	</field>
+	<field name="fechaCreacion" class="java.lang.String">
+		<fieldDescription><![CDATA[fechaCreacion]]></fieldDescription>
+	</field>
+	<field name="class" class="java.lang.Class">
+		<fieldDescription><![CDATA[class]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[email]]></fieldDescription>
+	</field>
+	<field name="nombreAgente" class="java.lang.String">
+		<fieldDescription><![CDATA[nombreAgente]]></fieldDescription>
+	</field>
+	<field name="valorenLetras" class="java.lang.String">
+		<fieldDescription><![CDATA[valorenLetras]]></fieldDescription>
+	</field>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<detail>
+		<band height="820">
+			<staticText>
+				<reportElement x="1" y="101" width="289" height="20" uuid="f6451a59-1d73-4fb7-bb70-2ed359bd07b6"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CLÁUSULA CUARTA: OBLIGACIONES DE MONTEMIDAS. –]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="121" width="319" height="19" uuid="5ab5631c-ec19-44e4-a055-3dd0934e6b82"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[MONTEMIDAS tendrá las siguientes obligaciones:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="140" width="30" height="20" uuid="f9589b67-d937-49c1-85ca-1749464d0325"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[4.1.-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="140" width="240" height="19" uuid="bf7b0658-9218-408b-9cbc-056b7974a432"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Efectuar la TASACIÓN de la JOYA USADA.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="159" width="30" height="20" uuid="d2475d85-5484-4f60-bdbe-d1dbc5fc1b95"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[4.2.-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="159" width="520" height="20" uuid="44a8a4e3-fe25-42d4-a3c3-3188af1bc974"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Suscribir el ACTA DE LIQUIDACIÓN DE COMPRA respectiva y desembolsar el precio al VENDEDOR.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="180" width="279" height="20" uuid="5078f3dc-6beb-42d2-b526-92d27c107e89"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CLÁUSULA QUINTA: OBLIGACIONES DEL VENDEDOR. - ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="200" width="279" height="20" uuid="187e0057-b99e-48fd-b77c-c8fef2874e4c"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[El VENDEDOR tendrá las siguientes obligaciones:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="220" width="28" height="20" uuid="ebf02462-d2cf-4bff-bc85-80a0c5f521f0"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[5.1.-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="29" y="220" width="451" height="19" uuid="24f54a3b-77b4-4148-a22c-86516f7420af"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Entregar la JOYA USADA a MONTEMIDAS.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="240" width="28" height="20" uuid="e8e749e5-02a7-4dbf-ad86-888cb83dc336"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[5.2.-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="28" y="240" width="522" height="41" uuid="7206bfc8-00bb-4e86-b6c0-2afc9f47e81a"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Una vez realizada la TASACIÓN, suscribir todos los documentos que son parte de este CONTRATO, incluido el FORMULARIO CONOZCA A SU CLIENTE y el ACTA DE LIQUIDACIÓN DE COMPRA.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="283" width="180" height="20" uuid="f7bf84f8-4042-473c-a359-940845d6029b"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CLÁUSULA SEXTA. - DECLARACIÓN:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="308" width="549" height="30" uuid="df256503-b4ea-401c-809c-49bd57750d08"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[El VENDEDOR, para efecto del saneamiento por evicción y en general para todos los demás efectos, hace las siguientes declaraciones en lo que corresponde a la JOYA USADA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="341" width="28" height="30" uuid="4aebe8c8-b9d4-4e02-a15d-ebe717b96a42"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[6.1.-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="28" y="341" width="522" height="30" uuid="602add01-f244-4e9c-bf1c-a9e856ec254a"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Que la JOYA USADA es de su exclusiva propiedad y que no pertenecen a sociedad conyugal, comunidad de bienes, o haber hereditario con terceros;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="28" y="371" width="522" height="30" uuid="9885fdfe-3057-4921-becb-fde2bba03410"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Que la JOYA USADA está libre de todo tipo de gravamen, prohibición de enajenar, limitación de dominio o posesión, obligándose al saneamiento de conformidad con la Ley;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="371" width="28" height="30" uuid="cdf7d67b-a8a3-4476-b831-07ecfbda018d"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[6.2.-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="28" y="401" width="522" height="40" uuid="6c7a84a9-38ca-4fcc-96bd-5a6d3bfcebf5"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Que la JOYA USADA tiene un origen lícito y legítimo, y en especial declara que no proviene de ningún delito contra la propiedad ni de ninguna actividad relacionada con el cultivo, fabricación, almacenamiento, transporte o tráfico ilícito de sustancias estupefacientes o psicotrópicas; y,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="401" width="28" height="40" uuid="8788af8c-eef3-4d1d-bf4a-c05957cc64dc"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[6.3.-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="28" y="441" width="522" height="30" uuid="a2b5800f-583c-4635-b1fe-a5f6d1bb015f"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Que con el dinero obtenido por la venta de la JOYA USADA no pretende financiar actos o grupos criminales o terroristas.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="441" width="28" height="30" uuid="b5216e1a-1b14-46af-8983-d526b08237c1"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[6.4.-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="474" width="550" height="140" uuid="a5f340c2-0709-4fbd-8ad0-70d5ad2ad4c5"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Adicionalmente, el VENDEDOR se obliga a asumir la defensa de MONTEMIDAS si se produjere cualquier reclamo judicial o extrajudicial sobre la propiedad, posesión y tenencia de la JOYA USADA. 
+
+En el caso de falsedad de estas declaraciones, sin perjuicio de las acciones penales a que hubiere lugar, MONTEMIDAS podrá exigir el inmediato reintegro del precio pagado con el interés de mora, así como el pago de daños y perjuicios, costas y honorarios, devolviendo la JOYA USADA y en caso de no encontrarle al VENDEDOR, consignará tales bienes ante un juez civil o penal según sea el caso. 
+
+En el evento de que exista falta de veracidad en sus declaraciones, el VENDEDOR exime a MONTEMIDAS de cualquier responsabilidad o vinculo derivado del ocultamiento de información y que le hubiese privado a MONTEMIDAS a ejercer los derechos y acciones que la ley autoriza y consecuentemente se obliga a resarcir a MONTEMIDAS todo perjuicio que su culpa le ocasione.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="621" width="279" height="18" uuid="85dcb601-e116-4d0c-92b1-ac136576d681"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CLÁUSULA SÉPTIMA. - PRECIO Y FORMA DE PAGO:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="641" width="548" height="59" uuid="319e1be0-8421-4634-8427-164048f41618"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Las Partes fijan como justo precio por la JOYA USADA  la suma de "+$F{valorenLetras}+" dólares de los Estados Unidos de  América.  Este valor será cancelado en efectivo a nombre del VENDEDOR, quien al suscribir el ACTA DE LIQUIDACIÓN DE COMPRA declara haberlo recibido en moneda de curso legal, a su entera satisfacción y sin tener nada que reclamar al respecto ni ahora ni en el futuro."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="31" width="170" height="19" uuid="1d94c99c-1c86-407f-b78e-1e50fcb6541c"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CLÁUSULA TERCERA: OBJETO. - ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="50" width="549" height="40" uuid="dc6093e6-cfa1-46b5-a553-2370e947c29f"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Con los antecedentes expuestos, el VENDEDOR en forma libre y voluntaria da en venta y perpetua enajenación la JOYA USADA a MONTEMIDAS. Esta última, por su parte, declara que acepta la venta realizada a su favor, en todas sus partes y bajo las estipulaciones previstas para su perfección.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="699" width="250" height="20" uuid="f07af97a-0ad2-4e95-8d7a-2b4fa1bbe6b4"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CLÁUSULA OCTAVA: JURISDICCIÓN Y TRÁMITE. -]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="717" width="550" height="103" uuid="875b905c-3587-40f8-aa66-ad5e1e058c83"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Las Partes renuncian a fuero y domicilio y acuerdan libre y voluntariamente que todas las desavenencias, controversias, divergencias o cuestiones litigiosas que se deriven del presente contrato, se resolverán, antes de optar por el procedimiento judicial u otro procedimiento de resolución de conflictos, a través de mediación que se administrará por uno de los Centro de Mediación y Negociación del Municipio del Distrito Metropolitano de Quito, con sujeción a sus reglamentos y demás normas que resulten de aplicación y resulten vigentes en la fecha de solicitud de la mediación.
+
+En caso de no llegar a un acuerdo en la mediación, las controversias se resolverán mediante el procedimiento monitorio si se cumplen los requisitos, o el que corresponda de acuerdo a la ley. ]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

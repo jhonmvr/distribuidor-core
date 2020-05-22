@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DevolucionCP" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="95c4e836-f73a-4ad1-85eb-668767c7d454">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="BEAN_DS" class="com.relative.midas.wrapper.ActaDevolucionCompraPlazoHabilitanteWrapper"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="anticipo" class="java.lang.String">
+		<fieldDescription><![CDATA[anticipo]]></fieldDescription>
+	</field>
+	<field name="custodiaAlmacenamiento" class="java.lang.String">
+		<fieldDescription><![CDATA[custodiaAlmacenamiento]]></fieldDescription>
+	</field>
+	<field name="contrato" class="java.lang.String">
+		<fieldDescription><![CDATA[contrato]]></fieldDescription>
+	</field>
+	<field name="identificacionAgente" class="java.lang.String">
+		<fieldDescription><![CDATA[identificacionAgente]]></fieldDescription>
+	</field>
+	<field name="servicoAdministrativo" class="java.lang.String">
+		<fieldDescription><![CDATA[servicoAdministrativo]]></fieldDescription>
+	</field>
+	<field name="identificacionCliente" class="java.lang.String">
+		<fieldDescription><![CDATA[identificacionCliente]]></fieldDescription>
+	</field>
+	<field name="total" class="java.lang.String">
+		<fieldDescription><![CDATA[total]]></fieldDescription>
+	</field>
+	<field name="identificacionApoderado" class="java.lang.String">
+		<fieldDescription><![CDATA[identificacionApoderado]]></fieldDescription>
+	</field>
+	<field name="nombreCliente" class="java.lang.String">
+		<fieldDescription><![CDATA[nombreCliente]]></fieldDescription>
+	</field>
+	<field name="fechaCreacion" class="java.lang.String">
+		<fieldDescription><![CDATA[fechaCreacion]]></fieldDescription>
+	</field>
+	<field name="class" class="java.lang.Class">
+		<fieldDescription><![CDATA[class]]></fieldDescription>
+	</field>
+	<field name="nombreApoderado" class="java.lang.String">
+		<fieldDescription><![CDATA[nombreApoderado]]></fieldDescription>
+	</field>
+	<field name="nombreAgente" class="java.lang.String">
+		<fieldDescription><![CDATA[nombreAgente]]></fieldDescription>
+	</field>
+	<field name="fechaCancelacion" class="java.lang.String">
+		<fieldDescription><![CDATA[fechaCancelacion]]></fieldDescription>
+	</field>
+	<title>
+		<band height="801" splitType="Stretch">
+			<staticText>
+				<reportElement x="205" y="6" width="115" height="24" uuid="ea2b8ceb-e828-447f-bad3-e42b81803a17"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ACTA DE DEVOLUCIÓN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="30" width="550" height="30" uuid="7f7a5645-b499-48c0-9a17-b9bfbfbe2495"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[En la ciudad de Quito, Distrito Metropolitano, capital de la República del Ecuador, comparecen a la celebración del ACTA DE DEVOLUCIÓN:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="60" width="20" height="30" uuid="5d78e4d0-5694-43f4-a8aa-a9766bf3838f"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[a)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="20" y="60" width="530" height="30" uuid="db223d22-2c38-4015-93e6-c43fe8857a58"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Por una parte, El señor (a)"+" "+$P{BEAN_DS}.getNombreAgente()+", en su calidad de Apoderada Especial de MONTEMIDAS CIA. LTDA..; y,"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="20" y="90" width="530" height="20" uuid="7a1cccac-e8f2-4409-b42b-cbcb530a592b"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Por otra parte, El señor (a)"+" "+$P{BEAN_DS}.getNombreCliente()+" "+"por sus propios y personales derechos."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="90" width="20" height="20" uuid="2ae17cee-8483-4166-bdda-5cb362b77fe1"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[b)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="110" width="550" height="30" uuid="894b7919-f7c7-4713-9b61-440adb704e68"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Para efectos de lectura e interpretación de la presente ACTA DE DEVOLUCIÓN, se tomarán en cuenta las definiciones que  constan en el Contrato de Compraventa a Plazo suscrito entre las partes el"+" "+$P{BEAN_DS}.getFechaCreacion()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="140" width="210" height="20" uuid="250fe9c3-66ef-4d2e-a34f-7f28057e3baf"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CLÁUSULA PRIMERA: ANTECEDENTES. –]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="158" width="30" height="40" uuid="8c03c1d4-b10c-428b-b2b8-c78ff5218a59"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[1.1.-]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="26" y="158" width="520" height="44" uuid="3a06decc-d7fb-4b9b-ba91-788ccc96e6ac"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["El VENDEDOR ha expresado su deseo de optar por la devolución de la JOYA USADA de su propiedad de conformidad con lo establecido en el numeral 4.4. de la cláusula cuarta y 5.2. de la cláusula quinta del CONTRATO"+" "+$P{BEAN_DS}.getContrato()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="202" width="280" height="20" uuid="1ada18ce-ba5d-4fe9-8018-b6a1ff676221"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CLÁUSULA SEGUNDA: REQUISITOS DE DEVOLUCIÓN. –]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="220" width="550" height="50" uuid="a347b461-0a5b-4bc1-a080-825dc4edfc79"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Las Partes declaran que se han cumplido los REQUISITOS DE DEVOLUCIÓN establecidos en la cláusula octava del CONTRATO. De conformidad con lo establecido en dicha cláusula, a continuación, se detallan los pagos correspondientes realizados por el VENDEDOR a MONTEMIDAS, respectivamente, expresados en dólares de los Estados Unidos de América:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="270" width="20" height="20" uuid="df87495c-af2d-4304-a9c6-5187719ca280"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[2.1.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="21" y="270" width="240" height="20" uuid="67c7c520-a59e-4b88-bb4f-03d42f886724"/>
+				<textElement>
+					<font fontName="Arial" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Devolución ANTICIPO: $"+$P{BEAN_DS}.getAnticipo()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="290" width="20" height="20" uuid="f1401a2c-003f-49f6-b8fe-0f0dc9d3aa84"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[2.2.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="290" width="240" height="20" uuid="6d1c9803-ecdc-4048-a061-bb86d910d049"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Valores por servicios prestados pendientes de pago:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="310" width="280" height="20" uuid="903b0826-2504-4804-91a7-ceae66e49361"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["SERVICIOS ADMINISTRATIVOS:"+" $ "+$P{BEAN_DS}.getServicioAdministrativo()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="330" width="280" height="20" uuid="aefa3528-70e7-433b-b793-20a93bf591cf"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["CUSTODIA Y ALMACENAMIENTO:"+" $"+$P{BEAN_DS}.getCustodiaAlmacenamiento()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="350" width="140" height="20" uuid="13bfcc0a-ce6e-43bd-9871-10e95181a820"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["TOTAL:"+" $"+$P{BEAN_DS}.getTotal()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="370" width="290" height="20" uuid="33042af7-6990-44c4-8dd4-a58f91d0f6cc"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CLÁUSULA TERCERA: DEVOLUCIÓN DE LA JOYA USADA. -]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="390" width="550" height="50" uuid="118b356d-583c-464e-86a5-c58abad185da"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Una vez cumplidos los REQUISITOS DE DEVOLUCIÓN, MONTEMIDAS entrega al VENDEDOR la JOYA USADA. A su vez, el VENDEDOR recibe la JOYA USADA de su propiedad a su entera satisfacción, sin tener reclamo alguno presente o futuro que formular. Se deja constancia que esta devolución se hace por no haberse perfeccionado la transferencia de propiedad de la JOYA USADA a MONTEMIDAS. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="440" width="190" height="20" uuid="f466f82d-ffe4-4cf7-b134-0152e315d9f7"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CLÁUSULA CUARTA: ACEPTACIÓN. -]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="440" width="360" height="20" uuid="d5068b67-7647-4dd9-9ade-99f079535572"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Luego de leída la presente ACTA DE DEVOLUCIÓN, las Partes se afirman]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="454" width="550" height="30" uuid="37ff373b-6e5b-4a94-afbe-f081f7a2d4de"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["y ratifican en todas y cada una de sus declaraciones y para constancia firma por triplicado el presente acuerdo en Quito, el"+" "+$P{BEAN_DS}.getFechaCancelacion()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="80" y="550" width="100" height="19" uuid="d8f1178c-5ff5-4698-8050-a29789a85b4b"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Por: MONTEMIDAS]]></text>
+			</staticText>
+			<line>
+				<reportElement x="356" y="599" width="150" height="1" uuid="e0c2c276-d142-49a7-88c9-a6c315824add"/>
+			</line>
+			<staticText>
+				<reportElement x="381" y="550" width="100" height="19" uuid="c77adf3c-8485-4faf-a80a-47703622e529"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EL VENDEDOR]]></text>
+			</staticText>
+			<line>
+				<reportElement x="55" y="599" width="150" height="1" uuid="e93dab04-3d75-4f25-b28b-209609cf3db9"/>
+			</line>
+			<textField>
+				<reportElement x="61" y="606" width="100" height="20" uuid="65d7b463-c2b8-47dc-a122-bbc566370931"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{BEAN_DS}.getNombreAgente()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="61" y="630" width="130" height="20" uuid="f7a6fad7-9aa3-4d2f-891f-e3f071017e37"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["CC: "+$P{BEAN_DS}.getIdentificacionAgente()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="364" y="606" width="130" height="20" uuid="348cb572-9779-4c32-a728-45af424724eb"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{BEAN_DS}.getNombreCliente()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="364" y="626" width="130" height="20" uuid="7326f566-86af-4597-95d6-a23bae900741"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["CC: "+$P{BEAN_DS}.getIdentificacionCliente()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="10" y="-10" width="151" height="31" uuid="2cb53888-db8c-488d-9bb0-c3781b4647d5"/>
+				<imageExpression><![CDATA["img/logo montemidas.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+</jasperReport>

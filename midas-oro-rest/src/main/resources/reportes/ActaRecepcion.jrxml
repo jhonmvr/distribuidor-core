@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ActaRecepcion" pageWidth="595" pageHeight="842" columnWidth="539" leftMargin="28" rightMargin="28" topMargin="28" bottomMargin="28" uuid="0aca80b7-95f1-4f1d-bbe5-5064e8fb3526">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="LIST_DS" whenResourceMissingType="Empty" uuid="07d73d93-fd1f-40af-8ccd-6efa5d8a4fa5">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="ley" class="java.lang.String">
+			<fieldDescription><![CDATA[ley]]></fieldDescription>
+		</field>
+		<field name="costoGramo" class="java.lang.String">
+			<fieldDescription><![CDATA[costoGramo]]></fieldDescription>
+		</field>
+		<field name="totalGramos" class="java.lang.String">
+			<fieldDescription><![CDATA[totalGramos]]></fieldDescription>
+		</field>
+		<field name="precioVenta" class="java.lang.String">
+			<fieldDescription><![CDATA[precioVenta]]></fieldDescription>
+		</field>
+		<field name="class" class="java.lang.Class">
+			<fieldDescription><![CDATA[class]]></fieldDescription>
+		</field>
+		<field name="kilataje" class="java.lang.String">
+			<fieldDescription><![CDATA[kilataje]]></fieldDescription>
+		</field>
+		<field name="valorAPagar" class="java.lang.String">
+			<fieldDescription><![CDATA[valorAPagar]]></fieldDescription>
+		</field>
+	</subDataset>
+	<parameter name="BEAN_DS" class="com.relative.midas.wrapper.ActaRecepcionWrapper"/>
+	<parameter name="LIST_DS" class="java.util.List"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="identificacionCliente" class="java.lang.String">
+		<fieldDescription><![CDATA[identificacionCliente]]></fieldDescription>
+	</field>
+	<field name="total" class="java.lang.String">
+		<fieldDescription><![CDATA[total]]></fieldDescription>
+	</field>
+	<field name="nombreCliente" class="java.lang.String">
+		<fieldDescription><![CDATA[nombreCliente]]></fieldDescription>
+	</field>
+	<field name="descuento" class="java.lang.String">
+		<fieldDescription><![CDATA[descuento]]></fieldDescription>
+	</field>
+	<field name="precioOnzaTroy" class="java.lang.String">
+		<fieldDescription><![CDATA[precioOnzaTroy]]></fieldDescription>
+	</field>
+	<field name="identificacionAgente" class="java.lang.String">
+		<fieldDescription><![CDATA[identificacionAgente]]></fieldDescription>
+	</field>
+	<field name="fechaEmision" class="java.lang.String">
+		<fieldDescription><![CDATA[fechaEmision]]></fieldDescription>
+	</field>
+	<field name="class" class="java.lang.Class">
+		<fieldDescription><![CDATA[class]]></fieldDescription>
+	</field>
+	<field name="codigoVentaLote" class="java.lang.String">
+		<fieldDescription><![CDATA[codigoVentaLote]]></fieldDescription>
+	</field>
+	<field name="nombreAgente" class="java.lang.String">
+		<fieldDescription><![CDATA[nombreAgente]]></fieldDescription>
+	</field>
+	<field name="precioGramo" class="java.lang.String">
+		<fieldDescription><![CDATA[precioGramo]]></fieldDescription>
+	</field>
+	<field name="fechaVenta" class="java.lang.String">
+		<fieldDescription><![CDATA[fechaVenta]]></fieldDescription>
+	</field>
+	<title>
+		<band height="707" splitType="Stretch">
+			<staticText>
+				<reportElement x="160" y="30" width="300" height="16" uuid="74e67332-9479-4c32-95bd-513dedeccf92"/>
+				<textElement>
+					<font fontName="Arial" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[ACTA DE ENTREGA - RECEPCIÓN]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="3" y="54" width="536" height="66" uuid="a28da287-3eee-46b7-b7d6-06377ca9dfec"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["En la ciudad de Quito, Distrito Metropolitano, capital de la República del Ecuador, comparecen a la celebración del ACTA DE ENTREGA "+ $P{BEAN_DS}.getNombreAgente()+"  en su calidad de representante Legal MONTEMIDAS CIA. LTDA.  en calidad de consignatario y por otra parte en calidad de comprador el  señor(a) " + $P{BEAN_DS}.getNombreCliente() + " en representación de sus propios derechos. <br> Los comparecientes han convenido en celebrar el presente instrumento por el cual se realiza la entrega recepción de joyas y dinero, según lo previsto."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="117" width="170" height="18" uuid="6eb61353-32a4-4219-826b-ea4d71c0ae51"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CLAÚSULA: OBJETO]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="1" y="132" width="538" height="31" uuid="b11fe5e5-87ca-40dd-992e-38a6ccc65fc2"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>1.1</b>  El CONSIGNATARIO, declara que se encuentra conforme con las características del lote de oro en su consignación."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="1" y="424" width="538" height="73" uuid="49470de1-cdab-4a0b-93ef-96e077267964"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>CLAÚSULA DE PAGO: : </b> El consignatario declara que el valor a recibir es por la cantidad de $"+ $P{BEAN_DS}.getTotal() +" ("+$P{BEAN_DS}.getTotalEnLetras()+"). Este pago se realizará de la siguiente forma: Transferencias a nuestra cuenta de ahorros de la Mutualista Imbabura en dos instancias durante el mes de Septiembre del 2019. El comprador se compromete a realizar estas transferencias. Este lote entregado será incluido dentro de los lotes para el siguiente proceso de exportación de joyas chatarra."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="29" y="440" width="5" height="5" uuid="7da9ea63-e8e4-4a30-af86-68e12ad58a72"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Static Text]]></text>
+			</staticText>
+			<image>
+				<reportElement x="10" y="10" width="151" height="31" uuid="ba9fa740-8f0b-4f0c-ab6f-a8baba0ebd87"/>
+				<imageExpression><![CDATA["img/logo montemidas.png"]]></imageExpression>
+			</image>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="2" y="160" width="537" height="31" uuid="057d064b-d458-4f65-9185-3856808bf432"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>1.2</b>  A su vez el COMPRADOR declara que se encuentra conforme con las características del lote de oro a ser adquirido."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="3" y="195" width="170" height="15" uuid="8b0fabe0-7526-4f13-8b68-835de0e8070f"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CLAÚSULA: DETALLE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="210" width="420" height="21" uuid="44c40efd-2776-4bfd-915b-97a87ca6d866"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[A continuación, se detallan las características del lote motivo de esta transacción:]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="81" y="348" width="340" height="60" uuid="6eb76e69-8717-483e-af21-36de68d3a438">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table 1_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table 1_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table 1_TD"/>
+					<property name="com.jaspersoft.studio.components.autoresize.proportional" value="true"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="LIST_DS" uuid="43a5918f-9a28-46db-8f48-c0ffd4766e5b">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="40" uuid="7296fd30-05b7-48bb-8bd5-bed8e108c1ea">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:columnHeader style="Table 1_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="40" height="30" uuid="b4eefa7d-3ac8-42ec-ab2b-b43eff21c336"/>
+								<text><![CDATA[Kilataje]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 1_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="40" height="30" uuid="8e5e620b-2bd3-4a34-a072-a11a05a898bb"/>
+								<textFieldExpression><![CDATA[$F{kilataje}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="40" uuid="07fba8d7-c6a0-4af1-a704-a3d761e9e85c">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+						<jr:columnHeader style="Table 1_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="40" height="30" uuid="cb9f4cee-062d-4a9a-b237-e0b1412945a3"/>
+								<text><![CDATA[Ley]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 1_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="40" height="30" uuid="8c0f9cd8-c07f-4c12-a5b4-01dca6ae2c09"/>
+								<textFieldExpression><![CDATA[$F{ley}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70" uuid="58fd86e1-8f3e-4bab-8609-c39db62a77e0">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+						<jr:columnHeader style="Table 1_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30" uuid="6a88421a-fb0a-4196-95c1-13306ce3f02b"/>
+								<text><![CDATA[Cts x Gramo]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 1_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="30" uuid="24c66b33-1efb-428b-981d-b1157ddb5db5"/>
+								<textFieldExpression><![CDATA[$F{costoGramo}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="60" uuid="cede2d87-5ece-4fa5-b499-cab05e415234">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column4"/>
+						<jr:columnHeader style="Table 1_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="60" height="30" uuid="4a800f91-ef3d-4959-92e5-46ca62ab4743"/>
+								<text><![CDATA[Precio Venta]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 1_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="60" height="30" uuid="1d73e624-a3ea-4347-b8d8-061a80badde5"/>
+								<textFieldExpression><![CDATA[$F{precioVenta}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="60" uuid="263cdcfc-2a7c-4cec-a2e7-286f60210da5">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column5"/>
+						<jr:columnHeader style="Table 1_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="60" height="30" uuid="b157bcfa-d5df-4d37-baaa-73a8653b80da"/>
+								<text><![CDATA[Total Gramos]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 1_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="60" height="30" uuid="4297b1c8-4281-4267-a677-33aabca8ba1e"/>
+								<textFieldExpression><![CDATA[$F{totalGramos}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70" uuid="44db8ff8-c6bb-4d22-b76f-2c13381b95a4">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column6"/>
+						<jr:columnHeader style="Table 1_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30" uuid="de0d105a-4e93-4777-8433-87030a44a1e8"/>
+								<text><![CDATA[Valor a Pagar]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 1_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="30" uuid="5610d0ef-e3fc-4303-8548-d2bc59732054"/>
+								<textFieldExpression><![CDATA[$F{valorAPagar}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement x="124" y="266" width="81" height="20" uuid="d7bf52a6-fe72-4923-b4c1-de9c537ddd84"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Fecha venta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="124" y="326" width="81" height="20" uuid="ed103f50-9fe1-4fc2-be0b-38b2f8e62fe0"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Descuento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="124" y="306" width="81" height="20" uuid="ad17deed-1291-406f-b333-ee19dcc57c78"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Precio Gramo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="124" y="286" width="81" height="20" uuid="18d043d0-92da-46de-9a26-1678c3c1670a"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Precio Onza Troy]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="284" y="266" width="100" height="20" uuid="d546ac03-eda7-4a4c-8bcf-e86d759b0653"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{BEAN_DS}.getFechaVenta()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="284" y="286" width="100" height="20" uuid="0f7b1aa6-183e-4af9-a0c4-e566e13af8a0"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{BEAN_DS}.getPrecioOnzaTroy()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="284" y="307" width="100" height="20" uuid="c2592bcb-60e1-4255-8718-42a520ecae40"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{BEAN_DS}.getPrecioGramo()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="284" y="327" width="100" height="20" uuid="9379f1fb-3b40-4c4d-88d1-05bdbc79485b"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{BEAN_DS}.getDescuento()]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="30" y="240" width="100" height="15" uuid="0916ea23-8d4f-4773-82ea-a01653b333f7"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{BEAN_DS}.getCodigoVentaLote()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="2" y="506" width="538" height="124" uuid="dcf48ed4-0b06-4db7-86a3-1d0e48919c8a"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["El comprador declara que el dinero entregado tiene origen lícito y legítimo, y en especial declara que no proviene de ningún delito contra la propiedad ni de ninguna actividad relacionada con el cultivo, fabricación, almacenamiento, transporte o tráfico ilícito de sustancias estupefacientes o psicotrópicas. <br> <br> Adicionalmente el comprador declara que la transacción que realiza con Monte Midas Cia. Ltda. no tiene por objetivo encubrir una operación comercial ilícita. En tal sentido, deslindo a Monte Midas Cia. Ltda., sus funcionarios y contratistas de cualquier responsabilidad civil, penal o administrativa que tenga relación con la transacción que suscribiré con ella. <br> * Por Persona Políticamente Expuesta (PPE) debe entenderse a los individuos que ostentan cargos públicos de libre nombramiento y remoción, o que lo hayan ostentado en los dos últimos años. Esto incluye a las personas cuyos familiares inmediatos y amistades cercanas ostentan un cargo público de libre nombramiento y remoción, o que lo hayan ostentado en los últimos dos años. "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="2" y="638" width="538" height="60" uuid="55e4c74b-92fd-4a2f-a142-c8c720736cb7"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>CLAÚSULA DE NO DEVOLUCIÓN:</b> Una vez suscrito este instrumento y a la entrega del objeto de este no se aceptan devoluciones de los bienes entregados.<br> <br> <b> CLAÚSULA DE ACEPTACIÓN:</b> Luego de leída la presente ACTA ENTREGA RECEPCIÓN, los comparecientes afirman y ratifican toda y cada una de sus declaraciones y para constancia firma, en Quito, " + $P{BEAN_DS}.getFechaEmision()+ "."]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="252">
+			<line>
+				<reportElement positionType="Float" x="3" y="180" width="196" height="1" uuid="ed0a4b79-250f-4559-a28b-353913dc0efa"/>
+			</line>
+			<line>
+				<reportElement positionType="Float" x="2" y="83" width="187" height="1" uuid="0ac0aca5-c493-4e40-a98d-06789ca4a885"/>
+			</line>
+			<staticText>
+				<reportElement positionType="Float" x="2" y="20" width="100" height="19" uuid="30aeaef0-fd24-4b38-bb5f-0eab952d5ec0"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Por: MONTEMIDAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="2" y="233" width="100" height="19" uuid="31154057-3023-4577-8327-c1438680d5b8"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMPRADOR]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="2" y="190" width="197" height="20" uuid="589ac0c4-5692-4e45-afc9-c615a91af427"/>
+				<textElement markup="html">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>Nombre: </>"+ $P{BEAN_DS}.getNombreCliente()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="2" y="210" width="197" height="20" uuid="6e651602-dbb5-4d96-ad03-24cb52a322eb"/>
+				<textElement markup="html">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>CC:</b> "+$P{BEAN_DS}.getIdentificacionCliente()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="130" width="100" height="19" uuid="ebcb4555-a039-4a26-9b2e-0dab6d576026"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CONSIGNATARIO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="2" y="90" width="171" height="20" uuid="d000a7ff-1278-4ff2-8e55-75c9a96ad92c"/>
+				<textFieldExpression><![CDATA["Text Field"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

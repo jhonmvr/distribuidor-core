@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version last-->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ContratoCD3" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="0" bottomMargin="0" uuid="98148e84-1ac4-4fb3-a469-cafeb734ead6">
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="valorTasacion" class="java.lang.String">
+		<fieldDescription><![CDATA[valorTasacion]]></fieldDescription>
+	</field>
+	<field name="identificacionAgente" class="java.lang.String">
+		<fieldDescription><![CDATA[identificacionAgente]]></fieldDescription>
+	</field>
+	<field name="identificacion" class="java.lang.String">
+		<fieldDescription><![CDATA[identificacion]]></fieldDescription>
+	</field>
+	<field name="nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[nombre]]></fieldDescription>
+	</field>
+	<field name="nacionalidad" class="java.lang.String">
+		<fieldDescription><![CDATA[nacionalidad]]></fieldDescription>
+	</field>
+	<field name="nombreAporderado" class="java.lang.String">
+		<fieldDescription><![CDATA[nombreAporderado]]></fieldDescription>
+	</field>
+	<field name="telefonoCelular" class="java.lang.String">
+		<fieldDescription><![CDATA[telefonoCelular]]></fieldDescription>
+	</field>
+	<field name="valorContrato" class="java.lang.String">
+		<fieldDescription><![CDATA[valorContrato]]></fieldDescription>
+	</field>
+	<field name="nacionalidadApoderado" class="java.lang.String">
+		<fieldDescription><![CDATA[nacionalidadApoderado]]></fieldDescription>
+	</field>
+	<field name="identificacionApoderado" class="java.lang.String">
+		<fieldDescription><![CDATA[identificacionApoderado]]></fieldDescription>
+	</field>
+	<field name="fechaCreacion" class="java.lang.String">
+		<fieldDescription><![CDATA[fechaCreacion]]></fieldDescription>
+	</field>
+	<field name="class" class="java.lang.Class">
+		<fieldDescription><![CDATA[class]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[email]]></fieldDescription>
+	</field>
+	<field name="nombreAgente" class="java.lang.String">
+		<fieldDescription><![CDATA[nombreAgente]]></fieldDescription>
+	</field>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<detail>
+		<band height="842">
+			<staticText>
+				<reportElement x="2" y="20" width="108" height="20" uuid="d378e4ee-d75e-426f-9e1c-ddd42563e892"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CLÁUSULA NOVENA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="40" width="550" height="30" uuid="44bbc81a-01f6-4dc3-8445-85847e5cf5bc"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[DOMICILIO CONTRACTUAL. - Las partes declaran como su único domicilio para fines de citación, notificaciones y contacto las siguientes:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="78" width="100" height="20" uuid="1e21c697-8e8c-40aa-996c-b3111fc521b2"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[14.1. MONTEMIDAS:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="78" width="450" height="20" uuid="2281b0ca-657e-45e2-ae92-9f7a52967b0b"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Av. Amazonas n35-139 y Japón, Edificio Amazonas Park. Email: contador@montemidas.ec]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="98" width="100" height="20" uuid="0c1d97d5-8b49-45ef-ac51-c885e391678e"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[14.2. VENDEDOR:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="98" width="450" height="20" uuid="25d4838a-2d76-4a13-8d13-c917323cccd9"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Telefono:" +" "+ $F{telefonoCelular} +" "+ "Email:" +" "+ $F{email}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="118" width="180" height="20" uuid="64ac80a3-fa77-451c-905e-ce04bfa04a3d"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CLÁUSULA DÉCIMA: ACEPTACIÓN. -]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="138" width="550" height="20" uuid="2dd07b53-0903-43aa-813d-98f361d376a6"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Luego de leído el presente acuerdo, las Partes se afirman y ratifican en todas y cada una de sus declaraciones y para]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="158" width="460" height="20" uuid="98d9b5bd-a035-4806-b176-a5366780ae58"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["constancia firma por duplicado el presente acuerdo en Quito, el" +" "+$F{fechaCreacion}+"."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="80" y="218" width="100" height="19" uuid="bc905ee5-2ecb-4e93-8f07-9e7d1f437fae"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Por: MONTEMIDAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="389" y="219" width="100" height="19" uuid="bdac8aec-02b8-441e-bc5e-1b2827a61d09"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EL VENDEDOR]]></text>
+			</staticText>
+			<line>
+				<reportElement x="38" y="284" width="200" height="1" uuid="ee6245d2-e4fe-4576-a7d8-26d704b8d3ec"/>
+			</line>
+			<line>
+				<reportElement x="344" y="284" width="194" height="1" uuid="c698ae93-0c13-455a-9209-e2bdccb43d7f"/>
+			</line>
+			<textField>
+				<reportElement x="38" y="288" width="200" height="20" uuid="e9330013-5dee-4285-a86a-39960bc75963"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombreAgente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="38" y="308" width="200" height="20" uuid="9e3a41b4-fab2-428e-9d6d-b52cfff0affb"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{identificacionAgente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="344" y="288" width="194" height="20" uuid="15953059-b5eb-46d4-bcea-d68d01a476df"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="344" y="308" width="194" height="20" uuid="16d89ca1-69a8-4a70-9160-1e973275b4a0"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{identificacion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

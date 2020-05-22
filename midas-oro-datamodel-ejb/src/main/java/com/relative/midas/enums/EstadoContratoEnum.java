@@ -1,0 +1,15 @@
+package com.relative.midas.enums;
+
+public enum EstadoContratoEnum {
+	ADQUIRIDO,
+	PENDIENTE_HABILITANTE,
+	VIGENTE,
+	PERFECCIONADO,
+	CANCELADO,
+	RENOVADO,
+	ENTREGA_CUSTODIO,
+	CANCELADO_ADENDUM,
+	VIGENTE_ADENDUM,
+	ANULADO
+
+}
