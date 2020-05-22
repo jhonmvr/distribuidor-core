@@ -1,4 +1,4 @@
-package ec.com.def.pa.repository.imp;
+package ec.fin.segurossucre.pa.repository.imp;
 
 import java.util.List;
 import java.util.logging.Logger;
@@ -6,16 +6,16 @@ import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
-import ec.com.def.core.exception.DefException;
-import ec.com.def.core.persistence.GeneralRepositoryImp;
-import ec.com.def.core.util.main.Constantes;
-import ec.com.def.pa.model.Acteco;
-import ec.com.def.pa.model.Ramocanal;
-import ec.com.def.pa.model.RamocanalPK;
-import ec.com.def.pa.repository.CanalRepository;
-import ec.com.def.pa.repository.spec.ActecoByCodigoSpec;
-import ec.com.def.pa.repository.spec.RamoCanalByIdSpec;
-import ec.com.def.pa.repository.spec.RamocanalByCodigoSpec;
+import ec.fin.segurossucre.core.exception.SegSucreException;
+import ec.fin.segurossucre.core.persistence.GeneralRepositoryImp;
+import ec.fin.segurossucre.core.util.main.Constantes;
+import ec.fin.segurossucre.pa.model.Acteco;
+import ec.fin.segurossucre.pa.model.Ramocanal;
+import ec.fin.segurossucre.pa.model.RamocanalPK;
+import ec.fin.segurossucre.pa.repository.CanalRepository;
+import ec.fin.segurossucre.pa.repository.spec.ActecoByCodigoSpec;
+import ec.fin.segurossucre.pa.repository.spec.RamoCanalByIdSpec;
+import ec.fin.segurossucre.pa.repository.spec.RamocanalByCodigoSpec;
 
 /**
  * Session Bean implementation class CanalRepositoryImp
@@ -51,7 +51,7 @@ public class CanalRepositoryImp extends GeneralRepositoryImp<RamocanalPK, Ramoca
     }
 
 	@Override
-	public Ramocanal findByCodigo(String canal) throws DefException {
+	public Ramocanal findByCodigo(String canal) throws SegSucreException {
 		List<Ramocanal> tmp;
 		try {
 			tmp = this.findAllBySpecification(new RamocanalByCodigoSpec(canal));
@@ -62,7 +62,7 @@ public class CanalRepositoryImp extends GeneralRepositoryImp<RamocanalPK, Ramoca
 		} catch (Exception e) {
 			
 			e.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_CUSTOM,"AL BUSCAR CANAL POR CODIGO");
+			throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM,"AL BUSCAR CANAL POR CODIGO");
 		}
 		
 	}

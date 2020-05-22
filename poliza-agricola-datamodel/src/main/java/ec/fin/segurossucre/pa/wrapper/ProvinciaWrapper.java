@@ -1,11 +1,11 @@
-package ec.com.def.pa.wrapper;
+package ec.fin.segurossucre.pa.wrapper;
 import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import ec.com.def.pa.model.Canton;
+import ec.fin.segurossucre.pa.model.Canton;
 
 public class ProvinciaWrapper  implements Serializable {
 

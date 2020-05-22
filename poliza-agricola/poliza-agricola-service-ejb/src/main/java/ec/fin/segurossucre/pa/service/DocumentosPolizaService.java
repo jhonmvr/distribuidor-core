@@ -1,4 +1,4 @@
-package ec.com.def.pa.service;
+package ec.fin.segurossucre.pa.service;
 
 import java.io.ByteArrayInputStream;
 import java.math.BigDecimal;
@@ -14,16 +14,16 @@ import javax.inject.Inject;
 
 import org.apache.commons.lang.StringUtils;
 
-import ec.com.def.core.exception.DefException;
-import ec.com.def.core.util.main.Constantes;
-import ec.com.def.pa.enums.EstadoSiniestroAgricolaEnum;
-import ec.com.def.pa.model.TbPaSolicitudPoliza;
-import ec.com.def.pa.model.TbPaTipoDocumentoPoliza;
-import ec.com.def.pa.repository.SolicitudPolizaRepository;
-import ec.com.def.pa.util.SiniestroAgricolaConstantes;
-import ec.com.def.pa.util.SiniestroAgricolaUtils;
-import ec.com.def.pa.wrapper.ConsultaSolicitudPolizaWrapper;
-import ec.com.def.pa.wrapper.SolicitudPolizaWrapper;
+import ec.fin.segurossucre.core.exception.SegSucreException;
+import ec.fin.segurossucre.core.util.main.Constantes;
+import ec.fin.segurossucre.pa.enums.EstadoSiniestroAgricolaEnum;
+import ec.fin.segurossucre.pa.model.TbPaSolicitudPoliza;
+import ec.fin.segurossucre.pa.model.TbPaTipoDocumentoPoliza;
+import ec.fin.segurossucre.pa.repository.SolicitudPolizaRepository;
+import ec.fin.segurossucre.pa.util.SiniestroAgricolaConstantes;
+import ec.fin.segurossucre.pa.util.SiniestroAgricolaUtils;
+import ec.fin.segurossucre.pa.wrapper.ConsultaSolicitudPolizaWrapper;
+import ec.fin.segurossucre.pa.wrapper.SolicitudPolizaWrapper;
 
 @Stateless
 public class DocumentosPolizaService {
@@ -48,15 +48,15 @@ public class DocumentosPolizaService {
 	 * @param tipo
 	 * @param id
 	 * @return
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
 	public byte[] generarDocumentoPoliza(Map<String, Object> map, String format, String tipo, String numeroSolicitud, String numeroTramite,
 			String desde,String hasta, String canal)
-			throws DefException {
+			throws SegSucreException {
 		try {
 			String path =this.sas.findByNombre(SiniestroAgricolaConstantes.REPORT_PATH).getValor();
 			if(StringUtils.isBlank(path)) {
-				throw new DefException(Constantes.ERROR_CODE_CUSTOM,"AL BUSCAR PATH REPORTES");
+				throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM,"AL BUSCAR PATH REPORTES");
 			}
 
 			log.info("=========>ENTRA a set repor data excel ");
@@ -72,20 +72,20 @@ public class DocumentosPolizaService {
 			path = path.concat(jasper);
 
 		   return generateReport(map, path, format);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 
 			e.printStackTrace();
 			throw e;
 		} catch (Exception e) {
 
 			e.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_CUSTOM, "AL GENERAR REPORTE" + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM, "AL GENERAR REPORTE" + e.getMessage());
 		}
 	}
 	
 	
 	public List<ConsultaSolicitudPolizaWrapper> setWrapperSolicitudPoliza(String numeroSolicitud, String numeroTramite,
-			Date desde, Date hasta, String canal) throws DefException {
+			Date desde, Date hasta, String canal) throws SegSucreException {
 		try {
 			List<ConsultaSolicitudPolizaWrapper> rp = new ArrayList<>();
 			List<ConsultaSolicitudPolizaWrapper> l = solicitudPolizaRepository.setWrapperSolicitudPoliza(
@@ -135,7 +135,7 @@ public class DocumentosPolizaService {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_READ, e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, e.getMessage());
 		}
 
 	}
@@ -149,22 +149,22 @@ public class DocumentosPolizaService {
 	 * @param tipo
 	 * @param id
 	 * @return
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
 	public byte[] generarDocumento(Map<String, Object> map, String format, String tipo, String id)
-			throws DefException {
+			throws SegSucreException {
 		try {
 			String path = this.sas.findByNombre(SiniestroAgricolaConstantes.REPORT_PATH).getValor();
 			if(StringUtils.isBlank(path)) {
-				throw new DefException(Constantes.ERROR_CODE_CUSTOM,"AL BUSCAR PATH REPORTES");
+				throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM,"AL BUSCAR PATH REPORTES");
 			}
 			String pathSubreporte = this.sas.findByNombre(SiniestroAgricolaConstantes.REPORT_PATH).getValor();
 			if(StringUtils.isBlank(path)) {
-				throw new DefException(Constantes.ERROR_CODE_CUSTOM,"AL BUSCAR PATH REPORTES");
+				throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM,"AL BUSCAR PATH REPORTES");
 			}
 			String pathLogo = this.sas.findByNombre(SiniestroAgricolaConstantes.REPORT_PATH).getValor();
 			if(StringUtils.isBlank(path)) {
-				throw new DefException(Constantes.ERROR_CODE_CUSTOM,"AL BUSCAR PATH REPORTES");
+				throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM,"AL BUSCAR PATH REPORTES");
 			}
 			log.info("=========>ENTRA a set repordata 1 ");
 			map.put("BEAN_DS", setSolicitudPolizaWrapper(id));
@@ -191,18 +191,18 @@ public class DocumentosPolizaService {
 
 			// TODO Auto-generated method stub
 			return generateReport(map, path, format);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			throw e;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_CUSTOM, "AL GENERAR REPORTE" + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM, "AL GENERAR REPORTE" + e.getMessage());
 		}
 	}
 
-	private byte[] generateReport(Map<String, Object> map, String path, String format) throws DefException {
+	private byte[] generateReport(Map<String, Object> map, String path, String format) throws SegSucreException {
 		byte[] reportFile = null;
 		log.info("=========>ENTRA a set generateReport  ");
 
@@ -234,7 +234,7 @@ public class DocumentosPolizaService {
 	 * @author SAUL MENDEZ - Relative Engine
 	 * @throws RelativeException
 	 */
-	public SolicitudPolizaWrapper setSolicitudPolizaWrapper(String idPoliza) throws DefException {
+	public SolicitudPolizaWrapper setSolicitudPolizaWrapper(String idPoliza) throws SegSucreException {
 		try {
 			TbPaSolicitudPoliza s = sps.findSolicitudPolizaById(Long.valueOf(idPoliza));
 			SolicitudPolizaWrapper solicitudPolizaWrapper = new SolicitudPolizaWrapper();
@@ -306,11 +306,11 @@ public class DocumentosPolizaService {
 				}
 			solicitudPolizaWrapper.setRecintoP(s.getTbPaPredio().getRecinto() != null? s.getTbPaPredio().getRecinto(): "");
 			return solicitudPolizaWrapper;
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_READ, "AL BUSCAR LA INFORMACION DE LA SOLICITUD " + e.getCause());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "AL BUSCAR LA INFORMACION DE LA SOLICITUD " + e.getCause());
 		}
 	}
 	
@@ -323,7 +323,7 @@ public class DocumentosPolizaService {
 	 * @author SAUL MENDEZ - Relative Engine
 	 * @throws RelativeException
 	 */
-	public List<SolicitudPolizaWrapper> setListSolicitudPolizaWrapper(String idPoliza) throws DefException {
+	public List<SolicitudPolizaWrapper> setListSolicitudPolizaWrapper(String idPoliza) throws SegSucreException {
 		try {
 			TbPaSolicitudPoliza s = sps.findSolicitudPolizaById(Long.valueOf(idPoliza));
 			List<SolicitudPolizaWrapper> listaSolicitudPoliza = new ArrayList<SolicitudPolizaWrapper>();
@@ -398,11 +398,11 @@ public class DocumentosPolizaService {
 			
 			listaSolicitudPoliza.add(solicitudPolizaWrapper);
 			return listaSolicitudPoliza;
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_READ, "AL BUSCAR LA INFORMACION DE LA SOLICITUD " + e.getCause());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "AL BUSCAR LA INFORMACION DE LA SOLICITUD " + e.getCause());
 		}
 	}
 	

@@ -16,7 +16,7 @@
 
 	<parent>
 		<artifactId>poliza-agricola</artifactId>
-		<groupId>ec.com.def</groupId>
+		<groupId>ec.fin.segurossucre</groupId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 
@@ -38,19 +38,19 @@
 
 		<!-- Dependency on the EJB module so we can use it's services if needed -->
 		<dependency>
-			<groupId>ec.com.def</groupId>
+			<groupId>ec.fin.segurossucre</groupId>
 			<artifactId>poliza-agricola-service-ejb</artifactId>
 			<version>1.0-SNAPSHOT</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>ec.com.def</groupId>
+			<groupId>ec.fin.segurossucre</groupId>
 			<artifactId>poliza-agricola-datamodel-ejb</artifactId>
 			<version>1.0-SNAPSHOT</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>ec.com.def</groupId>
+			<groupId>ec.fin.segurossucre</groupId>
 			<artifactId>poliza-agricola-repository-ejb</artifactId>
 			<version>1.0-SNAPSHOT</version>
 			<scope>provided</scope>
@@ -117,17 +117,17 @@
 
 		<!-- CUSTOM LIBS -->
 		<dependency>
-			<groupId>ec.com.def</groupId>
+			<groupId>ec.fin.segurossucre</groupId>
 			<artifactId>core-common-jee</artifactId>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>ec.com.def</groupId>
+			<groupId>ec.fin.segurossucre</groupId>
 			<artifactId>core-security-datamodel</artifactId>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>ec.com.def</groupId>
+			<groupId>ec.fin.segurossucre</groupId>
 			<artifactId>core-common-web</artifactId>
 		</dependency>
 		<dependency>

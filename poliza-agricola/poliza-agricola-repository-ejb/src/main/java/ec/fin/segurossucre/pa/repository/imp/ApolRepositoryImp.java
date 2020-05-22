@@ -1,16 +1,16 @@
-package ec.com.def.pa.repository.imp;
+package ec.fin.segurossucre.pa.repository.imp;
 
 import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.Query;
 
-import ec.com.def.core.exception.DefException;
-import ec.com.def.core.persistence.GeneralRepositoryImp;
-import ec.com.def.core.util.main.Constantes;
-import ec.com.def.pa.model.Apol;
-import ec.com.def.pa.repository.ApolRepository;
-import ec.com.def.pa.repository.spec.ApolByNumeroTramiteSpec;
+import ec.fin.segurossucre.core.exception.SegSucreException;
+import ec.fin.segurossucre.core.persistence.GeneralRepositoryImp;
+import ec.fin.segurossucre.core.util.main.Constantes;
+import ec.fin.segurossucre.pa.model.Apol;
+import ec.fin.segurossucre.pa.repository.ApolRepository;
+import ec.fin.segurossucre.pa.repository.spec.ApolByNumeroTramiteSpec;
 
 /**
  * Session Bean implementation class ApolRepositoryImp
@@ -30,7 +30,7 @@ public class ApolRepositoryImp extends GeneralRepositoryImp<Long, Apol> implemen
 	 * @param numeroTramite Numero de tramite enviado
 	 * @return Listado de entidades de tipo apol encontradas
 	 */
-    public List<Apol> findByNumeroTramite( String numeroTramite ) throws DefException{
+    public List<Apol> findByNumeroTramite( String numeroTramite ) throws SegSucreException{
     	List<Apol> bb = null;
     	try {
     		bb= this.findAllBySpecification(new ApolByNumeroTramiteSpec(numeroTramite));
@@ -42,7 +42,7 @@ public class ApolRepositoryImp extends GeneralRepositoryImp<Long, Apol> implemen
     }
 
 	@Override
-	public List<Apol> validarNumeroTramite(String numeroTramite) throws DefException {
+	public List<Apol> validarNumeroTramite(String numeroTramite) throws SegSucreException {
 		try {
     		Query q = this.getEntityManager().createQuery( 
     				"SELECT count(*) FROM apol WHERE awreferext = '"+numeroTramite+
@@ -52,7 +52,7 @@ public class ApolRepositoryImp extends GeneralRepositoryImp<Long, Apol> implemen
     		
 			return q.getResultList();
 		} catch (Exception e) {
-			throw new DefException( Constantes.ERROR_CODE_READ,
+			throw new SegSucreException( Constantes.ERROR_CODE_READ,
 					"ERROR EN LA BUSQUEDA DE TAMITE EN APOL CON NUMERO TRAMITE " + numeroTramite + "  " + e.getMessage() );
 		}
 	}

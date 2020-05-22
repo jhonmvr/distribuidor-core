@@ -1,10 +1,10 @@
-package ec.com.def.pa.util;
+package ec.fin.segurossucre.pa.util;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 
-import ec.com.def.pa.enums.EstadoSiniestroAgricolaEnum;
+import ec.fin.segurossucre.pa.enums.EstadoSiniestroAgricolaEnum;
 
 
 public class Chart implements Serializable{

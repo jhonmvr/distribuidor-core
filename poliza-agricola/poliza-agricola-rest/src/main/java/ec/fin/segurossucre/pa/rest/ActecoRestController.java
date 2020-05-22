@@ -1,4 +1,4 @@
-package ec.com.def.pa.rest;
+package ec.fin.segurossucre.pa.rest;
 
 import java.util.List;
 
@@ -11,14 +11,14 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
-import ec.com.def.core.exception.DefException;
-import ec.com.def.core.util.main.PaginatedListWrapper;
-import ec.com.def.core.util.main.PaginatedWrapper;
-import ec.com.def.core.web.util.BaseRestController;
-import ec.com.def.core.web.util.CrudRestControllerInterface;
-import ec.com.def.core.web.util.GenericWrapper;
-import ec.com.def.pa.model.Acteco;
-import ec.com.def.pa.service.PolizaAgricolaService;
+import ec.fin.segurossucre.core.exception.SegSucreException;
+import ec.fin.segurossucre.core.util.main.PaginatedListWrapper;
+import ec.fin.segurossucre.core.util.main.PaginatedWrapper;
+import ec.fin.segurossucre.core.web.util.BaseRestController;
+import ec.fin.segurossucre.core.web.util.CrudRestControllerInterface;
+import ec.fin.segurossucre.core.web.util.GenericWrapper;
+import ec.fin.segurossucre.pa.model.Acteco;
+import ec.fin.segurossucre.pa.service.PolizaAgricolaService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -34,12 +34,12 @@ public class ActecoRestController extends BaseRestController implements CrudRest
 	@Inject
 	PolizaAgricolaService sas;
 	
-	public ActecoRestController() throws DefException {
+	public ActecoRestController() throws SegSucreException {
 		super();
 	}
 
 	@Override
-	public void deleteEntity(String arg0) throws DefException {
+	public void deleteEntity(String arg0) throws SegSucreException {
 		// 
 		
 	}
@@ -51,9 +51,9 @@ public class ActecoRestController extends BaseRestController implements CrudRest
 	response = GenericWrapper.class)
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Retorno existoso de informacion", response = GenericWrapper.class),
-			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = DefException.class) })
+			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = SegSucreException.class) })
 	public GenericWrapper<Acteco> getEntity(
-			@QueryParam("id") String id) throws DefException {
+			@QueryParam("id") String id) throws SegSucreException {
 		GenericWrapper<Acteco> loc = new GenericWrapper<>();
 		Acteco a =this.sas.findActecoById(String.valueOf(id));
 		loc.setEntidad(a);
@@ -67,19 +67,19 @@ public class ActecoRestController extends BaseRestController implements CrudRest
 	response = PaginatedListWrapper.class)
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Retorno existoso de informacion", response = PaginatedListWrapper.class),
-			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = DefException.class) })
+			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = SegSucreException.class) })
 	public PaginatedListWrapper<Acteco> listAllEntities(
 			@QueryParam("page") @DefaultValue("1") String page,
 			@QueryParam("pageSize") @DefaultValue("10") String pageSize,
 			@QueryParam("sortFields") @DefaultValue("aeccod") String sortFields,
 			@QueryParam("sortDirections") @DefaultValue("asc") String sortDirections,
 			@QueryParam("isPaginated") @DefaultValue("N") String isPaginated
-			) throws DefException {
+			) throws SegSucreException {
 		return findAll(new PaginatedWrapper(Integer.valueOf(page), Integer.valueOf(pageSize), sortFields,
 				sortDirections, isPaginated));
 	}
 
-	private PaginatedListWrapper<Acteco> findAll(PaginatedWrapper pw) throws DefException {
+	private PaginatedListWrapper<Acteco> findAll(PaginatedWrapper pw) throws SegSucreException {
 		PaginatedListWrapper<Acteco> plw = new PaginatedListWrapper<>(pw);
 		List<Acteco> actions = this.sas.findAllActeco(pw);
 		if (actions != null && !actions.isEmpty()) {
@@ -91,7 +91,7 @@ public class ActecoRestController extends BaseRestController implements CrudRest
 	}
 
 	@Override
-	public GenericWrapper<Acteco> persistEntity(GenericWrapper<Acteco> arg0) throws DefException {
+	public GenericWrapper<Acteco> persistEntity(GenericWrapper<Acteco> arg0) throws SegSucreException {
 		// no persisted
 		return null;
 	}

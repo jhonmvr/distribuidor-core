@@ -1,4 +1,4 @@
-package ec.com.def.pa.rest;
+package ec.fin.segurossucre.pa.rest;
 
 import java.util.List;
 
@@ -12,15 +12,15 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
-import ec.com.def.core.exception.DefException;
-import ec.com.def.core.util.main.Constantes;
-import ec.com.def.core.util.main.PaginatedListWrapper;
-import ec.com.def.core.util.main.PaginatedWrapper;
-import ec.com.def.core.web.util.BaseRestController;
-import ec.com.def.core.web.util.CrudRestControllerInterface;
-import ec.com.def.core.web.util.GenericWrapper;
-import ec.com.def.pa.model.TbSaUsuarioCanal;
-import ec.com.def.pa.service.PolizaAgricolaService;
+import ec.fin.segurossucre.core.exception.SegSucreException;
+import ec.fin.segurossucre.core.util.main.Constantes;
+import ec.fin.segurossucre.core.util.main.PaginatedListWrapper;
+import ec.fin.segurossucre.core.util.main.PaginatedWrapper;
+import ec.fin.segurossucre.core.web.util.BaseRestController;
+import ec.fin.segurossucre.core.web.util.CrudRestControllerInterface;
+import ec.fin.segurossucre.core.web.util.GenericWrapper;
+import ec.fin.segurossucre.pa.model.TbSaUsuarioCanal;
+import ec.fin.segurossucre.pa.service.PolizaAgricolaService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -32,7 +32,7 @@ import io.swagger.annotations.ApiResponses;
 @Api(value = " UsuarioCanalRestController - REST CRUD")
 public class UsuarioCanalRestController extends BaseRestController implements CrudRestControllerInterface<TbSaUsuarioCanal, GenericWrapper<TbSaUsuarioCanal>>{
 
-	public UsuarioCanalRestController() throws DefException {
+	public UsuarioCanalRestController() throws SegSucreException {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -41,7 +41,7 @@ public class UsuarioCanalRestController extends BaseRestController implements Cr
 	PolizaAgricolaService sas;
 	
 	@Override
-	public void deleteEntity(String arg0) throws DefException {
+	public void deleteEntity(String arg0) throws SegSucreException {
 		// TODO Auto-generated method stub
 		
 	}
@@ -53,9 +53,9 @@ public class UsuarioCanalRestController extends BaseRestController implements Cr
 	response = GenericWrapper.class)
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Retorno existoso de informacion", response = GenericWrapper.class),
-			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = DefException.class) })
+			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = SegSucreException.class) })
 	public GenericWrapper<TbSaUsuarioCanal> getEntity(
-			@QueryParam("id") String id) throws DefException {
+			@QueryParam("id") String id) throws SegSucreException {
 		GenericWrapper<TbSaUsuarioCanal> loc = new GenericWrapper<>();
 		TbSaUsuarioCanal a =this.sas.findUsuarioCanalById(Long.valueOf(id));
 		loc.setEntidad(a);
@@ -69,19 +69,19 @@ public class UsuarioCanalRestController extends BaseRestController implements Cr
 	response = PaginatedListWrapper.class)
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Retorno existoso de informacion", response = PaginatedListWrapper.class),
-			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = DefException.class) })
+			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = SegSucreException.class) })
 	public PaginatedListWrapper<TbSaUsuarioCanal> listAllEntities(
 			@QueryParam("page") @DefaultValue("1") String page,
 			@QueryParam("pageSize") @DefaultValue("10") String pageSize,
 			@QueryParam("sortFields") @DefaultValue("id") String sortFields,
 			@QueryParam("sortDirections") @DefaultValue("asc") String sortDirections,
 			@QueryParam("isPaginated") @DefaultValue("N") String isPaginated
-			) throws DefException {
+			) throws SegSucreException {
 		return findAll(new PaginatedWrapper(Integer.valueOf(page), Integer.valueOf(pageSize), sortFields,
 				sortDirections, isPaginated));
 	}
 
-	private PaginatedListWrapper<TbSaUsuarioCanal> findAll(PaginatedWrapper pw) throws DefException {
+	private PaginatedListWrapper<TbSaUsuarioCanal> findAll(PaginatedWrapper pw) throws SegSucreException {
 		PaginatedListWrapper<TbSaUsuarioCanal> plw = new PaginatedListWrapper<>(pw);
 		List<TbSaUsuarioCanal> actions = this.sas.findAllUsuarioCanal(pw);
 		if (actions != null && !actions.isEmpty()) {
@@ -100,17 +100,17 @@ public class UsuarioCanalRestController extends BaseRestController implements Cr
 	response = GenericWrapper.class)
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Retorno existoso de informacion", response = GenericWrapper.class),
-			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = DefException.class) })
+			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = SegSucreException.class) })
 	public GenericWrapper<TbSaUsuarioCanal> persistEntity(GenericWrapper<TbSaUsuarioCanal> ucw)
-			throws DefException {
+			throws SegSucreException {
 		try {
 			GenericWrapper<TbSaUsuarioCanal > gw= new GenericWrapper<>();
 			gw.setEntidad(this.sas.manageUsuarioCanal( ucw.getEntidad() ));
 			return gw;
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_CREATE,"ERROR CONTROLADOR usuarioCanalRestController persistEntity, " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_CREATE,"ERROR CONTROLADOR usuarioCanalRestController persistEntity, " + e.getMessage());
 		}
 	}
 	
@@ -120,18 +120,18 @@ public class UsuarioCanalRestController extends BaseRestController implements Cr
 	response = GenericWrapper.class)
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Retorno existoso de informacion", response = GenericWrapper.class),
-			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = DefException.class) })
+			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = SegSucreException.class) })
 	public GenericWrapper<TbSaUsuarioCanal> getEntityByNombre(
-			@QueryParam("nombreUsuario") String nombreUsuario) throws DefException {
+			@QueryParam("nombreUsuario") String nombreUsuario) throws SegSucreException {
 		try {
 			GenericWrapper<TbSaUsuarioCanal> loc = new GenericWrapper<>();
 			TbSaUsuarioCanal a =this.sas.findUsuarioCanalByNombreUsuario(nombreUsuario);
 			loc.setEntidad(a);
 			return loc;
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_CREATE,"ERROR CONTROLADOR usuarioCanalRestController getEntityByNombre, " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_CREATE,"ERROR CONTROLADOR usuarioCanalRestController getEntityByNombre, " + e.getMessage());
 		}
 		
 	}

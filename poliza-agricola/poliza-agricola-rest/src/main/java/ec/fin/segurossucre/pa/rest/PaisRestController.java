@@ -1,4 +1,4 @@
-package ec.com.def.pa.rest;
+package ec.fin.segurossucre.pa.rest;
 
 import java.util.List;
 
@@ -11,14 +11,14 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
-import ec.com.def.core.exception.DefException;
-import ec.com.def.core.util.main.PaginatedListWrapper;
-import ec.com.def.core.util.main.PaginatedWrapper;
-import ec.com.def.core.web.util.BaseRestController;
-import ec.com.def.core.web.util.CrudRestControllerInterface;
-import ec.com.def.core.web.util.GenericWrapper;
-import ec.com.def.pa.model.Pais;
-import ec.com.def.pa.service.PolizaAgricolaService;
+import ec.fin.segurossucre.core.exception.SegSucreException;
+import ec.fin.segurossucre.core.util.main.PaginatedListWrapper;
+import ec.fin.segurossucre.core.util.main.PaginatedWrapper;
+import ec.fin.segurossucre.core.web.util.BaseRestController;
+import ec.fin.segurossucre.core.web.util.CrudRestControllerInterface;
+import ec.fin.segurossucre.core.web.util.GenericWrapper;
+import ec.fin.segurossucre.pa.model.Pais;
+import ec.fin.segurossucre.pa.service.PolizaAgricolaService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -34,12 +34,12 @@ public class PaisRestController extends BaseRestController implements CrudRestCo
 	@Inject
 	PolizaAgricolaService sas;
 	
-	public PaisRestController() throws DefException {
+	public PaisRestController() throws SegSucreException {
 		super();
 	}
 
 	@Override
-	public void deleteEntity(String arg0) throws DefException {
+	public void deleteEntity(String arg0) throws SegSucreException {
 		// 
 		
 	}
@@ -51,9 +51,9 @@ public class PaisRestController extends BaseRestController implements CrudRestCo
 	response = GenericWrapper.class)
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Retorno existoso de informacion", response = GenericWrapper.class),
-			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = DefException.class) })
+			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = SegSucreException.class) })
 	public GenericWrapper<Pais> getEntity(
-			@QueryParam("paicod") String paicod) throws DefException {
+			@QueryParam("paicod") String paicod) throws SegSucreException {
 		GenericWrapper<Pais> loc = new GenericWrapper<>();
 		Pais a =this.sas.findPaisById(String.valueOf(paicod));
 		loc.setEntidad(a);
@@ -67,19 +67,19 @@ public class PaisRestController extends BaseRestController implements CrudRestCo
 	response = PaginatedListWrapper.class)
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Retorno existoso de informacion", response = PaginatedListWrapper.class),
-			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = DefException.class) })
+			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = SegSucreException.class) })
 	public PaginatedListWrapper<Pais> listAllEntities(
 			@QueryParam("page") @DefaultValue("1") String page,
 			@QueryParam("pageSize") @DefaultValue("10") String pageSize,
 			@QueryParam("sortFields") @DefaultValue("paicod") String sortFields,
 			@QueryParam("sortDirections") @DefaultValue("asc") String sortDirections,
 			@QueryParam("isPaginated") @DefaultValue("N") String isPaginated
-			) throws DefException {
+			) throws SegSucreException {
 		return findAll(new PaginatedWrapper(Integer.valueOf(page), Integer.valueOf(pageSize), sortFields,
 				sortDirections, isPaginated));
 	}
 
-	private PaginatedListWrapper<Pais> findAll(PaginatedWrapper pw) throws DefException {
+	private PaginatedListWrapper<Pais> findAll(PaginatedWrapper pw) throws SegSucreException {
 		PaginatedListWrapper<Pais> plw = new PaginatedListWrapper<>(pw);
 		List<Pais> actions = this.sas.findAllPais(pw);
 		if (actions != null && !actions.isEmpty()) {
@@ -91,7 +91,7 @@ public class PaisRestController extends BaseRestController implements CrudRestCo
 	}
 
 	@Override
-	public GenericWrapper<Pais> persistEntity(GenericWrapper<Pais> arg0) throws DefException {
+	public GenericWrapper<Pais> persistEntity(GenericWrapper<Pais> arg0) throws SegSucreException {
 		// no persisted
 		return null;
 	}

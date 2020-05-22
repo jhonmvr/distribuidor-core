@@ -1,13 +1,13 @@
-package ec.com.def.pa.repository;
+package ec.fin.segurossucre.pa.repository;
 
 import javax.ejb.Local;
 
-import ec.com.def.core.exception.DefException;
-import ec.com.def.core.persistence.CrudRepository;
-import ec.com.def.pa.model.TbSaAsegurado;
+import ec.fin.segurossucre.core.exception.SegSucreException;
+import ec.fin.segurossucre.core.persistence.CrudRepository;
+import ec.fin.segurossucre.pa.model.TbSaAsegurado;
 @Local
 public interface AseguradoRepository extends CrudRepository<Long, TbSaAsegurado> {
 
-	TbSaAsegurado finByIdentificacion(String identificacion) throws DefException;
+	TbSaAsegurado finByIdentificacion(String identificacion) throws SegSucreException;
 
 }

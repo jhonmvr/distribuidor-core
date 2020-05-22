@@ -1,4 +1,4 @@
-package ec.com.def.pa.rest;
+package ec.fin.segurossucre.pa.rest;
 
 import java.util.logging.Logger;
 import javax.inject.Inject;
@@ -8,15 +8,14 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
-
-import ec.com.def.core.exception.DefException;
-import ec.com.def.core.util.main.Constantes;
-import ec.com.def.core.web.util.BaseRestController;
-import ec.com.def.core.web.util.GenericWrapper;
-import ec.com.def.pa.repository.ProvinciaRepository;
-import ec.com.def.pa.service.PolizaAgricolaService;
-import ec.com.def.pa.service.ReportService;
-import ec.com.def.pa.util.SiniestroAgricolaConstantes;
+import ec.fin.segurossucre.core.exception.SegSucreException;
+import ec.fin.segurossucre.core.util.main.Constantes;
+import ec.fin.segurossucre.core.web.util.BaseRestController;
+import ec.fin.segurossucre.core.web.util.GenericWrapper;
+import ec.fin.segurossucre.pa.repository.ProvinciaRepository;
+import ec.fin.segurossucre.pa.service.PolizaAgricolaService;
+import ec.fin.segurossucre.pa.service.ReportService;
+import ec.fin.segurossucre.pa.util.SiniestroAgricolaConstantes;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import java.util.HashMap;
@@ -40,7 +39,7 @@ public class DescargaCatalogoRestController extends BaseRestController {
 	static final String CONDICION_PREDIO = "CONDICION PREDIO";
 	static final String TIPO_SEMILLA = "TIPO SEMILLA";
 	static final String RIEGO = "RIEGO";
-	public DescargaCatalogoRestController() throws DefException {
+	public DescargaCatalogoRestController() throws SegSucreException {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -64,7 +63,7 @@ public class DescargaCatalogoRestController extends BaseRestController {
 		public byte[] getPlantilla(
 			@QueryParam("catalogo") String catalogo,
 			@QueryParam("format") String formato
-		    ) throws  DefException {
+		    ) throws  SegSucreException {
 		log.info("===================> getPlantilla");
 		log.info("===================> getPlantilla catalogo " + catalogo );
 		log.info("===================> getPlantilla formato " + formato );
@@ -82,9 +81,9 @@ public class DescargaCatalogoRestController extends BaseRestController {
 	 * @param path
 	 * @param format
 	 * @return
-	 * @throws DefException 
+	 * @throws SegSucreException 
 	 */
-	private byte[] generateReport(Map<String, Object> map,String path, String format,String jasper) throws  DefException{
+	private byte[] generateReport(Map<String, Object> map,String path, String format,String jasper) throws  SegSucreException{
 		byte[] reportFile = null;
 		
 		if( Constantes.PDF_FILE_TYPE_EXTENSION.equalsIgnoreCase(format.trim()) ) {
@@ -126,7 +125,7 @@ private void setParameters(Map<String, Object> map,String path, String catalogo 
  * @param usuario 
  * @throws RelativeException
  */
-private void setReportData(Map<String, Object> map,String path, String catalogo) throws DefException{
+private void setReportData(Map<String, Object> map,String path, String catalogo) throws SegSucreException{
 	
 	if( StringUtils.isNotEmpty( catalogo )) {
 	//log.info("=========>llega catalogo provincia " + catalogo); 

@@ -1,17 +1,17 @@
-package ec.com.def.pa.repository;
+package ec.fin.segurossucre.pa.repository;
 
 import javax.ejb.Local;
 
-import ec.com.def.core.exception.DefException;
-import ec.com.def.core.persistence.CrudRepository;
-import ec.com.def.pa.model.Ramoplan;
-import ec.com.def.pa.model.RamoplanPK;
+import ec.fin.segurossucre.core.exception.SegSucreException;
+import ec.fin.segurossucre.core.persistence.CrudRepository;
+import ec.fin.segurossucre.pa.model.Ramoplan;
+import ec.fin.segurossucre.pa.model.RamoplanPK;
 
 @Local
 public interface RamoPlanRepository  extends CrudRepository<RamoplanPK, Ramoplan>{
 	
-	public Ramoplan findByPKFixed( String ramoid, String ramoplanid)  throws DefException;
+	public Ramoplan findByPKFixed( String ramoid, String ramoplanid)  throws SegSucreException;
 
-	public Ramoplan findByCodigo(String cultivo)throws DefException;
+	public Ramoplan findByCodigo(String cultivo)throws SegSucreException;
 
 }

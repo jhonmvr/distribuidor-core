@@ -1,20 +1,20 @@
-package ec.com.def.pa.repository.imp;
+package ec.fin.segurossucre.pa.repository.imp;
 
 import java.util.List;
 
 import javax.ejb.Stateless;
 
-import ec.com.def.core.exception.DefException;
-import ec.com.def.core.persistence.GeneralRepositoryImp;
-import ec.com.def.core.util.main.Constantes;
-import ec.com.def.pa.model.Acteco;
-import ec.com.def.pa.repository.ActecoRepository;
-import ec.com.def.pa.repository.spec.ActecoByCodigoSpec;
+import ec.fin.segurossucre.core.exception.SegSucreException;
+import ec.fin.segurossucre.core.persistence.GeneralRepositoryImp;
+import ec.fin.segurossucre.core.util.main.Constantes;
+import ec.fin.segurossucre.pa.model.Acteco;
+import ec.fin.segurossucre.pa.repository.ActecoRepository;
+import ec.fin.segurossucre.pa.repository.spec.ActecoByCodigoSpec;
 @Stateless(mappedName = "actecoRepository")
 public class ActecoRepositoryImp extends GeneralRepositoryImp<String, Acteco> implements ActecoRepository {
 
 	@Override
-	public Acteco findByCodigo(String actividadEconomica) throws DefException {
+	public Acteco findByCodigo(String actividadEconomica) throws SegSucreException {
 		List<Acteco> tmp;
 		try {
 			tmp = this.findAllBySpecification(new ActecoByCodigoSpec(actividadEconomica));
@@ -25,7 +25,7 @@ public class ActecoRepositoryImp extends GeneralRepositoryImp<String, Acteco> im
 		} catch (Exception e) {
 			
 			e.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_CUSTOM,"AL BUSCAR ACTIVIDAD ECONOMICA POR CODIGO");
+			throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM,"AL BUSCAR ACTIVIDAD ECONOMICA POR CODIGO");
 		}
 		
 	}

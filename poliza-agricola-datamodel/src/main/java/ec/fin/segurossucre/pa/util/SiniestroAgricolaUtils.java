@@ -1,4 +1,4 @@
-package ec.com.def.pa.util;
+package ec.fin.segurossucre.pa.util;
 
 import java.lang.reflect.Constructor;
 import java.math.BigDecimal;
@@ -17,8 +17,8 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import ec.com.def.core.exception.SegSucreException;
-import ec.com.def.core.util.main.Constantes;
+import ec.fin.segurossucre.core.exception.SegSucreException;
+import ec.fin.segurossucre.core.util.main.Constantes;
 
 public class SiniestroAgricolaUtils {
 

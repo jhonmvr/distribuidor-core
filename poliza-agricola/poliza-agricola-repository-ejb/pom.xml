@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>ec.com.def</groupId>
+		<groupId>ec.fin.segurossucre</groupId>
 		<artifactId>poliza-agricola</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
@@ -30,12 +30,12 @@
 		</dependency>
 		<!-- CUSTOM LIBS -->
 		<dependency>
-			<groupId>ec.com.def</groupId>
+			<groupId>ec.fin.segurossucre</groupId>
 			<artifactId>core-common-jee</artifactId>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>ec.com.def</groupId>
+			<groupId>ec.fin.segurossucre</groupId>
 			<artifactId>poliza-agricola-datamodel-ejb</artifactId>
 			<version>1.0-SNAPSHOT</version>
 			<scope>provided</scope>

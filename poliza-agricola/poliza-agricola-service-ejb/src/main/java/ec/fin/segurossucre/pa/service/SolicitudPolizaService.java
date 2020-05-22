@@ -1,4 +1,4 @@
-package ec.com.def.pa.service;
+package ec.fin.segurossucre.pa.service;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
@@ -12,30 +12,30 @@ import javax.inject.Inject;
 
 import org.apache.commons.lang.StringUtils;
 
-import ec.com.def.core.exception.DefException;
-import ec.com.def.core.util.main.Constantes;
-import ec.com.def.core.util.main.PaginatedWrapper;
-import ec.com.def.pa.enums.EstadoSiniestroAgricolaEnum;
-import ec.com.def.pa.model.Estadocivil;
-import ec.com.def.pa.model.Ramocanal;
-import ec.com.def.pa.model.TbPaCanalSecuencia;
-import ec.com.def.pa.model.TbPaCaracteristicaCultivo;
-import ec.com.def.pa.model.TbPaPredio;
-import ec.com.def.pa.model.TbPaSolicitudPoliza;
-import ec.com.def.pa.model.TbSaAsegurado;
-import ec.com.def.pa.model.Un01;
-import ec.com.def.pa.repository.AseguradoRepository;
-import ec.com.def.pa.repository.CanalSecuenciaRepository;
-import ec.com.def.pa.repository.CaracteristicaCultivoRepository;
-import ec.com.def.pa.repository.ParametroRepository;
-import ec.com.def.pa.repository.PredioRepository;
-import ec.com.def.pa.repository.SolicitudPolizaRepository;
-import ec.com.def.pa.repository.Un01Repository;
-import ec.com.def.pa.un01.api.Un01ApiClient;
-import ec.com.def.pa.util.SiniestroAgricolaConstantes;
-import ec.com.def.pa.util.SiniestroAgricolaUtils;
-import ec.com.def.pa.wrapper.ConsultaSolicitudPolizaWrapper;
-import ec.com.def.pa.wrapper.UN01Wrapper;
+import ec.fin.segurossucre.core.exception.SegSucreException;
+import ec.fin.segurossucre.core.util.main.Constantes;
+import ec.fin.segurossucre.core.util.main.PaginatedWrapper;
+import ec.fin.segurossucre.pa.enums.EstadoSiniestroAgricolaEnum;
+import ec.fin.segurossucre.pa.model.Estadocivil;
+import ec.fin.segurossucre.pa.model.Ramocanal;
+import ec.fin.segurossucre.pa.model.TbPaCanalSecuencia;
+import ec.fin.segurossucre.pa.model.TbPaCaracteristicaCultivo;
+import ec.fin.segurossucre.pa.model.TbPaPredio;
+import ec.fin.segurossucre.pa.model.TbPaSolicitudPoliza;
+import ec.fin.segurossucre.pa.model.TbSaAsegurado;
+import ec.fin.segurossucre.pa.model.Un01;
+import ec.fin.segurossucre.pa.repository.AseguradoRepository;
+import ec.fin.segurossucre.pa.repository.CanalSecuenciaRepository;
+import ec.fin.segurossucre.pa.repository.CaracteristicaCultivoRepository;
+import ec.fin.segurossucre.pa.repository.ParametroRepository;
+import ec.fin.segurossucre.pa.repository.PredioRepository;
+import ec.fin.segurossucre.pa.repository.SolicitudPolizaRepository;
+import ec.fin.segurossucre.pa.repository.Un01Repository;
+import ec.fin.segurossucre.pa.un01.api.Un01ApiClient;
+import ec.fin.segurossucre.pa.util.SiniestroAgricolaConstantes;
+import ec.fin.segurossucre.pa.util.SiniestroAgricolaUtils;
+import ec.fin.segurossucre.pa.wrapper.ConsultaSolicitudPolizaWrapper;
+import ec.fin.segurossucre.pa.wrapper.UN01Wrapper;
 @Stateless
 public class SolicitudPolizaService {
 
@@ -74,10 +74,10 @@ public class SolicitudPolizaService {
 	 * @param estado1
 	 * @param estado2
 	 * @return
-	 * @throws DefException
+	 * @throws SegSucreException
 	 * @author Saul Mendez
 	 */
-	public List<ConsultaSolicitudPolizaWrapper> findByParams(PaginatedWrapper pw, String  numeroSolicitud, String numeroTramite, Date desde, Date hasta, String canal) throws DefException {
+	public List<ConsultaSolicitudPolizaWrapper> findByParams(PaginatedWrapper pw, String  numeroSolicitud, String numeroTramite, Date desde, Date hasta, String canal) throws SegSucreException {
 		return this.solicitudPolizaRepository.findByParams(pw, numeroSolicitud, numeroTramite, desde,hasta,canal);
 	}
 
@@ -91,10 +91,10 @@ public class SolicitudPolizaService {
 	 * @param estado1
 	 * @param estado2
 	 * @return
-	 * @throws DefException
+	 * @throws SegSucreException
 	 * @author Saul Mendez
 	 */
-	public List<ConsultaSolicitudPolizaWrapper> findByParamsReporte( String  numeroSolicitud, String numeroTramite, Date desde, Date hasta, String canal) throws DefException {
+	public List<ConsultaSolicitudPolizaWrapper> findByParamsReporte( String  numeroSolicitud, String numeroTramite, Date desde, Date hasta, String canal) throws SegSucreException {
 		return this.solicitudPolizaRepository.setWrapperSolicitudPoliza( numeroSolicitud, numeroTramite, desde,hasta,canal);
 	}
 
@@ -108,14 +108,14 @@ public class SolicitudPolizaService {
 	 * @param estado1
 	 * @param estado2
 	 * @return
-	 * @throws DefException
+	 * @throws SegSucreException
 	 * @author Saul Mendez
 	 */
-	public Integer countBySolicitudPoliza(PaginatedWrapper pw, String numeroSolicitud, String numeroTramite, Date desde, Date hasta, String canal) throws DefException {
+	public Integer countBySolicitudPoliza(PaginatedWrapper pw, String numeroSolicitud, String numeroTramite, Date desde, Date hasta, String canal) throws SegSucreException {
 		try {
 			return this.solicitudPolizaRepository.countBySolicitudesPoliza(pw, numeroSolicitud, numeroTramite, desde,hasta,canal);
 		} catch (Exception e) {
-			throw new DefException("" + e);
+			throw new SegSucreException("" + e);
 		}
 	}
 
@@ -130,16 +130,16 @@ public class SolicitudPolizaService {
 	 * @param id Pk de la entidad
 	 * @return Entidad encontradaa
 	 * @author JHON ROMERO - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public TbPaSolicitudPoliza findSolicitudPolizaById(Long id) throws DefException {
+	public TbPaSolicitudPoliza findSolicitudPolizaById(Long id) throws SegSucreException {
 		try {
 			return solicitudPolizaRepository.findById(id);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_READ, e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, e.getMessage());
 		}
 	}
 
@@ -147,17 +147,17 @@ public class SolicitudPolizaService {
 	 * Metodo que cuenta la cantidad de entidades existentes
 	 * 
 	 * @return Cantidad de entidades encontradas
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public Long countSolicitudPoliza() throws DefException {
+	public Long countSolicitudPoliza() throws SegSucreException {
 		try {
 			return solicitudPolizaRepository.countAll(TbPaSolicitudPoliza.class);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			e.printStackTrace();
 			throw e;
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_READ, "SolicitudPoliza no encontrado " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "SolicitudPoliza no encontrado " + e.getMessage());
 		}
 	}
 
@@ -168,9 +168,9 @@ public class SolicitudPolizaService {
 	 *           resultado es total o paginado
 	 * @return Listado de entidades encontradas
 	 * @author JHON ROMERO - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public List<TbPaSolicitudPoliza> findAllSolicitudPoliza(PaginatedWrapper pw) throws DefException {
+	public List<TbPaSolicitudPoliza> findAllSolicitudPoliza(PaginatedWrapper pw) throws SegSucreException {
 		if (pw == null) {
 			return this.solicitudPolizaRepository.findAll(TbPaSolicitudPoliza.class);
 		} else {
@@ -189,9 +189,9 @@ public class SolicitudPolizaService {
 	 * 
 	 * @param send entidad con la informacion de creacion o actualizacion
 	 * @return Entidad modificada o actualizada
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public TbPaSolicitudPoliza manageSolicitudPoliza(TbPaSolicitudPoliza send) throws DefException {
+	public TbPaSolicitudPoliza manageSolicitudPoliza(TbPaSolicitudPoliza send) throws SegSucreException {
 		try {
 			log.info("==> entra a manage SolicitudPoliza");
 			TbPaSolicitudPoliza persisted = null;
@@ -204,14 +204,14 @@ public class SolicitudPolizaService {
 
 				return solicitudPolizaRepository.add(send);
 			} else {
-				throw new DefException(Constantes.ERROR_CODE_CUSTOM, "TbPaSolicitudPoliza es null");
+				throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM, "TbPaSolicitudPoliza es null");
 			}
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			e.printStackTrace();
 			throw e;
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_UPDATE,
+			throw new SegSucreException(Constantes.ERROR_CODE_UPDATE,
 					"Error actualizando la SolicitudPoliza " + e.getMessage());
 		}
 	}
@@ -222,10 +222,10 @@ public class SolicitudPolizaService {
 	 * @param send      informacion enviada para update
 	 * @param persisted entidad existente sobre la que se actualiza
 	 * @return Entidad actualizada
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
 	public TbPaSolicitudPoliza updateSolicitudPoliza(TbPaSolicitudPoliza send, TbPaSolicitudPoliza persisted)
-			throws DefException {
+			throws SegSucreException {
 		try {
 			persisted.setAutorizacion(send.getAutorizacion());
 			persisted.setEstado(send.getEstado());
@@ -233,12 +233,12 @@ public class SolicitudPolizaService {
 			persisted.setUbicacionPredio(send.getUbicacionPredio());
 			persisted.setValorEndoso(send.getValorEndoso());
 			return solicitudPolizaRepository.update(persisted);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			e.printStackTrace();
 			throw e;
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_UPDATE,
+			throw new SegSucreException(Constantes.ERROR_CODE_UPDATE,
 					"Error actualizando SolicitudPoliza " + e.getMessage());
 		}
 	}
@@ -253,17 +253,17 @@ public class SolicitudPolizaService {
 	 * @param id Pk de la entidad
 	 * @return Entidad encontradaa
 	 * @author JHON ROMERO - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public TbPaCaracteristicaCultivo findCaracteristicaCultivoById(Long id) throws DefException {
+	public TbPaCaracteristicaCultivo findCaracteristicaCultivoById(Long id) throws SegSucreException {
 		try {
 			return caracteristicaCultivoRepository.findById(id);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			e.printStackTrace();
 			throw e;
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_READ, "TbPaCaracteristicaCultivo NO ENCONTRADO " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "TbPaCaracteristicaCultivo NO ENCONTRADO " + e.getMessage());
 		}
 	}
 
@@ -271,17 +271,17 @@ public class SolicitudPolizaService {
 	 * Metodo que cuenta la cantidad de entidades existentes
 	 * 
 	 * @return Cantidad de entidades encontradas
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public Long countCaracteristicaCultivo() throws DefException {
+	public Long countCaracteristicaCultivo() throws SegSucreException {
 		try {
 			return caracteristicaCultivoRepository.countAll(TbPaCaracteristicaCultivo.class);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			e.printStackTrace();
 			throw e;
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_READ,
+			throw new SegSucreException(Constantes.ERROR_CODE_READ,
 					"countCaracteristicaCultivo no encontrado " + e.getMessage());
 		}
 	}
@@ -293,9 +293,9 @@ public class SolicitudPolizaService {
 	 *           resultado es total o paginado
 	 * @return Listado de entidades encontradas
 	 * @author JHON ROMERO - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public List<TbPaCaracteristicaCultivo> findAllCaracteristicaCultivo(PaginatedWrapper pw) throws DefException {
+	public List<TbPaCaracteristicaCultivo> findAllCaracteristicaCultivo(PaginatedWrapper pw) throws SegSucreException {
 		if (pw == null) {
 			return this.caracteristicaCultivoRepository.findAll(TbPaCaracteristicaCultivo.class);
 		} else {
@@ -314,10 +314,10 @@ public class SolicitudPolizaService {
 	 * 
 	 * @param send entidad con la informacion de creacion o actualizacion
 	 * @return Entidad modificada o actualizada
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
 	public TbPaCaracteristicaCultivo manageCaracteristicaCultivo(TbPaCaracteristicaCultivo send)
-			throws DefException {
+			throws SegSucreException {
 		try {
 			log.info("==> entra a manage CaracteristicaCultivo");
 			TbPaCaracteristicaCultivo persisted = null;
@@ -331,26 +331,26 @@ public class SolicitudPolizaService {
 
 				return caracteristicaCultivoRepository.add(send);
 			} else {
-				throw new DefException(Constantes.ERROR_CODE_CUSTOM, "manageCaracteristicaCultivo");
+				throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM, "manageCaracteristicaCultivo");
 			}
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			e.printStackTrace();
 			throw e;
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_UPDATE,
+			throw new SegSucreException(Constantes.ERROR_CODE_UPDATE,
 					"Error actualizando la CaracteristicaCultivo " + e.getMessage());
 		}
 	}
 	
-	public void validarCaracteristicaCultivo(TbPaCaracteristicaCultivo send)throws DefException {
+	public void validarCaracteristicaCultivo(TbPaCaracteristicaCultivo send)throws SegSucreException {
 		if(send.getRamoplan() == null || send.getSuperficieAsegurada() == null || send.getCostoHectarea() == null 
 				|| send.getMontoAsegurado() == null || send.getFechaSiembra() == null || StringUtils.isBlank(send.getAsistenciaTecnica()) 
 				|| StringUtils.isBlank(send.getRiego()) || send.getRiegoBean() == null) {
-			throw new DefException(Constantes.ERROR_CODE_CUSTOM,"COMPLETE LOS CAMPOS OBLIGATORIOS DEL CULTIVO");
+			throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM,"COMPLETE LOS CAMPOS OBLIGATORIOS DEL CULTIVO");
 		}
 		if(StringUtils.isNotBlank(send.getVariedad()) && send.getVariedad().length()>20) {
-			throw new DefException(Constantes.ERROR_CODE_CUSTOM,"LA VARIEDAD DEL CULTIVO SOLO PUEDO TENER 20 CARACTERES");
+			throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM,"LA VARIEDAD DEL CULTIVO SOLO PUEDO TENER 20 CARACTERES");
 		}
 		
 	}
@@ -361,10 +361,10 @@ public class SolicitudPolizaService {
 	 * @param send      informacion enviada para update
 	 * @param persisted entidad existente sobre la que se actualiza
 	 * @return Entidad actualizada
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
 	public TbPaCaracteristicaCultivo updateCaracteristicaCultivo(TbPaCaracteristicaCultivo send,
-			TbPaCaracteristicaCultivo persisted) throws DefException {
+			TbPaCaracteristicaCultivo persisted) throws SegSucreException {
 		try {
 			persisted.setAsistenciaTecnica(send.getAsistenciaTecnica());
 			persisted.setCostoHectarea(send.getCostoHectarea());
@@ -377,12 +377,12 @@ public class SolicitudPolizaService {
 			persisted.setTiposemilla(send.getTiposemilla());
 			persisted.setVariedad(send.getVariedad());
 			return caracteristicaCultivoRepository.update(persisted);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			e.printStackTrace();
 			throw e;
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_UPDATE,
+			throw new SegSucreException(Constantes.ERROR_CODE_UPDATE,
 					"Error actualizando CaracteristicaCultivo " + e.getMessage());
 		}
 	}
@@ -397,17 +397,17 @@ public class SolicitudPolizaService {
 	 * @param id Pk de la entidad
 	 * @return Entidad encontradaa
 	 * @author JHON ROMERO - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public TbPaPredio findPredioById(Long id) throws DefException {
+	public TbPaPredio findPredioById(Long id) throws SegSucreException {
 		try {
 			return predioRepository.findById(id);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			e.printStackTrace();
 			throw e;
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_READ, "Action no encontrada " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Action no encontrada " + e.getMessage());
 		}
 	}
 
@@ -415,17 +415,17 @@ public class SolicitudPolizaService {
 	 * Metodo que cuenta la cantidad de entidades existentes
 	 * 
 	 * @return Cantidad de entidades encontradas
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public Long countPredio() throws DefException {
+	public Long countPredio() throws SegSucreException {
 		try {
 			return predioRepository.countAll(TbPaPredio.class);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			e.printStackTrace();
 			throw e;
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_READ, "Predio no encontrado " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Predio no encontrado " + e.getMessage());
 		}
 	}
 
@@ -436,9 +436,9 @@ public class SolicitudPolizaService {
 	 *           resultado es total o paginado
 	 * @return Listado de entidades encontradas
 	 * @author JHON ROMERO - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public List<TbPaPredio> findAllPredio(PaginatedWrapper pw) throws DefException {
+	public List<TbPaPredio> findAllPredio(PaginatedWrapper pw) throws SegSucreException {
 		if (pw == null) {
 			return this.predioRepository.findAll(TbPaPredio.class);
 		} else {
@@ -456,9 +456,9 @@ public class SolicitudPolizaService {
 	 * 
 	 * @param send entidad con la informacion de creacion o actualizacion
 	 * @return Entidad modificada o actualizada
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public TbPaPredio managePredio(TbPaPredio send) throws DefException {
+	public TbPaPredio managePredio(TbPaPredio send) throws SegSucreException {
 		try {
 			log.info("==> entra a manage Predio");
 			validatePredio(send);
@@ -472,21 +472,21 @@ public class SolicitudPolizaService {
 
 				return predioRepository.add(send);
 			} else {
-				throw new DefException(Constantes.ERROR_CODE_CUSTOM, "Error no se realizo transaccion");
+				throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM, "Error no se realizo transaccion");
 			}
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			e.printStackTrace();
 			throw e;
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_UPDATE, "Error actualizando la Predio " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_UPDATE, "Error actualizando la Predio " + e.getMessage());
 		}
 	}
 	
-	private void validatePredio(TbPaPredio predio)  throws DefException {
+	private void validatePredio(TbPaPredio predio)  throws SegSucreException {
 		if(predio.getParroquia() == null || StringUtils.isBlank(predio.getRecinto())
 				|| StringUtils.isBlank(predio.getReferencia()) || predio.getCondicionpredio() == null) {
-			throw new DefException(Constantes.ERROR_CODE_CREATE, "COMPLETAR LOS CAMPOS REQUERIDOS");
+			throw new SegSucreException(Constantes.ERROR_CODE_CREATE, "COMPLETAR LOS CAMPOS REQUERIDOS");
 		}
 		/**
 		 * LATITUD LIMITES:            162949 al 9446349
@@ -497,7 +497,7 @@ public class SolicitudPolizaService {
 					Long.valueOf(this.parametroRepository.findByNombre(SiniestroAgricolaConstantes.MIN_LATITUD).getValor()))) <0
 				|| predio.getCoordenadaY().compareTo(BigDecimal.valueOf(
 						Long.valueOf(this.parametroRepository.findByNombre(SiniestroAgricolaConstantes.MAX_LATITUD).getValor()))) > 0) ) {
-				throw new DefException(Constantes.ERROR_CODE_CUSTOM,"LATITUD LIMITES: "+
+				throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM,"LATITUD LIMITES: "+
 						this.parametroRepository.findByNombre(SiniestroAgricolaConstantes.MIN_LATITUD).getValor()
 						+" al "+this.parametroRepository.findByNombre(SiniestroAgricolaConstantes.MAX_LATITUD).getValor());
 		}
@@ -506,23 +506,23 @@ public class SolicitudPolizaService {
 					Long.valueOf(this.parametroRepository.findByNombre(SiniestroAgricolaConstantes.MIN_LONGITUD).getValor()))) <0
 				|| predio.getCoordenadaX().compareTo(BigDecimal.valueOf(
 						Long.valueOf(this.parametroRepository.findByNombre(SiniestroAgricolaConstantes.MAX_LONGITUD).getValor()))) > 0) ) {
-				throw new DefException(Constantes.ERROR_CODE_CUSTOM,
+				throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM,
 						"LONGITUD LIMITES: "+
 								this.parametroRepository.findByNombre(SiniestroAgricolaConstantes.MIN_LONGITUD).getValor()
 								+" al "+this.parametroRepository.findByNombre(SiniestroAgricolaConstantes.MAX_LONGITUD).getValor());
 		}
 
 		if(predio.getRecinto().length()>150) {
-			throw new DefException(Constantes.ERROR_CODE_CUSTOM,"RECINTO DEL PREDIO SOLO PUEDE TENER 150 CARACTERES");
+			throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM,"RECINTO DEL PREDIO SOLO PUEDE TENER 150 CARACTERES");
 		}
 		if(predio.getReferencia().length()>150) {
-			throw new DefException(Constantes.ERROR_CODE_CUSTOM,"REFERENCIA DEL PREDIO SOLO PUEDE TENER 150 CARACTERES");
+			throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM,"REFERENCIA DEL PREDIO SOLO PUEDE TENER 150 CARACTERES");
 		}
 		if(predio.getAltitud() != null && predio.getAltitud().compareTo(BigDecimal.valueOf(Long.valueOf("9999999999")))>0) {
-			throw new DefException(Constantes.ERROR_CODE_CUSTOM,"ALTITUD DEL PREDIO NO PUEDE SER MAYOR QUE 9999999999");
+			throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM,"ALTITUD DEL PREDIO NO PUEDE SER MAYOR QUE 9999999999");
 		}
 		if(StringUtils.isNotBlank(predio.getCondicion()) && predio.getCondicion().length()>20) {
-			throw new DefException(Constantes.ERROR_CODE_CUSTOM,"CONDICION DEL PREDIO SOLO PUEDE TENER 20 CARACTERES");
+			throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM,"CONDICION DEL PREDIO SOLO PUEDE TENER 20 CARACTERES");
 		}
 	}
 
@@ -532,9 +532,9 @@ public class SolicitudPolizaService {
 	 * @param send      informacion enviada para update
 	 * @param persisted entidad existente sobre la que se actualiza
 	 * @return Entidad actualizada
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public TbPaPredio updatePredio(TbPaPredio send, TbPaPredio persisted) throws DefException {
+	public TbPaPredio updatePredio(TbPaPredio send, TbPaPredio persisted) throws SegSucreException {
 		try {
 			persisted.setAltitud(send.getAltitud());
 			persisted.setCondicion(send.getCondicion());
@@ -545,12 +545,12 @@ public class SolicitudPolizaService {
 			persisted.setRecinto(send.getRecinto());
 			persisted.setReferencia(send.getReferencia());
 			return predioRepository.update(persisted);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			e.printStackTrace();
 			throw e;
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_UPDATE, "Error actualizando Predio " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_UPDATE, "Error actualizando Predio " + e.getMessage());
 		}
 	}
 
@@ -564,17 +564,17 @@ public class SolicitudPolizaService {
 	 * @param id Pk de la entidad
 	 * @return Entidad encontradaa
 	 * @author JHON ROMERO - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public TbSaAsegurado findAseguradoById(Long id) throws DefException {
+	public TbSaAsegurado findAseguradoById(Long id) throws SegSucreException {
 		try {
 			return aseguradoRepository.findById(id);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			e.printStackTrace();
 			throw e;
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_READ, "Action no encontrada " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Action no encontrada " + e.getMessage());
 		}
 	}
 
@@ -582,17 +582,17 @@ public class SolicitudPolizaService {
 	 * Metodo que cuenta la cantidad de entidades existentes
 	 * 
 	 * @return Cantidad de entidades encontradas
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public Long countAsegurado() throws DefException {
+	public Long countAsegurado() throws SegSucreException {
 		try {
 			return aseguradoRepository.countAll(TbSaAsegurado.class);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			e.printStackTrace();
 			throw e;
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_READ, "Asegurado no encontrado " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Asegurado no encontrado " + e.getMessage());
 		}
 	}
 
@@ -603,9 +603,9 @@ public class SolicitudPolizaService {
 	 *           resultado es total o paginado
 	 * @return Listado de entidades encontradas
 	 * @author JHON ROMERO - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public List<TbSaAsegurado> findAllAsegurado(PaginatedWrapper pw) throws DefException {
+	public List<TbSaAsegurado> findAllAsegurado(PaginatedWrapper pw) throws SegSucreException {
 		if (pw == null) {
 			return this.aseguradoRepository.findAll(TbSaAsegurado.class);
 		} else {
@@ -624,9 +624,9 @@ public class SolicitudPolizaService {
 	 * 
 	 * @param send entidad con la informacion de creacion o actualizacion
 	 * @return Entidad modificada o actualizada
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public TbSaAsegurado manageAsegurado(TbSaAsegurado send) throws DefException {
+	public TbSaAsegurado manageAsegurado(TbSaAsegurado send) throws SegSucreException {
 		try {
 			log.info("==> entra a manage Asegurado");
 			this.validarAsegurado(send);
@@ -640,19 +640,19 @@ public class SolicitudPolizaService {
 				send.setEstado(EstadoSiniestroAgricolaEnum.ACT);
 				return aseguradoRepository.add(send);
 			} else {
-				throw new DefException(Constantes.ERROR_CODE_CUSTOM, "Error no se realizo transaccion");
+				throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM, "Error no se realizo transaccion");
 			}
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			e.printStackTrace();
 			throw e;
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_UPDATE,
+			throw new SegSucreException(Constantes.ERROR_CODE_UPDATE,
 					"Error actualizando la Asegurado " + e.getMessage());
 		}
 	}
 	
-	private void validarAsegurado(TbSaAsegurado asegurado) throws DefException {
+	private void validarAsegurado(TbSaAsegurado asegurado) throws SegSucreException {
 		log.info("=======>>>"+StringUtils.isBlank(asegurado.getIdentificacion()));
 		log.info("=======>>>"+StringUtils.isBlank(asegurado.getApellido()));
 		log.info("=======>>>"+StringUtils.isBlank(asegurado.getNombres()));
@@ -679,34 +679,34 @@ public class SolicitudPolizaService {
 				|| !validateingreso(asegurado.getIngresoAnual()) || StringUtils.isBlank(asegurado.getCorreo())
 				|| asegurado.getActeco() == null || StringUtils.isBlank(asegurado.getAgricultura())
 				|| StringUtils.isBlank(asegurado.getPoliticamenteExpuesta()) ) {
-			throw new DefException(Constantes.ERROR_CODE_CUSTOM,"COMPLETE LA INFORMACION REQUERIDA");
+			throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM,"COMPLETE LA INFORMACION REQUERIDA");
 		}
 		if(!SiniestroAgricolaUtils.validateEmail(asegurado.getCorreo())) {
-			throw new DefException(Constantes.ERROR_CODE_CUSTOM,"CORREO ELECTRONICO INVALIDO");
+			throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM,"CORREO ELECTRONICO INVALIDO");
 		}
 		if(asegurado.getDireccion().length()>50) {
-			throw new DefException(Constantes.ERROR_CODE_CUSTOM,"CALLE DEL ASEGURADO SOLO PUEDE TENER 50 CARACTERES");
+			throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM,"CALLE DEL ASEGURADO SOLO PUEDE TENER 50 CARACTERES");
 		}
 		if(asegurado.getReferencia().length()>150) {
-			throw new DefException(Constantes.ERROR_CODE_CUSTOM,"RECINTO DEL ASEGURADO SOLO PUEDE TENER 150 CARACTERES");
+			throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM,"RECINTO DEL ASEGURADO SOLO PUEDE TENER 150 CARACTERES");
 		}
 		
 	}
 
 	
-	private boolean validateingreso(BigDecimal bigDecimal) throws DefException {
+	private boolean validateingreso(BigDecimal bigDecimal) throws SegSucreException {
 		try {
 			if(bigDecimal == null) {
 				return false;
 			}
 			if(bigDecimal.compareTo(BigDecimal.valueOf(Double.valueOf("800"))) < 0) {
-				throw new DefException(Constantes.ERROR_CODE_CUSTOM,"LOS INGRESOS ANUALES NO PUEDEN SER MENOR QUE 800");
+				throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM,"LOS INGRESOS ANUALES NO PUEDEN SER MENOR QUE 800");
 			}
 			return true;
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		}catch (NumberFormatException e) {
-			throw new DefException(Constantes.ERROR_CODE_CUSTOM,"LOS INGRESOS ANUALES NO PUEDEN SER MENOR QUE 800");
+			throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM,"LOS INGRESOS ANUALES NO PUEDEN SER MENOR QUE 800");
 		}
 	}
 	/**
@@ -715,9 +715,9 @@ public class SolicitudPolizaService {
 	 * @param send      informacion enviada para update
 	 * @param persisted entidad existente sobre la que se actualiza
 	 * @return Entidad actualizada
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public TbSaAsegurado updateAsegurado(TbSaAsegurado send, TbSaAsegurado persisted) throws DefException {
+	public TbSaAsegurado updateAsegurado(TbSaAsegurado send, TbSaAsegurado persisted) throws SegSucreException {
 		try {
 			if(persisted.getActeco()==null) {
 				persisted.setActeco(send.getActeco());
@@ -768,12 +768,12 @@ public class SolicitudPolizaService {
 			persisted.setTelefonoCelular(send.getTelefonoCelular());			
 			persisted.setTelefonoConvencional(send.getTelefonoConvencional());
 			return aseguradoRepository.update(persisted);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			e.printStackTrace();
 			throw e;
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_UPDATE, "Error actualizando Asegurado " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_UPDATE, "Error actualizando Asegurado " + e.getMessage());
 		}
 	}
 	
@@ -784,9 +784,9 @@ public class SolicitudPolizaService {
 	 * 
 	 * @param poliza
 	 * @return
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public TbPaSolicitudPoliza guardarPoliza(TbPaSolicitudPoliza poliza) throws DefException {
+	public TbPaSolicitudPoliza guardarPoliza(TbPaSolicitudPoliza poliza) throws SegSucreException {
 		try {
 			
 			poliza.setCodigo(generateCodigo());
@@ -798,25 +798,25 @@ public class SolicitudPolizaService {
 			poliza.setTbPaPredio(this.managePredio(poliza.getTbPaPredio()));
 			poliza.setTbSaAsegurado(this.manageAsegurado(poliza.getTbSaAsegurado()));
 			if(poliza.getAutorizacion().equalsIgnoreCase("No")) {
-				throw new DefException(Constantes.ERROR_CODE_CUSTOM,"TIENE QUE ACEPTAR LA AUTORIAZACION");
+				throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM,"TIENE QUE ACEPTAR LA AUTORIAZACION");
 			}
 			poliza = this.manageSolicitudPoliza(poliza);
 			//guardarUn01(poliza);
 			Un01ApiClient.callpun01Rest(this.parametroRepository.findByNombre(SiniestroAgricolaConstantes.
 					  API_URL_UN01).getValor(), null, mapPolizaToUn01(poliza));
 			return poliza;
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			e.printStackTrace();
 			throw e;
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_CUSTOM, "AL INTENTAR GUARDAR LA POLIZA");
+			throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM, "AL INTENTAR GUARDAR LA POLIZA");
 		}
 		
 	}
 	
 
-	public UN01Wrapper mapPolizaToUn01(TbPaSolicitudPoliza poliza)throws DefException {
+	public UN01Wrapper mapPolizaToUn01(TbPaSolicitudPoliza poliza)throws SegSucreException {
 		UN01Wrapper un01 = new UN01Wrapper();
 		un01.setActividadEconomica(poliza.getTbSaAsegurado().getActeco().getAeccod());
 		un01.setApellidos(poliza.getTbSaAsegurado().getApellido());
@@ -888,7 +888,7 @@ public class SolicitudPolizaService {
 	}
 	
 	
-	public TbSaAsegurado finAseguradoByIdentificacion(String identificacion) throws DefException {
+	public TbSaAsegurado finAseguradoByIdentificacion(String identificacion) throws SegSucreException {
 		try {
 			TbSaAsegurado asegurado = aseguradoRepository.finByIdentificacion(identificacion);
 			if (asegurado == null) {
@@ -898,16 +898,16 @@ public class SolicitudPolizaService {
 				}
 			}
 			return asegurado;
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			e.printStackTrace();
 			throw e;
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_CUSTOM, "AL LEER LA INFORMACION DEL ASEGURADO");
+			throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM, "AL LEER LA INFORMACION DEL ASEGURADO");
 		}
 	}
 
-	private TbSaAsegurado un01ToAsegurado(Un01 un) throws DefException {
+	private TbSaAsegurado un01ToAsegurado(Un01 un) throws SegSucreException {
 
 		try {
 			TbSaAsegurado ase = new TbSaAsegurado();
@@ -924,12 +924,12 @@ public class SolicitudPolizaService {
 			return ase;
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_CUSTOM, "AL LEER LA INFORMACION DEL ASEGURADO DE UN01");
+			throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM, "AL LEER LA INFORMACION DEL ASEGURADO DE UN01");
 		}
 
 	}
 
-	private void guardarUn01(TbPaSolicitudPoliza poliza) throws DefException {
+	private void guardarUn01(TbPaSolicitudPoliza poliza) throws SegSucreException {
 		Un01 un = new Un01();
 
 		// asegurado
@@ -1090,7 +1090,7 @@ public class SolicitudPolizaService {
 		this.un01Repository.add(un);
 	}
 
-	private String generateCodigo() throws DefException {
+	private String generateCodigo() throws SegSucreException {
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(new Date());
 		String codigo = SiniestroAgricolaConstantes.CODIGO_POLIZA;
@@ -1101,7 +1101,7 @@ public class SolicitudPolizaService {
 
 	}
 
-	private String generateNumeroTramite(Ramocanal canal) throws DefException {
+	private String generateNumeroTramite(Ramocanal canal) throws SegSucreException {
 		/*
 		 * TbPaCanalSecuencia seq =
 		 * this.canalSecuenciaRepository.findByCanalId(canal.getId()); if(seq == null) {
@@ -1131,29 +1131,29 @@ public class SolicitudPolizaService {
 	 * 
 	 * @param entidad
 	 * @author Jhon Romero
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	private void validatePoliza(TbPaSolicitudPoliza entidad) throws DefException {
+	private void validatePoliza(TbPaSolicitudPoliza entidad) throws SegSucreException {
 		List<ConsultaSolicitudPolizaWrapper> ls = solicitudPolizaRepository.findByParams(null, entidad.getCodigo(), null, null, null, null);
 		if(ls != null && !ls.isEmpty()) {
-			throw new DefException(Constantes.ERROR_CODE_CUSTOM, "CODIGO DE SOLICITUD OCUPADO VUELVA A INTENTAR");
+			throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM, "CODIGO DE SOLICITUD OCUPADO VUELVA A INTENTAR");
 		}
 		if (entidad.getRamocanal() == null) {
-			throw new DefException(Constantes.ERROR_CODE_CUSTOM, "NO SE PUEDE LEER LA INFORMACION DEL CANAL");
+			throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM, "NO SE PUEDE LEER LA INFORMACION DEL CANAL");
 		}
 		if (entidad.getTbPaCaracteristicaCultivo() == null) {
-			throw new DefException(Constantes.ERROR_CODE_CUSTOM, "NO SE PUEDE LEER LA INFORMACION DEL CULTIVO");
+			throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM, "NO SE PUEDE LEER LA INFORMACION DEL CULTIVO");
 		}
 		if (entidad.getTbPaPredio() == null) {
-			throw new DefException(Constantes.ERROR_CODE_CUSTOM, "NO SE PUEDE LEER LA INFORMACION DEL PREDIO");
+			throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM, "NO SE PUEDE LEER LA INFORMACION DEL PREDIO");
 		}
 		if (entidad.getTbSaAsegurado() == null) {
-			throw new DefException(Constantes.ERROR_CODE_CUSTOM, "NO SE PUEDE LEER LA INFORMACION DEL ASEGURADO");
+			throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM, "NO SE PUEDE LEER LA INFORMACION DEL ASEGURADO");
 		}
 	}
 
 
-	public void upDateSolicitudPoliza()  throws DefException{
+	public void upDateSolicitudPoliza()  throws SegSucreException{
 		this.solicitudPolizaRepository.upDate();
 		
 	}

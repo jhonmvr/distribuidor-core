@@ -16,7 +16,7 @@
 
 	<parent>
 		<artifactId>poliza-agricola</artifactId>
-		<groupId>ec.com.def</groupId>
+		<groupId>ec.fin.segurossucre</groupId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 
@@ -36,7 +36,7 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>ec.com.def</groupId>
+			<groupId>ec.fin.segurossucre</groupId>
 			<artifactId>core-common-web</artifactId>
 			<type>jar</type>
 			<scope>provided</scope>
@@ -48,7 +48,7 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>ec.com.def</groupId>
+			<groupId>ec.fin.segurossucre</groupId>
 			<artifactId>core-security-datamodel</artifactId>
 			<type>jar</type>
 		</dependency>
@@ -61,25 +61,25 @@
 
 		<!-- Depend on the ejb module and war so that we can package them -->
 		<dependency>
-			<groupId>ec.com.def</groupId>
+			<groupId>ec.fin.segurossucre</groupId>
 			<artifactId>poliza-agricola-rest</artifactId>
 			<version>1.0-SNAPSHOT</version>
 			<type>war</type>
 		</dependency>
 		<dependency>
-			<groupId>ec.com.def</groupId>
+			<groupId>ec.fin.segurossucre</groupId>
 			<artifactId>poliza-agricola-service-ejb</artifactId>
 			<version>1.0-SNAPSHOT</version>
 			<type>ejb</type>
 		</dependency>
 		<dependency>
-			<groupId>ec.com.def</groupId>
+			<groupId>ec.fin.segurossucre</groupId>
 			<artifactId>poliza-agricola-repository-ejb</artifactId>
 			<version>1.0-SNAPSHOT</version>
 			<type>ejb</type>
 		</dependency>
 		<dependency>
-			<groupId>ec.com.def</groupId>
+			<groupId>ec.fin.segurossucre</groupId>
 			<artifactId>poliza-agricola-datamodel-ejb</artifactId>
 			<version>1.0-SNAPSHOT</version>
 			<type>ejb</type>

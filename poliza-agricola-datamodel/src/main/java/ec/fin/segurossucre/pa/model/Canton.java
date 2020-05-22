@@ -1,4 +1,4 @@
-package ec.com.def.pa.model;
+package ec.fin.segurossucre.pa.model;
 
 import java.io.Serializable;
 import java.util.List;

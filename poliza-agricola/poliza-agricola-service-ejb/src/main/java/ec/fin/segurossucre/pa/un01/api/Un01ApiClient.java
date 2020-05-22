@@ -1,4 +1,4 @@
-package ec.com.def.pa.un01.api;
+package ec.fin.segurossucre.pa.un01.api;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -10,14 +10,14 @@ import org.apache.commons.logging.LogFactory;
 
 import com.google.gson.Gson;
 
-import ec.com.def.core.exception.DefException;
-import ec.com.def.core.util.main.Constantes;
-import ec.com.def.pa.util.SiniestroAgricolaConstantes;
-import ec.com.def.pa.wrapper.RestClientWrapper;
-import ec.com.def.pa.wrapper.TokenWrapper;
-import ec.com.def.pa.wrapper.UN01ColeccionResponseWrapper;
-import ec.com.def.pa.wrapper.UN01ColeccionWrapper;
-import ec.com.def.pa.wrapper.UN01Wrapper;
+import ec.fin.segurossucre.core.exception.SegSucreException;
+import ec.fin.segurossucre.core.util.main.Constantes;
+import ec.fin.segurossucre.pa.util.SiniestroAgricolaConstantes;
+import ec.fin.segurossucre.pa.wrapper.RestClientWrapper;
+import ec.fin.segurossucre.pa.wrapper.TokenWrapper;
+import ec.fin.segurossucre.pa.wrapper.UN01ColeccionResponseWrapper;
+import ec.fin.segurossucre.pa.wrapper.UN01ColeccionWrapper;
+import ec.fin.segurossucre.pa.wrapper.UN01Wrapper;
 public class Un01ApiClient {
 
 	private static final Log log = LogFactory.getLog(Un01ApiClient.class);
@@ -34,14 +34,14 @@ public class Un01ApiClient {
 			if (sw != null) {
 				System.out.println("token: " + sw.getAccessToken());
 			}
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			e.printStackTrace();
 		}
 
 	}
 
 	public static String callpun01Rest(String urlService, String authorization,UN01Wrapper un01)
-			throws DefException, UnsupportedEncodingException {
+			throws SegSucreException, UnsupportedEncodingException {
 		UN01ColeccionWrapper un01coleccion = new UN01ColeccionWrapper();
 		un01coleccion.setUN01Coleccion(new ArrayList<>());
 		un01coleccion.getUN01Coleccion().add(un01);
@@ -64,18 +64,18 @@ public class Un01ApiClient {
 			log.info("============> respuesta servicio objeto "+ respuestaWrapper.getSdtRespuestaUN01().get(0) );
 			String huboErrores=respuestaWrapper.getSdtRespuestaUN01().get(0).getHubo_Errores();
 			if(StringUtils.isNotBlank(huboErrores) && huboErrores.equalsIgnoreCase("S")) {
-				throw new DefException(Constantes.ERROR_CODE_CUSTOM,"EN LOS DATOS UN01: "
+				throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM,"EN LOS DATOS UN01: "
 			+respuestaWrapper.getSdtRespuestaUN01().get(0).getObservacion());
 			}
 			
 			return String.valueOf(response.get(ReRestClient.RETURN_OBJECT));
 		}else {
-			throw new DefException(Constantes.ERROR_CODE_CUSTOM,"ERROR AL LLAMAR SERVICIO UN01:"+
+			throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM,"ERROR AL LLAMAR SERVICIO UN01:"+
 					String.valueOf(response.get(ReRestClient.RETURN_MESSAGE)));
 		}
 	}
 
-	public static TokenWrapper getToken(String amUrlService, String authorization) throws DefException {
+	public static TokenWrapper getToken(String amUrlService, String authorization) throws SegSucreException {
 		log.info("===>x getToken con authorization " + authorization);
 		StringBuilder param = new StringBuilder();
 		param.append("grant_type").append("=").append("client_credentials");
@@ -91,16 +91,16 @@ public class Un01ApiClient {
 				&& response.get("message").toString().indexOf("Unsuccessful") < 0) {
 			TokenWrapper tmp = (TokenWrapper) response.get(ReRestClient.RETURN_OBJECT);
 			if (tmp.getError() != null) {
-				throw new DefException(Constantes.ERROR_CODE_CUSTOM,
+				throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM,
 						"ERROR EN LA OBTENCION DEL TOKEN DE SEGURIDAD, POR FAVOR CONSULTE A SU ADMINISTRADOR "
 								+ tmp.getErrorDescription());
 			} else if (Long.valueOf(tmp.getExpiresIn()) <= 60) {
-				throw new DefException(Constantes.ERROR_CODE_CUSTOM,
+				throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM,
 						"POR RAZONES DE SEGURIDAD SU TOKEN ESTA A PUNTO DE CADUCAR, POR FAVOR INTENTE EN 60 SEGUNDOS");
 			}
 			return tmp;
 		} else {
-			throw new DefException(Constantes.ERROR_CODE_CUSTOM, "ERROR EN LA EJECUCION DE LA LLAMADA REST "
+			throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM, "ERROR EN LA EJECUCION DE LA LLAMADA REST "
 					+ amUrlService + " INTENTE EN 30 SEGUNDOS, SI EL ERROR PERSISTE CONSULTE A SU ADMINISTRADOR");
 		}
 

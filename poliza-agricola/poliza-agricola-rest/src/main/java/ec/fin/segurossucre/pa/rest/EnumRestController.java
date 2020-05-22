@@ -1,4 +1,4 @@
-package ec.com.def.pa.rest;
+package ec.fin.segurossucre.pa.rest;
 
 import java.util.logging.Logger;
 
@@ -9,11 +9,11 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import ec.com.def.core.exception.DefException;
-import ec.com.def.core.web.util.BaseRestController;
-import ec.com.def.pa.enums.CalificacionSiniestroEnum;
-import ec.com.def.pa.enums.EstadoSiniestroAgricolaEnum;
-import ec.com.def.pa.enums.TipoPerdidaSiniestroEnum;
+import ec.fin.segurossucre.core.exception.SegSucreException;
+import ec.fin.segurossucre.core.web.util.BaseRestController;
+import ec.fin.segurossucre.pa.enums.CalificacionSiniestroEnum;
+import ec.fin.segurossucre.pa.enums.EstadoSiniestroAgricolaEnum;
+import ec.fin.segurossucre.pa.enums.TipoPerdidaSiniestroEnum;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -29,7 +29,7 @@ public class EnumRestController extends BaseRestController {
 	@Inject 
 	Logger log;
 	
-	public EnumRestController() throws DefException{
+	public EnumRestController() throws SegSucreException{
 		super();
 	}
 	
@@ -39,7 +39,7 @@ public class EnumRestController extends BaseRestController {
 	response = EstadoSiniestroAgricolaEnum[].class)
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Retorno existoso de informacion", response = EstadoSiniestroAgricolaEnum[].class),
-			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = DefException.class) })
+			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = SegSucreException.class) })
 	public EstadoSiniestroAgricolaEnum[]  loadEstadoEnvioEnums()  {
 		log.info("=====  ==========>loadEnum " );
 		return EstadoSiniestroAgricolaEnum.values(); 
@@ -52,7 +52,7 @@ public class EnumRestController extends BaseRestController {
 	response = CalificacionSiniestroEnum[].class)
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Retorno existoso de informacion", response = CalificacionSiniestroEnum[].class),
-			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = DefException.class) })
+			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = SegSucreException.class) })
 	public CalificacionSiniestroEnum[]  loadCalificacionSiniestroEnums(){
 		log.info("==============  =>loadEnum " );
 		return CalificacionSiniestroEnum.values(); 
@@ -64,7 +64,7 @@ public class EnumRestController extends BaseRestController {
 	response = TipoPerdidaSiniestroEnum[].class)
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Retorno existoso de informacion", response = TipoPerdidaSiniestroEnum[].class),
-			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = DefException.class) })
+			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = SegSucreException.class) })
 	public TipoPerdidaSiniestroEnum[]  loadTipoPerdidaSiniestroEnums()  {
 		log.info("===============>loadEnum " );
 		return TipoPerdidaSiniestroEnum.values(); 

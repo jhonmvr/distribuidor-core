@@ -1,4 +1,4 @@
-package ec.com.def.pa.model;
+package ec.fin.segurossucre.pa.model;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import ec.com.def.pa.enums.EstadoSiniestroAgricolaEnum;
+import ec.fin.segurossucre.pa.enums.EstadoSiniestroAgricolaEnum;
 
 /**
  * The persistent class for the tb_mi_cotizacion database table.

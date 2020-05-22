@@ -1,12 +1,12 @@
-package ec.com.def.pa.repository;
+package ec.fin.segurossucre.pa.repository;
 
 import java.util.List;
 
 import javax.ejb.Local;
 
-import ec.com.def.core.exception.DefException;
-import ec.com.def.core.persistence.CrudRepository;
-import ec.com.def.pa.model.Apol;
+import ec.fin.segurossucre.core.exception.SegSucreException;
+import ec.fin.segurossucre.core.persistence.CrudRepository;
+import ec.fin.segurossucre.pa.model.Apol;
 
 @Local
 public interface ApolRepository extends CrudRepository<Long, Apol> {
@@ -16,8 +16,8 @@ public interface ApolRepository extends CrudRepository<Long, Apol> {
 	 * @param numeroTramite Numero de tramite enviado
 	 * @return Listado de entidades de tipo apol encontradas
 	 */
-	public List<Apol> findByNumeroTramite( String numeroTramite ) throws DefException;
+	public List<Apol> findByNumeroTramite( String numeroTramite ) throws SegSucreException;
 	
-	public List<Apol> validarNumeroTramite(String numeroTramite)throws DefException;
+	public List<Apol> validarNumeroTramite(String numeroTramite)throws SegSucreException;
 
 }

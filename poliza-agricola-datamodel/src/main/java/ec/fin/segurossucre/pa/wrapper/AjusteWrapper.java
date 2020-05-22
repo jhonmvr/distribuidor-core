@@ -1,4 +1,4 @@
-package ec.com.def.pa.wrapper;
+package ec.fin.segurossucre.pa.wrapper;
 
 import java.util.Date;
 

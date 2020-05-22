@@ -1,4 +1,4 @@
-package ec.com.def.pa.repository.spec;
+package ec.fin.segurossucre.pa.repository.spec;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,8 +9,8 @@ import javax.persistence.criteria.Root;
 
 import org.apache.commons.lang3.StringUtils;
 
-import ec.com.def.core.persistence.AbstractSpecification;
-import ec.com.def.pa.model.TbPaTipoDocumentoPoliza;
+import ec.fin.segurossucre.core.persistence.AbstractSpecification;
+import ec.fin.segurossucre.pa.model.TbPaTipoDocumentoPoliza;
 
 public class DocumentoByParamsSpec extends AbstractSpecification<TbPaTipoDocumentoPoliza> {
 	

@@ -1,4 +1,4 @@
-package ec.com.def.sa.websocket;
+package ec.fin.segurossucre.sa.websocket;
 
 import java.net.URI;
 import java.net.URISyntaxException;

@@ -1,4 +1,4 @@
-package ec.com.def.pa.rest;
+package ec.fin.segurossucre.pa.rest;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStreamReader;
@@ -27,27 +27,27 @@ import org.apache.commons.lang3.StringUtils;
 import com.google.gson.Gson;
 import com.opencsv.bean.CsvToBeanBuilder;
 
-import ec.com.def.core.exception.DefException;
-import ec.com.def.core.util.main.Constantes;
-import ec.com.def.core.util.main.PaginatedListWrapper;
-import ec.com.def.core.util.main.PaginatedWrapper;
-import ec.com.def.core.web.util.BaseRestController;
-import ec.com.def.core.web.util.CrudRestControllerInterface;
-import ec.com.def.core.web.util.GenericWrapper;
-import ec.com.def.pa.model.TbPaSolicitudPoliza;
-import ec.com.def.pa.repository.ParametroRepository;
-import ec.com.def.pa.service.CargaMasivaPolizaService;
-import ec.com.def.pa.service.DocumentosPolizaService;
-import ec.com.def.pa.service.SolicitudPolizaService;
-import ec.com.def.pa.un01.api.Un01ApiClient;
-import ec.com.def.pa.util.SiniestroAgricolaConstantes;
-import ec.com.def.pa.util.SiniestroAgricolaUtils;
-import ec.com.def.pa.wrapper.CargarSolicitudWrapper;
-import ec.com.def.pa.wrapper.ConsultaSolicitudPolizaWrapper;
-import ec.com.def.pa.wrapper.FileWrapper;
-import ec.com.def.pa.wrapper.MessageWrapper;
-import ec.com.def.pa.wrapper.UN01Wrapper;
-import ec.com.def.sa.websocket.SiniestroWebSocketClient;
+import ec.fin.segurossucre.core.exception.SegSucreException;
+import ec.fin.segurossucre.core.util.main.Constantes;
+import ec.fin.segurossucre.core.util.main.PaginatedListWrapper;
+import ec.fin.segurossucre.core.util.main.PaginatedWrapper;
+import ec.fin.segurossucre.core.web.util.BaseRestController;
+import ec.fin.segurossucre.core.web.util.CrudRestControllerInterface;
+import ec.fin.segurossucre.core.web.util.GenericWrapper;
+import ec.fin.segurossucre.pa.model.TbPaSolicitudPoliza;
+import ec.fin.segurossucre.pa.repository.ParametroRepository;
+import ec.fin.segurossucre.pa.service.CargaMasivaPolizaService;
+import ec.fin.segurossucre.pa.service.DocumentosPolizaService;
+import ec.fin.segurossucre.pa.service.SolicitudPolizaService;
+import ec.fin.segurossucre.pa.un01.api.Un01ApiClient;
+import ec.fin.segurossucre.pa.util.SiniestroAgricolaConstantes;
+import ec.fin.segurossucre.pa.util.SiniestroAgricolaUtils;
+import ec.fin.segurossucre.pa.wrapper.CargarSolicitudWrapper;
+import ec.fin.segurossucre.pa.wrapper.ConsultaSolicitudPolizaWrapper;
+import ec.fin.segurossucre.pa.wrapper.FileWrapper;
+import ec.fin.segurossucre.pa.wrapper.MessageWrapper;
+import ec.fin.segurossucre.pa.wrapper.UN01Wrapper;
+import ec.fin.segurossucre.sa.websocket.SiniestroWebSocketClient;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -73,12 +73,12 @@ public class SolicitudPolizaRestController extends BaseRestController
 	@Inject
 	ParametroRepository parametroRepository;
 
-	public SolicitudPolizaRestController() throws DefException {
+	public SolicitudPolizaRestController() throws SegSucreException {
 		super();
 	}
 
 	@Override
-	public void deleteEntity(String arg0) throws DefException {
+	public void deleteEntity(String arg0) throws SegSucreException {
 		// sin implementar
 
 	}
@@ -89,8 +89,8 @@ public class SolicitudPolizaRestController extends BaseRestController
 	@ApiOperation(value = "GenericWrapper<TbPaSolicitudPoliza> ", notes = "Metodo getEntity Retorna wrapper de entidades encontradas en TbPaSolicitudPoliza", response = GenericWrapper.class)
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Retorno existoso de informacion", response = GenericWrapper.class),
-			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = DefException.class) })
-	public GenericWrapper<TbPaSolicitudPoliza> getEntity(@QueryParam("id") String id) throws DefException {
+			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = SegSucreException.class) })
+	public GenericWrapper<TbPaSolicitudPoliza> getEntity(@QueryParam("id") String id) throws SegSucreException {
 		GenericWrapper<TbPaSolicitudPoliza> loc = new GenericWrapper<>();
 		TbPaSolicitudPoliza a = this.sas.findSolicitudPolizaById(Long.valueOf(id));
 		loc.setEntidad(a);
@@ -103,17 +103,17 @@ public class SolicitudPolizaRestController extends BaseRestController
 	@ApiOperation(value = "PaginatedListWrapper<TbPaSolicitudPoliza> ", notes = "Metodo listAllEntities Retorna wrapper de entidades encontradas en TbPaSolicitudPoliza", response = PaginatedListWrapper.class)
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Retorno existoso de informacion", response = PaginatedListWrapper.class),
-			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = DefException.class) })
+			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = SegSucreException.class) })
 	public PaginatedListWrapper<TbPaSolicitudPoliza> listAllEntities(@QueryParam("page") @DefaultValue("1") String page,
 			@QueryParam("pageSize") @DefaultValue("10") String pageSize,
 			@QueryParam("sortFields") @DefaultValue("id") String sortFields,
 			@QueryParam("sortDirections") @DefaultValue("asc") String sortDirections,
-			@QueryParam("isPaginated") @DefaultValue("N") String isPaginated) throws DefException {
+			@QueryParam("isPaginated") @DefaultValue("N") String isPaginated) throws SegSucreException {
 		return findAll(new PaginatedWrapper(Integer.valueOf(page), Integer.valueOf(pageSize), sortFields,
 				sortDirections, isPaginated));
 	}
 
-	private PaginatedListWrapper<TbPaSolicitudPoliza> findAll(PaginatedWrapper pw) throws DefException {
+	private PaginatedListWrapper<TbPaSolicitudPoliza> findAll(PaginatedWrapper pw) throws SegSucreException {
 		PaginatedListWrapper<TbPaSolicitudPoliza> plw = new PaginatedListWrapper<>(pw);
 		List<TbPaSolicitudPoliza> actions = this.sas.findAllSolicitudPoliza(pw);
 		if (actions != null && !actions.isEmpty()) {
@@ -129,7 +129,7 @@ public class SolicitudPolizaRestController extends BaseRestController
 	@Path("/persistEntity")
 	@ApiOperation(value = "GenericWrapper<TbPaSolicitudPoliza>", notes = "Metodo Post persistEntity Retorna GenericWrapper de informacion de paginacion y listado de entidades encontradas TbPaSolicitudPoliza", response = GenericWrapper.class)
 	public GenericWrapper<TbPaSolicitudPoliza> persistEntity(GenericWrapper<TbPaSolicitudPoliza> wp)
-			throws DefException {
+			throws SegSucreException {
 		GenericWrapper<TbPaSolicitudPoliza> loc = new GenericWrapper<>();
 		loc.setEntidad(this.sas.manageSolicitudPoliza(wp.getEntidad()));
 		return loc;
@@ -139,7 +139,7 @@ public class SolicitudPolizaRestController extends BaseRestController
 	@Path("/guardarPoliza")
 	@ApiOperation(value = "GenericWrapper<TbPaSolicitudPoliza>", notes = "Metodo Post persistEntity Retorna GenericWrapper de informacion de paginacion y listado de entidades encontradas TbPaSolicitudPoliza", response = GenericWrapper.class)
 	public GenericWrapper<TbPaSolicitudPoliza> guardarPoliza(GenericWrapper<TbPaSolicitudPoliza> wp)
-			throws DefException {
+			throws SegSucreException {
 		try {
 			/*
 			 * TokenWrapper tw=Un01ApiClient.getToken(
@@ -152,12 +152,12 @@ public class SolicitudPolizaRestController extends BaseRestController
 			loc.setEntidad(this.sas.guardarPoliza(wp.getEntidad()));
 		
 			return loc;
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			e.printStackTrace();
 			throw e;
 		}catch (Exception e) {
 			e.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_CUSTOM,"ERROR AL INTENTAR GUARDAR LA SOLICITUD"+e.getCause());
+			throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM,"ERROR AL INTENTAR GUARDAR LA SOLICITUD"+e.getCause());
 		}
 	}
 
@@ -167,14 +167,14 @@ public class SolicitudPolizaRestController extends BaseRestController
 	public GenericWrapper<TbPaSolicitudPoliza> cargaMasiva(@QueryParam("hash") String hash,
 			@QueryParam("canal") String canal, @QueryParam("telefonoContacto") String telefonoContacto,
 			@QueryParam("nombreEjecutivo") String nombreEjecutivo, GenericWrapper<FileWrapper> wp)
-			throws DefException {
+			throws SegSucreException {
 		GenericWrapper<TbPaSolicitudPoliza> loc = new GenericWrapper<>();
 		this.loadPoliza(wp.getEntidad(), hash, canal, telefonoContacto, nombreEjecutivo);
 		return loc;
 	}
 	
 
-	public void loadPoliza(FileWrapper fw, String hash, String canal,String telefonoContacto,String nombreEjecutivo) throws DefException {
+	public void loadPoliza(FileWrapper fw, String hash, String canal,String telefonoContacto,String nombreEjecutivo) throws SegSucreException {
 		try {
 			List<CargarSolicitudWrapper> listWrapper = processCsvToWrapper(fw, CargarSolicitudWrapper.class);
 			String hashLoc = UUID.randomUUID().toString();
@@ -190,7 +190,7 @@ public class SolicitudPolizaRestController extends BaseRestController
 			 */
 			if (listWrapper != null && !listWrapper.isEmpty()) {
 				if(listWrapper.size()>200) {
-					throw new DefException(Constantes.ERROR_CODE_CUSTOM,"NUMERO MAXIMO DE REGISTROS ES 200");
+					throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM,"NUMERO MAXIMO DE REGISTROS ES 200");
 				}
 				int x = 1;
 				final int tamanio = listWrapper.size();
@@ -201,7 +201,7 @@ public class SolicitudPolizaRestController extends BaseRestController
 						
 						this.sendMessage(rwsc, hash, "REGISTRO:" + x + " CORRECTO" + "NUMERO DE TRAMITE: "
 								+ p.getNumeroTramite() + " CODIGO: " + p.getCodigo(), tamanio, true);
-					} catch (DefException e) {
+					} catch (SegSucreException e) {
 						this.sendMessage(rwsc, hash, "ERROR EN EL REGISTRO :" + x + " CEDULA: "
 								+ poliza.getDocumentoidentidad() + " " + e.getDetalle(), tamanio, true);
 						log.info("ERROROR>>>>>>>>>>>>>: " + e.getDetalle());
@@ -212,30 +212,30 @@ public class SolicitudPolizaRestController extends BaseRestController
 					}
 				}
 			} else {
-				throw new DefException(Constantes.ERROR_CODE_CUSTOM, "ERROR AL CONVERTIR ARCHIVO ");
+				throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM, "ERROR AL CONVERTIR ARCHIVO ");
 			}
 
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			e.printStackTrace();
 			throw e;
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_CUSTOM, "ERROR Exception  " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM, "ERROR Exception  " + e.getMessage());
 		}
 
 	}
 
-	public <T> List<T> processCsvToWrapper(FileWrapper fw, Class<T> c) throws DefException {
+	public <T> List<T> processCsvToWrapper(FileWrapper fw, Class<T> c) throws SegSucreException {
 		try {
 			if (fw.getFile() == null) {
-				throw new DefException(Constantes.ERROR_CODE_CUSTOM, "EL ARCHIVO NO FUE ENVIADO O ESTA VACIO");
+				throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM, "EL ARCHIVO NO FUE ENVIADO O ESTA VACIO");
 			}
 			Reader fileRead = new InputStreamReader(new ByteArrayInputStream(fw.getFile()), StandardCharsets.UTF_8);
 			return new CsvToBeanBuilder<T>(fileRead).withSeparator('|').withType(c).build().parse();
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_CUSTOM, "AL INTENTAR CONVERTIR AL CSVTOWRAPPER");
+			throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM, "AL INTENTAR CONVERTIR AL CSVTOWRAPPER");
 		}
 	}
 
@@ -271,7 +271,7 @@ public class SolicitudPolizaRestController extends BaseRestController
 			@QueryParam("numeroSolicitud") String numeroSolicitud, @QueryParam("numeroTramite") String numeroTramite,
 			@QueryParam("desde") String desde, @QueryParam("hasta") String hasta, @QueryParam("canal") String canal)
 
-			throws DefException {
+			throws SegSucreException {
 		return findByParam(
 				new PaginatedWrapper(Integer.valueOf(page), Integer.valueOf(pageSize), sortFields, sortDirections,
 						isPaginated),
@@ -286,7 +286,7 @@ public class SolicitudPolizaRestController extends BaseRestController
 
 	private PaginatedListWrapper<ConsultaSolicitudPolizaWrapper> findByParam(PaginatedWrapper pw,
 			String numeroSolicitud, String numeroTramite, Date desde, Date hasta, String canal)
-			throws DefException {
+			throws SegSucreException {
 		PaginatedListWrapper<ConsultaSolicitudPolizaWrapper> plw = new PaginatedListWrapper<>(pw);
 		List<ConsultaSolicitudPolizaWrapper> actions = this.sas.findByParams(pw, numeroSolicitud, numeroTramite, desde,
 				hasta, canal);
@@ -304,15 +304,15 @@ public class SolicitudPolizaRestController extends BaseRestController
 	public byte[] getPlantilla(@QueryParam("numeroSolicitud") String numeroSolicitud,
 			@QueryParam("numeroTramite") String numeroTramite, @QueryParam("desde") String desde,
 			@QueryParam("hasta") String hasta, @QueryParam("canal") String canal, @QueryParam("format") String formato,
-			@QueryParam("tipo") String tipo) throws DefException {
+			@QueryParam("tipo") String tipo) throws SegSucreException {
 		try {
 			Map<String, Object> map = new HashMap<>();
 			return this.doc.generarDocumentoPoliza(map, formato, tipo, numeroSolicitud, numeroTramite, desde, hasta,
 					canal);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_CUSTOM, "AL DESCARGAR DOCUMENTOS" + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM, "AL DESCARGAR DOCUMENTOS" + e.getMessage());
 		}
 	}
 	
@@ -321,15 +321,15 @@ public class SolicitudPolizaRestController extends BaseRestController
 	@ApiOperation(value = "GenericWrapper<TbPaSolicitudPoliza> ", notes = "Metodo getEntity Retorna wrapper de entidades encontradas en TbPaSolicitudPoliza", response = GenericWrapper.class)
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Retorno existoso de informacion", response = GenericWrapper.class),
-			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = DefException.class) })
-	public GenericWrapper<TbPaSolicitudPoliza> upDate() throws DefException {
+			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = SegSucreException.class) })
+	public GenericWrapper<TbPaSolicitudPoliza> upDate() throws SegSucreException {
 		try {
 			this.sas.upDateSolicitudPoliza();
 			return null;
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_CUSTOM, "upDateSolicitudPoliza" + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM, "upDateSolicitudPoliza" + e.getMessage());
 		}
 	}
 

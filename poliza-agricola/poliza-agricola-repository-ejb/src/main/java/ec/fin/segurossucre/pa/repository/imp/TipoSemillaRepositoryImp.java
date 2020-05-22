@@ -1,19 +1,19 @@
-package ec.com.def.pa.repository.imp;
+package ec.fin.segurossucre.pa.repository.imp;
 import java.util.List;
 
 import javax.ejb.Stateless;
 
-import ec.com.def.core.exception.DefException;
-import ec.com.def.core.persistence.GeneralRepositoryImp;
-import ec.com.def.core.util.main.Constantes;
-import ec.com.def.pa.model.Tiposemilla;
-import ec.com.def.pa.repository.TipoSemillaRepository;
-import ec.com.def.pa.repository.spec.TiposemillaByCodigoSpec;
+import ec.fin.segurossucre.core.exception.SegSucreException;
+import ec.fin.segurossucre.core.persistence.GeneralRepositoryImp;
+import ec.fin.segurossucre.core.util.main.Constantes;
+import ec.fin.segurossucre.pa.model.Tiposemilla;
+import ec.fin.segurossucre.pa.repository.TipoSemillaRepository;
+import ec.fin.segurossucre.pa.repository.spec.TiposemillaByCodigoSpec;
 @Stateless(mappedName = "tipoSemillaRepository")
 public class TipoSemillaRepositoryImp extends GeneralRepositoryImp<Long, Tiposemilla> implements TipoSemillaRepository {
 
 	@Override
-	public Tiposemilla findByCodigo(String semilla) throws DefException {
+	public Tiposemilla findByCodigo(String semilla) throws SegSucreException {
 		List<Tiposemilla> tmp;
 		try {
 			tmp = this.findAllBySpecification(new TiposemillaByCodigoSpec(semilla));
@@ -24,7 +24,7 @@ public class TipoSemillaRepositoryImp extends GeneralRepositoryImp<Long, Tiposem
 		} catch (Exception e) {
 			
 			e.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_CUSTOM,"AL BUSCAR TIPO DE SEMILLA POR CODIGO");
+			throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM,"AL BUSCAR TIPO DE SEMILLA POR CODIGO");
 		}
 		
 	}

@@ -1,4 +1,4 @@
-package ec.com.def.sa.jee.test;
+package ec.fin.segurossucre.sa.jee.test;
 
 import java.io.File;
 import java.util.List;
@@ -22,7 +22,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import ec.com.def.core.exception.DefException;
+import ec.fin.segurossucre.core.exception.SegSucreException;
 
 
 
@@ -59,10 +59,10 @@ public class UTArqTest {
 			System.out.println("!!!!!!! InvalidConfigurationFileException " + e.getMessage());
 		}
 	    JavaArchive ejbDataModel = ShrinkWrap.create(JavaArchive.class, "siniestro-agricola-datamodel-ejb.jar")	    		
-	    		.addPackage("ec.com.def.sa.model")
-	    		.addPackage("ec.com.def.sa.enums")
-	    		.addPackage("ec.com.def.sa.util")
-	    		.addPackage("ec.com.def.sa.wrapper")
+	    		.addPackage("ec.fin.segurossucre.sa.model")
+	    		.addPackage("ec.fin.segurossucre.sa.enums")
+	    		.addPackage("ec.fin.segurossucre.sa.util")
+	    		.addPackage("ec.fin.segurossucre.sa.wrapper")
 	    		.addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
 	    if( ejbDependenciesDm != null ) {
 		    for (File file : ejbDependenciesDm) {
@@ -95,9 +95,9 @@ public class UTArqTest {
 			System.out.println("!!!!!!! InvalidConfigurationFileException " + e.getMessage());
 		}
 	    JavaArchive ejbRepository = ShrinkWrap.create(JavaArchive.class, "siniestro-agricola-repository-ejb.jar")	    		
-	    		.addPackage("ec.com.def.sa.repository")
-	    		.addPackage("ec.com.def.sa.repository.imp")
-	    		.addPackage("ec.com.def.sa.repository.spec")
+	    		.addPackage("ec.fin.segurossucre.sa.repository")
+	    		.addPackage("ec.fin.segurossucre.sa.repository.imp")
+	    		.addPackage("ec.fin.segurossucre.sa.repository.spec")
 	    		.addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
 	    if(ejbDependenciesRepo!= null) {
 		    for (File file : ejbDependenciesRepo) {
@@ -119,10 +119,10 @@ public class UTArqTest {
 	    		.withTransitivity()
 	    		.asFile();
 	    JavaArchive ejbServ = ShrinkWrap.create(JavaArchive.class, "siniestro-agricola-service-ejb.jar")	  
-	    		.addPackage("ec.com.def.sa.cdi")
-	    		.addPackage("ec.com.def.sa.service")
-	    		//.addPackage("ec.com.def.sa.jee.test")
-	    		.addClass(ec.com.def.sa.jee.test.UTArqTest.class)
+	    		.addPackage("ec.fin.segurossucre.sa.cdi")
+	    		.addPackage("ec.fin.segurossucre.sa.service")
+	    		//.addPackage("ec.fin.segurossucre.sa.jee.test")
+	    		.addClass(ec.fin.segurossucre.sa.jee.test.UTArqTest.class)
 	    		.addAsManifestResource("META-INF/scripts/create.sql", "scripts/create.sql")
 	    		.addAsManifestResource("META-INF/scripts/drop.sql", "scripts/drop.sql")
 	    		.addAsManifestResource("META-INF/scripts/data.sql", "scripts/data.sql")
@@ -245,7 +245,7 @@ public class UTArqTest {
 	
 	@Test
 	@InSequence(1)
-	public void testListConsultaGeneral() throws DefException {
+	public void testListConsultaGeneral() throws SegSucreException {
 		System.out.println("===>testListConsultaGeneral: ");
 		
 		String s = "1";

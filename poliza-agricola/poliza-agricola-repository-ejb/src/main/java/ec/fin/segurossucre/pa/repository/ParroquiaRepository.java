@@ -1,13 +1,13 @@
-package ec.com.def.pa.repository;
+package ec.fin.segurossucre.pa.repository;
 
 import java.util.List;
 
 import javax.ejb.Local;
 
-import ec.com.def.core.exception.DefException;
-import ec.com.def.core.persistence.CrudRepository;
-import ec.com.def.pa.model.Parroquia;
-import ec.com.def.pa.model.ParroquiaPK;
+import ec.fin.segurossucre.core.exception.SegSucreException;
+import ec.fin.segurossucre.core.persistence.CrudRepository;
+import ec.fin.segurossucre.pa.model.Parroquia;
+import ec.fin.segurossucre.pa.model.ParroquiaPK;
 
 @Local
 public interface ParroquiaRepository extends CrudRepository<ParroquiaPK, Parroquia>{
@@ -18,11 +18,11 @@ public interface ParroquiaRepository extends CrudRepository<ParroquiaPK, Parroqu
 	 * @param canton parametro de codigo de canton
 	 * @param parroquia parametro de codigo de parroquia
 	 * @return Parroquia encontrada
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public Parroquia findByPKFixed( String provincia,  String canton,  String parroquia )  throws DefException;
+	public Parroquia findByPKFixed( String provincia,  String canton,  String parroquia )  throws SegSucreException;
 
-	public List<Parroquia> findByProvinciaAndCanton( String provincia, String canton, String order ) throws DefException;
+	public List<Parroquia> findByProvinciaAndCanton( String provincia, String canton, String order ) throws SegSucreException;
 	 
 
 }

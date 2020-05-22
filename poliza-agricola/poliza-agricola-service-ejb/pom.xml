@@ -16,7 +16,7 @@
 
 	<parent>
 		<artifactId>poliza-agricola</artifactId>
-		<groupId>ec.com.def</groupId>
+		<groupId>ec.fin.segurossucre</groupId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 
@@ -85,16 +85,16 @@
 
 		<!-- CUSTOM LIBS -->
 		<dependency>
-			<groupId>ec.com.def</groupId>
+			<groupId>ec.fin.segurossucre</groupId>
 			<artifactId>core-common-jee</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>ec.com.def</groupId>
+			<groupId>ec.fin.segurossucre</groupId>
 			<artifactId>poliza-agricola-datamodel-ejb</artifactId>
 			<version>1.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>ec.com.def</groupId>
+			<groupId>ec.fin.segurossucre</groupId>
 			<artifactId>poliza-agricola-repository-ejb</artifactId>
 			<version>1.0-SNAPSHOT</version>
 		</dependency>

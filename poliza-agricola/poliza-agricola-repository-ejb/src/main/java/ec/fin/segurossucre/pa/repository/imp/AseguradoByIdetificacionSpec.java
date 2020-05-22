@@ -1,11 +1,11 @@
-package ec.com.def.pa.repository.imp;
+package ec.fin.segurossucre.pa.repository.imp;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import ec.com.def.core.persistence.AbstractSpecification;
-import ec.com.def.pa.model.TbSaAsegurado;
+import ec.fin.segurossucre.core.persistence.AbstractSpecification;
+import ec.fin.segurossucre.pa.model.TbSaAsegurado;
 
 public class AseguradoByIdetificacionSpec extends AbstractSpecification<TbSaAsegurado> {
 	private String identificacion;

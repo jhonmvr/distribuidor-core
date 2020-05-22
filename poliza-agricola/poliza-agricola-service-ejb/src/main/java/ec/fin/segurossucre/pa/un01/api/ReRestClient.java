@@ -1,4 +1,4 @@
-package ec.com.def.pa.un01.api;
+package ec.fin.segurossucre.pa.un01.api;
 
 import java.io.IOException;
 import java.io.StringReader;
@@ -42,11 +42,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import ec.com.def.core.exception.DefException;
-import ec.com.def.core.util.main.Constantes;
-import ec.com.def.pa.util.SiniestroAgricolaConstantes;
-import ec.com.def.pa.wrapper.RestClientWrapper;
-import ec.com.def.pa.wrapper.UN01ColeccionResponseWrapper;
+import ec.fin.segurossucre.core.exception.SegSucreException;
+import ec.fin.segurossucre.core.util.main.Constantes;
+import ec.fin.segurossucre.pa.util.SiniestroAgricolaConstantes;
+import ec.fin.segurossucre.pa.wrapper.RestClientWrapper;
+import ec.fin.segurossucre.pa.wrapper.UN01ColeccionResponseWrapper;
 
 public class ReRestClient<T> {
 
@@ -115,7 +115,7 @@ public class ReRestClient<T> {
 			 /*TaskSummaryWrapper r=(TaskSummaryWrapper)retorno.get("resultado");
 			 System.out.println("===>sumary " + r.getTaskSummary());
 			 System.out.println("===>sumary " + r.getTaskSummary().get(0).getTaskId());*/
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			e.printStackTrace();
 		} 
 	}
@@ -135,11 +135,11 @@ public class ReRestClient<T> {
 	 * @param serviceUrl Url del servicio a utilizat
 	 * @return Mapa de parametros que contiene:<br> resultado: objeto retornado de tipo T en el servicio. <br>message: mensaje de retorno.<br>
 	 * estado: codigo de estado de retorno 
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
 	public static <T> Map<String, Object> callRestApi(String contentTypeAccept, String contentType, String athorization, String contentAsString, String method,
 			String headers,String user, String password,
-			Integer readTimeout, Integer connectTimeout, Boolean requireLogin, String serviceUrl, Class<T> classType) throws DefException{
+			Integer readTimeout, Integer connectTimeout, Boolean requireLogin, String serviceUrl, Class<T> classType) throws SegSucreException{
 		try {
 			logger.info("==>Ingreaa a callRestApi "); 
 			RestClientWrapper cw= new RestClientWrapper();
@@ -159,26 +159,26 @@ public class ReRestClient<T> {
 			logger.info("==>Wrapper generado " );
 			ReRestClient<T> b= new ReRestClient<>( cw );
 			return b.execute(classType);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new DefException( Constantes.ERROR_CODE_CUSTOM,"ERROR EN LA LLAMADA A API REST " + serviceUrl + "  " + e.getMessage());
+			throw new SegSucreException( Constantes.ERROR_CODE_CUSTOM,"ERROR EN LA LLAMADA A API REST " + serviceUrl + "  " + e.getMessage());
 		} 
 		
 	}
 	
-	private static void setContentTypeAccept( String contentType, RestClientWrapper cw) throws DefException {
+	private static void setContentTypeAccept( String contentType, RestClientWrapper cw) throws SegSucreException {
 		if( RestClientWrapper.CONTENT_TYPE_JSON.equalsIgnoreCase( contentType ) ) {
 			cw.setAcceptHeader( RestClientWrapper.CONTENT_TYPE_JSON );
 		} else if( RestClientWrapper.CONTENT_TYPE_XML.equalsIgnoreCase( contentType ) ) {
 			cw.setAcceptHeader( RestClientWrapper.CONTENT_TYPE_XML );
 		} else {
-			throw new DefException( Constantes.ERROR_CODE_CUSTOM,"DEBE DEFINIR TIPO DE CONTENIDO CONTENT-TYPE" );
+			throw new SegSucreException( Constantes.ERROR_CODE_CUSTOM,"DEBE DEFINIR TIPO DE CONTENIDO CONTENT-TYPE" );
 		}
 	}
 	
-	private static void setContentType( String contentType, RestClientWrapper cw) throws DefException {
+	private static void setContentType( String contentType, RestClientWrapper cw) throws SegSucreException {
 		if( RestClientWrapper.CONTENT_TYPE_JSON.equalsIgnoreCase( contentType ) ) {
 			cw.setContentType( RestClientWrapper.CONTENT_TYPE_JSON );
 		} else if( RestClientWrapper.CONTENT_TYPE_XML.equalsIgnoreCase( contentType ) ) {
@@ -186,11 +186,11 @@ public class ReRestClient<T> {
 		} else if( RestClientWrapper.CONTENT_TYPE_X_WWW_FORM.equalsIgnoreCase( contentType ) ) {
 			cw.setContentType( RestClientWrapper.CONTENT_TYPE_X_WWW_FORM );
 		} else {
-			throw new DefException( Constantes.ERROR_CODE_CUSTOM,"DEBE DEFINIR TIPO DE CONTENIDO CONTENT-TYPE" );
+			throw new SegSucreException( Constantes.ERROR_CODE_CUSTOM,"DEBE DEFINIR TIPO DE CONTENIDO CONTENT-TYPE" );
 		}
 	}
 	
-	private static void setMethod( String method, RestClientWrapper cw) throws DefException {
+	private static void setMethod( String method, RestClientWrapper cw) throws SegSucreException {
 		if( RestClientWrapper.METHOD_GET.equalsIgnoreCase( method ) ) {
 			cw.setMethod( RestClientWrapper.METHOD_GET );
 		} else if( RestClientWrapper.METHOD_POST.equalsIgnoreCase( method ) ) {
@@ -200,13 +200,13 @@ public class ReRestClient<T> {
 		} else if( RestClientWrapper.METHOD_DELETE.equalsIgnoreCase( method ) ) {
 			cw.setMethod( RestClientWrapper.METHOD_DELETE );
 		} else {
-			throw new DefException( Constantes.ERROR_CODE_CUSTOM,"DEBE DEFINIR METODO DE ENVIO, GET POST PUT" );
+			throw new SegSucreException( Constantes.ERROR_CODE_CUSTOM,"DEBE DEFINIR METODO DE ENVIO, GET POST PUT" );
 		}
 	}
 	
 	
 
-	public Map<String, Object>  execute(Class<T> classType) throws DefException{
+	public Map<String, Object>  execute(Class<T> classType) throws SegSucreException{
 		try {
 			Map<String, Object> results = new HashMap<String, Object>();
 			HttpResponse response = this.doRequestWithAuthorization(this.httpClient,
@@ -243,12 +243,12 @@ public class ReRestClient<T> {
 			return results;
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_CUSTOM,"ERROR EN EL llamada SERVICIO REST " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM,"ERROR EN EL llamada SERVICIO REST " + e.getMessage());
 		} finally {
 			try {
 				close(httpClient, methodObject);
 			} catch (Exception e) {
-				throw new DefException(Constantes.ERROR_CODE_CUSTOM,"ERROR EN el cierre de httpclien " + e.getMessage());
+				throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM,"ERROR EN el cierre de httpclien " + e.getMessage());
 			}
 		}
 	}

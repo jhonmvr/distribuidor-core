@@ -1,4 +1,4 @@
-package ec.com.def.sa.web.test.restinterface;
+package ec.fin.segurossucre.sa.web.test.restinterface;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DefaultValue;
@@ -8,10 +8,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
-import ec.com.def.core.exception.DefException;
-import ec.com.def.core.util.main.PaginatedListWrapper;
-import ec.com.def.core.web.util.GenericWrapper;
-import ec.com.def.pa.model.Apol;
+import ec.fin.segurossucre.core.exception.SegSucreException;
+import ec.fin.segurossucre.core.util.main.PaginatedListWrapper;
+import ec.fin.segurossucre.core.web.util.GenericWrapper;
+import ec.fin.segurossucre.pa.model.Apol;
 
 @Path("/apolRestController")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -34,10 +34,10 @@ public interface TestApolRestController {
 			@QueryParam("sortFields") @DefaultValue("id") String sortFields,
 			@QueryParam("sortDirections") @DefaultValue("asc") String sortDirections,
 			@QueryParam("isPaginated") @DefaultValue("N") String isPaginated
-			) throws DefException ;
+			) throws SegSucreException ;
 
 	
 
 	
-	public GenericWrapper<Apol> persistEntity(GenericWrapper<Apol> arg0) throws DefException;
+	public GenericWrapper<Apol> persistEntity(GenericWrapper<Apol> arg0) throws SegSucreException;
 }

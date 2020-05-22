@@ -1,4 +1,4 @@
-package ec.com.def.pa.enums;
+package ec.fin.segurossucre.pa.enums;
 
 public enum FileTypeEnum {
 	REGISTRO_AVISO_SINIESTRO_MAGAP,

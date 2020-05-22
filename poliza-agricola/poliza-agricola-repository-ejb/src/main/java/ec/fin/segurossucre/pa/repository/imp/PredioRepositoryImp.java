@@ -1,10 +1,10 @@
-package ec.com.def.pa.repository.imp;
+package ec.fin.segurossucre.pa.repository.imp;
 
 import javax.ejb.Stateless;
 
-import ec.com.def.core.persistence.GeneralRepositoryImp;
-import ec.com.def.pa.model.TbPaPredio;
-import ec.com.def.pa.repository.PredioRepository;
+import ec.fin.segurossucre.core.persistence.GeneralRepositoryImp;
+import ec.fin.segurossucre.pa.model.TbPaPredio;
+import ec.fin.segurossucre.pa.repository.PredioRepository;
 @Stateless(mappedName = "predioRepository")
 public class PredioRepositoryImp extends GeneralRepositoryImp<Long, TbPaPredio> implements PredioRepository {
 

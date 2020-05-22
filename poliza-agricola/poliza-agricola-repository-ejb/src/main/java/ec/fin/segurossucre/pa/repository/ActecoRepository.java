@@ -1,13 +1,13 @@
-package ec.com.def.pa.repository;
+package ec.fin.segurossucre.pa.repository;
 
 import javax.ejb.Local;
 
-import ec.com.def.core.exception.DefException;
-import ec.com.def.core.persistence.CrudRepository;
-import ec.com.def.pa.model.Acteco;
+import ec.fin.segurossucre.core.exception.SegSucreException;
+import ec.fin.segurossucre.core.persistence.CrudRepository;
+import ec.fin.segurossucre.pa.model.Acteco;
 @Local
 public interface ActecoRepository extends CrudRepository<String, Acteco> {
 
-	Acteco findByCodigo(String actividadEconomica)throws DefException;
+	Acteco findByCodigo(String actividadEconomica)throws SegSucreException;
 
 }

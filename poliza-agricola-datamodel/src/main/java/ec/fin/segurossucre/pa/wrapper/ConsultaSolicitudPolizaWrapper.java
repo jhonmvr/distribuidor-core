@@ -1,4 +1,4 @@
-package ec.com.def.pa.wrapper;
+package ec.fin.segurossucre.pa.wrapper;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -7,7 +7,7 @@ import java.util.Date;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
-import ec.com.def.pa.enums.EstadoSiniestroAgricolaEnum;
+import ec.fin.segurossucre.pa.enums.EstadoSiniestroAgricolaEnum;
 
 
 

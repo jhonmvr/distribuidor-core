@@ -1,4 +1,4 @@
-package ec.com.def.pa.enums;
+package ec.fin.segurossucre.pa.enums;
 
 /**
  * ESTADOS GENERALES DEFINIDOS DE EJEMPLO

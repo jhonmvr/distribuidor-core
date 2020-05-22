@@ -1,4 +1,4 @@
-package ec.com.def.pa.wrapper;
+package ec.fin.segurossucre.pa.wrapper;
 
 import java.awt.image.BufferedImage;
 import java.io.Serializable;

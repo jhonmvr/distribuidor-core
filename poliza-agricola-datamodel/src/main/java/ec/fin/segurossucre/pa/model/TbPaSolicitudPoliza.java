@@ -1,11 +1,11 @@
-package ec.com.def.pa.model;
+package ec.fin.segurossucre.pa.model;
 
 import java.io.Serializable;
 
 
 import javax.persistence.*;
 
-import ec.com.def.pa.enums.EstadoSiniestroAgricolaEnum;
+import ec.fin.segurossucre.pa.enums.EstadoSiniestroAgricolaEnum;
 
 import java.math.BigDecimal;
 import java.util.Date;

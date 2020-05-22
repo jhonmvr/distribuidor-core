@@ -1,4 +1,4 @@
-package ec.com.def.pa.servlet;
+package ec.fin.segurossucre.pa.servlet;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.annotation.WebServlet;

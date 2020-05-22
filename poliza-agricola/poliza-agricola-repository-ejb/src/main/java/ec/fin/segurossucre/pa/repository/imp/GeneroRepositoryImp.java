@@ -1,19 +1,19 @@
-package ec.com.def.pa.repository.imp;
+package ec.fin.segurossucre.pa.repository.imp;
 import java.util.List;
 
 import javax.ejb.Stateless;
 
-import ec.com.def.core.exception.DefException;
-import ec.com.def.core.persistence.GeneralRepositoryImp;
-import ec.com.def.core.util.main.Constantes;
-import ec.com.def.pa.model.Genero;
-import ec.com.def.pa.repository.GeneroRepository;
-import ec.com.def.pa.repository.spec.GeneroByCodigoSpec;
+import ec.fin.segurossucre.core.exception.SegSucreException;
+import ec.fin.segurossucre.core.persistence.GeneralRepositoryImp;
+import ec.fin.segurossucre.core.util.main.Constantes;
+import ec.fin.segurossucre.pa.model.Genero;
+import ec.fin.segurossucre.pa.repository.GeneroRepository;
+import ec.fin.segurossucre.pa.repository.spec.GeneroByCodigoSpec;
 @Stateless(mappedName = "generoRepository")
 public class GeneroRepositoryImp extends GeneralRepositoryImp<Long, Genero> implements GeneroRepository {
 
 	@Override
-	public Genero findByCodigo(String genero) throws DefException {
+	public Genero findByCodigo(String genero) throws SegSucreException {
 		List<Genero> tmp;
 		try {
 			tmp = this.findAllBySpecification(new GeneroByCodigoSpec(genero));
@@ -24,7 +24,7 @@ public class GeneroRepositoryImp extends GeneralRepositoryImp<Long, Genero> impl
 		} catch (Exception e) {
 			
 			e.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_CUSTOM,"AL BUSCAR GENERO POR CODIGO");
+			throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM,"AL BUSCAR GENERO POR CODIGO");
 		}
 		
 	}

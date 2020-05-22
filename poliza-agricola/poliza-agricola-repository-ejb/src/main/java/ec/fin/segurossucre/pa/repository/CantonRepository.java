@@ -1,16 +1,16 @@
-package ec.com.def.pa.repository;
+package ec.fin.segurossucre.pa.repository;
 
 import java.util.List;
 
 import javax.ejb.Local;
 
-import ec.com.def.core.exception.DefException;
-import ec.com.def.core.persistence.CrudRepository;
-import ec.com.def.pa.model.Canton;
-import ec.com.def.pa.model.CantonPK;
+import ec.fin.segurossucre.core.exception.SegSucreException;
+import ec.fin.segurossucre.core.persistence.CrudRepository;
+import ec.fin.segurossucre.pa.model.Canton;
+import ec.fin.segurossucre.pa.model.CantonPK;
 
 @Local
 public interface CantonRepository extends CrudRepository<CantonPK, Canton> {
 
-	public List<Canton> findByProvincia( String provincia, String order ) throws DefException;
+	public List<Canton> findByProvincia( String provincia, String order ) throws SegSucreException;
 }

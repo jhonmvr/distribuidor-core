@@ -1,11 +1,11 @@
-package ec.com.def.pa.repository.spec;
+package ec.fin.segurossucre.pa.repository.spec;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import ec.com.def.core.persistence.AbstractSpecification;
-import ec.com.def.pa.model.Apol;
+import ec.fin.segurossucre.core.persistence.AbstractSpecification;
+import ec.fin.segurossucre.pa.model.Apol;
 
 public class ApolByNumeroTramiteSpec extends AbstractSpecification<Apol>{
 

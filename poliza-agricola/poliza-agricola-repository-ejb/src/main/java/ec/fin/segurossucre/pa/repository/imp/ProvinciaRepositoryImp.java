@@ -1,10 +1,10 @@
-package ec.com.def.pa.repository.imp;
+package ec.fin.segurossucre.pa.repository.imp;
 
 import javax.ejb.Stateless;
 
-import ec.com.def.core.persistence.GeneralRepositoryImp;
-import ec.com.def.pa.model.Provincia;
-import ec.com.def.pa.repository.ProvinciaRepository;
+import ec.fin.segurossucre.core.persistence.GeneralRepositoryImp;
+import ec.fin.segurossucre.pa.model.Provincia;
+import ec.fin.segurossucre.pa.repository.ProvinciaRepository;
 
 /**
  * Session Bean implementation class ProvinciaRepositoryImp

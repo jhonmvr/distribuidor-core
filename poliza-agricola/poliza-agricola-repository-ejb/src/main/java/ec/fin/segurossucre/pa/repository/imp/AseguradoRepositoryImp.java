@@ -1,19 +1,19 @@
-package ec.com.def.pa.repository.imp;
+package ec.fin.segurossucre.pa.repository.imp;
 
 import java.util.List;
 
 import javax.ejb.Stateless;
 
-import ec.com.def.core.exception.DefException;
-import ec.com.def.core.persistence.GeneralRepositoryImp;
-import ec.com.def.core.util.main.Constantes;
-import ec.com.def.pa.model.TbSaAsegurado;
-import ec.com.def.pa.repository.AseguradoRepository;
+import ec.fin.segurossucre.core.exception.SegSucreException;
+import ec.fin.segurossucre.core.persistence.GeneralRepositoryImp;
+import ec.fin.segurossucre.core.util.main.Constantes;
+import ec.fin.segurossucre.pa.model.TbSaAsegurado;
+import ec.fin.segurossucre.pa.repository.AseguradoRepository;
 @Stateless(mappedName = "aseguradoRepository")
 public class AseguradoRepositoryImp extends GeneralRepositoryImp<Long, TbSaAsegurado> implements AseguradoRepository {
 
 	@Override
-	public TbSaAsegurado finByIdentificacion(String identificacion) throws DefException {
+	public TbSaAsegurado finByIdentificacion(String identificacion) throws SegSucreException {
 		try {
 			List<TbSaAsegurado>tmp =null;
 			tmp = this.findAllBySpecification(new AseguradoByIdetificacionSpec(identificacion));
@@ -23,7 +23,7 @@ public class AseguradoRepositoryImp extends GeneralRepositoryImp<Long, TbSaAsegu
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_READ,"NO SE PUEDE LEER LA INFORMACION DEL ASEGURADO");
+			throw new SegSucreException(Constantes.ERROR_CODE_READ,"NO SE PUEDE LEER LA INFORMACION DEL ASEGURADO");
 		}
 		return null;
 	}

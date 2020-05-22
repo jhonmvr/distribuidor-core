@@ -1,4 +1,4 @@
-package ec.com.def.pa.rest;
+package ec.fin.segurossucre.pa.rest;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DefaultValue;
@@ -7,15 +7,14 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
-
-import ec.com.def.core.exception.DefException;
-import ec.com.def.core.util.main.PaginatedListWrapper;
-import ec.com.def.core.web.util.BaseRestController;
-import ec.com.def.core.web.util.CrudRestControllerInterface;
-import ec.com.def.core.web.util.GenericWrapper;
-import ec.com.def.pa.model.Parroquia;
-import ec.com.def.pa.model.ParroquiaPK;
-import ec.com.def.pa.service.PolizaAgricolaService;
+import ec.fin.segurossucre.core.exception.SegSucreException;
+import ec.fin.segurossucre.core.util.main.PaginatedListWrapper;
+import ec.fin.segurossucre.core.web.util.BaseRestController;
+import ec.fin.segurossucre.core.web.util.CrudRestControllerInterface;
+import ec.fin.segurossucre.core.web.util.GenericWrapper;
+import ec.fin.segurossucre.pa.model.Parroquia;
+import ec.fin.segurossucre.pa.model.ParroquiaPK;
+import ec.fin.segurossucre.pa.service.PolizaAgricolaService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -29,12 +28,12 @@ public class ParroquiaRestController extends BaseRestController implements CrudR
 	@Inject
 	PolizaAgricolaService sas;
 	
-	public ParroquiaRestController() throws DefException {
+	public ParroquiaRestController() throws SegSucreException {
 		super();
 	}
 
 	@Override
-	public void deleteEntity(String arg0) throws DefException {
+	public void deleteEntity(String arg0) throws SegSucreException {
 		// TODO Auto-generated method stub
 		
 	}
@@ -46,11 +45,11 @@ public class ParroquiaRestController extends BaseRestController implements CrudR
 	response = GenericWrapper.class)
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Retorno existoso de informacion", response = GenericWrapper.class),
-			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = DefException.class) })
+			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = SegSucreException.class) })
 	public GenericWrapper<Parroquia> getEntity(
 			@QueryParam("provinciaId") String provinciaId,
 			@QueryParam("cantonId") String cantonId,
-			@QueryParam("parroquiaId") String parroquiaId) throws DefException {
+			@QueryParam("parroquiaId") String parroquiaId) throws SegSucreException {
 		GenericWrapper<Parroquia> loc = new GenericWrapper<>();
 		ParroquiaPK c=new ParroquiaPK();
 		c.setParroquiaid(parroquiaId);
@@ -70,31 +69,31 @@ public class ParroquiaRestController extends BaseRestController implements CrudR
 	response = GenericWrapper.class)
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Retorno existoso de informacion", response = GenericWrapper.class),
-			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = DefException.class) })
+			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = SegSucreException.class) })
 	public GenericWrapper<Parroquia> listAllEntitiesByProvinciaCanton(
 			@QueryParam("provinciaId") String provinciaId,
 			@QueryParam("cantonId") String cantonId,
-			@QueryParam("order") @DefaultValue("asc") String order) throws DefException {
+			@QueryParam("order") @DefaultValue("asc") String order) throws SegSucreException {
 		GenericWrapper<Parroquia> loc = new GenericWrapper<>();
 		loc.setEntidades( this.sas.findAllParroquiaByProvinciaCanton(provinciaId, cantonId, order) );
 		return loc;
 	}
 
 	@Override
-	public GenericWrapper<Parroquia> persistEntity(GenericWrapper<Parroquia> arg0) throws DefException {
+	public GenericWrapper<Parroquia> persistEntity(GenericWrapper<Parroquia> arg0) throws SegSucreException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public GenericWrapper<Parroquia> getEntity(String arg0) throws DefException {
+	public GenericWrapper<Parroquia> getEntity(String arg0) throws SegSucreException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public PaginatedListWrapper<Parroquia> listAllEntities(String arg0, String arg1, String arg2, String arg3,
-			String arg4) throws DefException {
+			String arg4) throws SegSucreException {
 		// TODO Auto-generated method stub
 		return null;
 	}

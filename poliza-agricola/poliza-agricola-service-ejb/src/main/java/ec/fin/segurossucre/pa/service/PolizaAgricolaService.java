@@ -1,4 +1,4 @@
-package ec.com.def.pa.service;
+package ec.fin.segurossucre.pa.service;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -13,57 +13,57 @@ import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
-import ec.com.def.core.exception.DefException;
-import ec.com.def.core.util.main.Constantes;
-import ec.com.def.core.util.main.PaginatedWrapper;
-import ec.com.def.pa.enums.EstadoSiniestroAgricolaEnum;
-import ec.com.def.pa.model.Acteco;
-import ec.com.def.pa.model.Apol;
-import ec.com.def.pa.model.Canton;
-import ec.com.def.pa.model.CantonPK;
-import ec.com.def.pa.model.Condicionpredio;
-import ec.com.def.pa.model.Estadocivil;
-import ec.com.def.pa.model.Genero;
-import ec.com.def.pa.model.Nacionalidad;
-import ec.com.def.pa.model.Pais;
-import ec.com.def.pa.model.Parroquia;
-import ec.com.def.pa.model.ParroquiaPK;
-import ec.com.def.pa.model.Provincia;
-import ec.com.def.pa.model.Ramocanal;
-import ec.com.def.pa.model.RamocanalPK;
-import ec.com.def.pa.model.Ramoplan;
-import ec.com.def.pa.model.RamoplanPK;
-import ec.com.def.pa.model.Riego;
-import ec.com.def.pa.model.TbPaCanalSecuencia;
-import ec.com.def.pa.model.TbPaDocumentoPoliza;
-import ec.com.def.pa.model.TbPaTipoDocumentoPoliza;
-import ec.com.def.pa.model.TbSaParametro;
-import ec.com.def.pa.model.TbSaUsuarioCanal;
-import ec.com.def.pa.model.Tiposemilla;
-import ec.com.def.pa.model.Un01;
-import ec.com.def.pa.repository.ActecoRepository;
-import ec.com.def.pa.repository.ApolRepository;
-import ec.com.def.pa.repository.CanalRepository;
-import ec.com.def.pa.repository.CanalSecuenciaRepository;
-import ec.com.def.pa.repository.CantonRepository;
-import ec.com.def.pa.repository.CondicionPredioRepository;
-import ec.com.def.pa.repository.DocumentoPolizaRepository;
-import ec.com.def.pa.repository.EstadoCivilRepository;
-import ec.com.def.pa.repository.GeneroRepository;
-import ec.com.def.pa.repository.NacionalidadRepository;
-import ec.com.def.pa.repository.PaisRepository;
-import ec.com.def.pa.repository.ParametroRepository;
-import ec.com.def.pa.repository.ParroquiaRepository;
-import ec.com.def.pa.repository.ProvinciaRepository;
-import ec.com.def.pa.repository.RamoPlanRepository;
-import ec.com.def.pa.repository.RiegoRepository;
-import ec.com.def.pa.repository.TipoDocumentoPolizaRepository;
-import ec.com.def.pa.repository.TipoSemillaRepository;
-import ec.com.def.pa.repository.Un01Repository;
-import ec.com.def.pa.repository.UsuarioCanalRepository;
-import ec.com.def.pa.util.SiniestroAgricolaConstantes;
-import ec.com.def.pa.wrapper.ApolWrapper;
-import ec.com.def.pa.wrapper.CatalogosGeneralWrapper;
+import ec.fin.segurossucre.core.exception.SegSucreException;
+import ec.fin.segurossucre.core.util.main.Constantes;
+import ec.fin.segurossucre.core.util.main.PaginatedWrapper;
+import ec.fin.segurossucre.pa.enums.EstadoSiniestroAgricolaEnum;
+import ec.fin.segurossucre.pa.model.Acteco;
+import ec.fin.segurossucre.pa.model.Apol;
+import ec.fin.segurossucre.pa.model.Canton;
+import ec.fin.segurossucre.pa.model.CantonPK;
+import ec.fin.segurossucre.pa.model.Condicionpredio;
+import ec.fin.segurossucre.pa.model.Estadocivil;
+import ec.fin.segurossucre.pa.model.Genero;
+import ec.fin.segurossucre.pa.model.Nacionalidad;
+import ec.fin.segurossucre.pa.model.Pais;
+import ec.fin.segurossucre.pa.model.Parroquia;
+import ec.fin.segurossucre.pa.model.ParroquiaPK;
+import ec.fin.segurossucre.pa.model.Provincia;
+import ec.fin.segurossucre.pa.model.Ramocanal;
+import ec.fin.segurossucre.pa.model.RamocanalPK;
+import ec.fin.segurossucre.pa.model.Ramoplan;
+import ec.fin.segurossucre.pa.model.RamoplanPK;
+import ec.fin.segurossucre.pa.model.Riego;
+import ec.fin.segurossucre.pa.model.TbPaCanalSecuencia;
+import ec.fin.segurossucre.pa.model.TbPaDocumentoPoliza;
+import ec.fin.segurossucre.pa.model.TbPaTipoDocumentoPoliza;
+import ec.fin.segurossucre.pa.model.TbSaParametro;
+import ec.fin.segurossucre.pa.model.TbSaUsuarioCanal;
+import ec.fin.segurossucre.pa.model.Tiposemilla;
+import ec.fin.segurossucre.pa.model.Un01;
+import ec.fin.segurossucre.pa.repository.ActecoRepository;
+import ec.fin.segurossucre.pa.repository.ApolRepository;
+import ec.fin.segurossucre.pa.repository.CanalRepository;
+import ec.fin.segurossucre.pa.repository.CanalSecuenciaRepository;
+import ec.fin.segurossucre.pa.repository.CantonRepository;
+import ec.fin.segurossucre.pa.repository.CondicionPredioRepository;
+import ec.fin.segurossucre.pa.repository.DocumentoPolizaRepository;
+import ec.fin.segurossucre.pa.repository.EstadoCivilRepository;
+import ec.fin.segurossucre.pa.repository.GeneroRepository;
+import ec.fin.segurossucre.pa.repository.NacionalidadRepository;
+import ec.fin.segurossucre.pa.repository.PaisRepository;
+import ec.fin.segurossucre.pa.repository.ParametroRepository;
+import ec.fin.segurossucre.pa.repository.ParroquiaRepository;
+import ec.fin.segurossucre.pa.repository.ProvinciaRepository;
+import ec.fin.segurossucre.pa.repository.RamoPlanRepository;
+import ec.fin.segurossucre.pa.repository.RiegoRepository;
+import ec.fin.segurossucre.pa.repository.TipoDocumentoPolizaRepository;
+import ec.fin.segurossucre.pa.repository.TipoSemillaRepository;
+import ec.fin.segurossucre.pa.repository.Un01Repository;
+import ec.fin.segurossucre.pa.repository.UsuarioCanalRepository;
+import ec.fin.segurossucre.pa.util.SiniestroAgricolaConstantes;
+import ec.fin.segurossucre.pa.wrapper.ApolWrapper;
+import ec.fin.segurossucre.pa.wrapper.CatalogosGeneralWrapper;
 
 @Stateless
 public class PolizaAgricolaService {
@@ -137,15 +137,15 @@ public class PolizaAgricolaService {
 	 * @param id Pk de la entidad
 	 * @return Entidad encontrada
 	 * @author SAUL MENDEZ - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public TbSaParametro findParametroById(Long id) throws DefException {
+	public TbSaParametro findParametroById(Long id) throws SegSucreException {
 		try {
 			return parametroRepository.findById(id);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "Action no encontrada " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Action no encontrada " + e.getMessage());
 		}
 	}
 
@@ -153,15 +153,15 @@ public class PolizaAgricolaService {
 	 * Metodo que cuenta la cantidad de entidades existentes
 	 * 
 	 * @return Cantidad de entidades encontradas
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public Long countParametros() throws DefException {
+	public Long countParametros() throws SegSucreException {
 		try {
 			return parametroRepository.countAll(TbSaParametro.class);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "Parametros no encontrado " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Parametros no encontrado " + e.getMessage());
 		}
 	}
 
@@ -172,9 +172,9 @@ public class PolizaAgricolaService {
 	 *           resultado es total o paginado
 	 * @return Listado de entidades encontradas
 	 * @author SAUL MENDEZ - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public List<TbSaParametro> findAllParametro(PaginatedWrapper pw) throws DefException {
+	public List<TbSaParametro> findAllParametro(PaginatedWrapper pw) throws SegSucreException {
 		if (pw == null) {
 			return this.parametroRepository.findAll(TbSaParametro.class);
 		} else {
@@ -193,9 +193,9 @@ public class PolizaAgricolaService {
 	 * 
 	 * @param send entidad con la informacion de creacion o actualizacion
 	 * @return Entidad modificada o actualizada
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public TbSaParametro manageParametro(TbSaParametro send) throws DefException {
+	public TbSaParametro manageParametro(TbSaParametro send) throws SegSucreException {
 		try {
 
 			TbSaParametro persisted = null;
@@ -213,14 +213,14 @@ public class PolizaAgricolaService {
 				// TbSaParametro.class ) );
 				return persisted;
 			} else {
-				throw new DefException(Constantes.ERROR_CODE_CUSTOM, "Error no se realizo transaccion");
+				throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM, "Error no se realizo transaccion");
 			}
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			e.printStackTrace();
 			throw e;
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_UPDATE,
+			throw new SegSucreException(Constantes.ERROR_CODE_UPDATE,
 					"Error actualizando la CausaNegativa " + e.getMessage());
 		}
 	}
@@ -231,9 +231,9 @@ public class PolizaAgricolaService {
 	 * @param send      informacion enviada para update
 	 * @param persisted entidad existente sobre la que se actualiza
 	 * @return Entidad actualizada
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public TbSaParametro updateParametro(TbSaParametro send, TbSaParametro persisted) throws DefException {
+	public TbSaParametro updateParametro(TbSaParametro send, TbSaParametro persisted) throws SegSucreException {
 		try {
 			if (send.getNombre() != null)
 				persisted.setNombre(send.getNombre());
@@ -247,26 +247,26 @@ public class PolizaAgricolaService {
 				persisted.setCaracteristicaDos(send.getCaracteristicaDos());
 			return parametroRepository.update(persisted);
 
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_UPDATE,
+			throw new SegSucreException(Constantes.ERROR_CODE_UPDATE,
 					"Error actualizando CausaNegativa " + e.getMessage());
 		}
 	}
 
-	public TbSaParametro findByNombre(String nombre) throws DefException {
+	public TbSaParametro findByNombre(String nombre) throws SegSucreException {
 		try {
 			TbSaParametro a = parametroRepository.findByNombre(nombre);
 			if (a != null) {
 				return a;
 			} else {
-				throw new DefException(Constantes.ERROR_CODE_READ, "tbsaparametro no encontrada ");
+				throw new SegSucreException(Constantes.ERROR_CODE_READ, "tbsaparametro no encontrada ");
 
 			}
 
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "en la busqueda tbsaparametro " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "en la busqueda tbsaparametro " + e.getMessage());
 		}
 	}
 
@@ -280,13 +280,13 @@ public class PolizaAgricolaService {
 	 * @param id Pk de la entidad
 	 * @return Entidad encontrada
 	 * @author LUIS TAMAYO - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public Ramocanal findCanalById(RamocanalPK id) throws DefException {
+	public Ramocanal findCanalById(RamocanalPK id) throws SegSucreException {
 		try {
 			return canalRepository.findByIdFixed(id.getRamoid(), id.getCanalid());
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "Canal no encontrado " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Canal no encontrado " + e.getMessage());
 		}
 	}
 
@@ -294,15 +294,15 @@ public class PolizaAgricolaService {
 	 * Metodo que cuenta la cantidad de entidades existentes
 	 * 
 	 * @return Cantidad de entidades encontradas
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public Long countCanal() throws DefException {
+	public Long countCanal() throws SegSucreException {
 		try {
 			return canalRepository.countAll(Ramocanal.class);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "Canal no encontrado " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Canal no encontrado " + e.getMessage());
 		}
 	}
 
@@ -313,9 +313,9 @@ public class PolizaAgricolaService {
 	 *           resultado es total o paginado
 	 * @return Listado de entidades encontradas
 	 * @author LUIS TAMAYO - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public List<Ramocanal> findAllCanal(PaginatedWrapper pw) throws DefException {
+	public List<Ramocanal> findAllCanal(PaginatedWrapper pw) throws SegSucreException {
 		if (pw == null) {
 			return this.canalRepository.findAll(Ramocanal.class);
 		} else {
@@ -328,7 +328,7 @@ public class PolizaAgricolaService {
 		}
 	}
 
-	public List<Ramocanal> findAllCanalByRamo(String ramoId) throws DefException {
+	public List<Ramocanal> findAllCanalByRamo(String ramoId) throws SegSucreException {
 		return this.canalRepository.findByRamo(ramoId);
 	}
 
@@ -340,9 +340,9 @@ public class PolizaAgricolaService {
 	 * 
 	 * @param id
 	 * @return
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	private ApolWrapper datosPredio(List<Apol> apol) throws DefException {
+	private ApolWrapper datosPredio(List<Apol> apol) throws SegSucreException {
 
 		log.info("entra en DatosPredio===>>>>");
 		log.info("entra en apol===>>>>  " + apol);
@@ -367,7 +367,7 @@ public class PolizaAgricolaService {
 							log.info("exiye datos en apol y un01o===>>>>");
 							uno = un01s.get(0);
 						}
-					} catch (DefException e) {
+					} catch (SegSucreException e) {
 						log.info("no se encuentra Un01 para el tramite:" + apol.get(0).getAwreferext());
 						un01s = null;
 					}
@@ -394,25 +394,25 @@ public class PolizaAgricolaService {
 	 * 
 	 * @param numeroTramite
 	 * @return List<Apol>
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public ApolWrapper findApolByNumeroTramite(String numeroTramite) throws DefException {
+	public ApolWrapper findApolByNumeroTramite(String numeroTramite) throws SegSucreException {
 	
 		try {
 			ApolWrapper apol = null;
 			List<Apol> apoll = apolRepository.findByNumeroTramite(numeroTramite);
 			if (apoll == null) {
 				log.info("no se encontro datos en apol>>>>>>>>>>>>>");
-				throw new DefException(Constantes.ERROR_CODE_READ, "Apol no encontrada ");
+				throw new SegSucreException(Constantes.ERROR_CODE_READ, "Apol no encontrada ");
 			}
 			apol = datosPredio(apoll);
 			return apol;
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
 			e.getStackTrace();
 			log.info(">>>>>>>>>>>>>>>apol no encontrada<<<<<<<<<<<<<<<<<<<<<<" + e);
-			throw new DefException(Constantes.ERROR_CODE_READ, "Apol no encontrada " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Apol no encontrada " + e.getMessage());
 		}
 	}
 
@@ -422,15 +422,15 @@ public class PolizaAgricolaService {
 	 * @param id Pk de la entidad
 	 * @return Entidad encontrada
 	 * @author SAUL MENDEZ - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public Apol findApolById(Long id) throws DefException {
+	public Apol findApolById(Long id) throws SegSucreException {
 		try {
 			return apolRepository.findById(id);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "Apol no encontrada " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Apol no encontrada " + e.getMessage());
 		}
 	}
 
@@ -438,15 +438,15 @@ public class PolizaAgricolaService {
 	 * Metodo que cuenta la cantidad de entidades existentes
 	 * 
 	 * @return Cantidad de entidades encontradas
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public Long countApol() throws DefException {
+	public Long countApol() throws SegSucreException {
 		try {
 			return apolRepository.countAll(Apol.class);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "Apol no encontrado " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Apol no encontrado " + e.getMessage());
 		}
 	}
 
@@ -457,9 +457,9 @@ public class PolizaAgricolaService {
 	 *           resultado es total o paginado
 	 * @return Listado de entidades encontradas
 	 * @author SAUL MENDEZ - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public List<Apol> findAllApol(PaginatedWrapper pw) throws DefException {
+	public List<Apol> findAllApol(PaginatedWrapper pw) throws SegSucreException {
 		if (pw == null) {
 			return this.apolRepository.findAll(Apol.class);
 		} else {
@@ -482,15 +482,15 @@ public class PolizaAgricolaService {
 	 * @param id Pk de la entidad
 	 * @return Entidad encontrada
 	 * @author SAUL MENDEZ - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public Provincia findProvinciaById(String id) throws DefException {
+	public Provincia findProvinciaById(String id) throws SegSucreException {
 		try {
 			return provinciaRepository.findById(id);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "Provincia no encontrada " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Provincia no encontrada " + e.getMessage());
 		}
 	}
 
@@ -498,15 +498,15 @@ public class PolizaAgricolaService {
 	 * Metodo que cuenta la cantidad de entidades existentes
 	 * 
 	 * @return Cantidad de entidades encontradas
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public Long countProvincia() throws DefException {
+	public Long countProvincia() throws SegSucreException {
 		try {
 			return provinciaRepository.countAll(Provincia.class);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "Provincia no encontrado " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Provincia no encontrado " + e.getMessage());
 		}
 	}
 
@@ -517,9 +517,9 @@ public class PolizaAgricolaService {
 	 *           resultado es total o paginado
 	 * @return Listado de entidades encontradas
 	 * @author SAUL MENDEZ - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public List<Provincia> findAllProvincia(PaginatedWrapper pw) throws DefException {
+	public List<Provincia> findAllProvincia(PaginatedWrapper pw) throws SegSucreException {
 		if (pw == null) {
 			return this.provinciaRepository.findAll(Provincia.class);
 		} else {
@@ -538,9 +538,9 @@ public class PolizaAgricolaService {
 	 * 
 	 * @return CatalogosGeneralWrapper
 	 * @author SAUL MENDEZ - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public List<CatalogosGeneralWrapper> setWrapperCatalaogoGeneral(String catalogo) throws DefException {
+	public List<CatalogosGeneralWrapper> setWrapperCatalaogoGeneral(String catalogo) throws SegSucreException {
 		List<CatalogosGeneralWrapper> list = new ArrayList<>();
 		try {
 			if (catalogo.equals(PROVINCIA)) {
@@ -647,10 +647,10 @@ public class PolizaAgricolaService {
 				});
 			}
 
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "Action no encontrada " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Action no encontrada " + e.getMessage());
 		}
 		return list;
 	}
@@ -660,9 +660,9 @@ public class PolizaAgricolaService {
 	 * 
 	 * @return NombreCatalogo
 	 * @author SAUL MENDEZ - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public CatalogosGeneralWrapper setNombreCatalogo(String catalogo) throws DefException {
+	public CatalogosGeneralWrapper setNombreCatalogo(String catalogo) throws SegSucreException {
 		try {
 			log.info("=========>llega a set catalogo provincia  " + catalogo);
 			CatalogosGeneralWrapper c = new CatalogosGeneralWrapper();
@@ -693,7 +693,7 @@ public class PolizaAgricolaService {
 			log.info("=========>insertar nombre del catalogo " + c.getNombreCatalogo());
 			return c;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "Action no encontrada " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Action no encontrada " + e.getMessage());
 		}
 	}
 
@@ -707,15 +707,15 @@ public class PolizaAgricolaService {
 	 * @param id Pk de la entidad
 	 * @return Entidad encontrada
 	 * @author SAUL MENDEZ - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public Canton findCantonById(CantonPK id) throws DefException {
+	public Canton findCantonById(CantonPK id) throws SegSucreException {
 		try {
 			return cantonRepository.findById(id);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "Canton no encontrada " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Canton no encontrada " + e.getMessage());
 		}
 	}
 
@@ -728,25 +728,25 @@ public class PolizaAgricolaService {
 	 * @param id Pk de la entidad
 	 * @return Entidad encontradaa
 	 * @author JHON ROMERO - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public Acteco findActecoById(String id) throws DefException {
+	public Acteco findActecoById(String id) throws SegSucreException {
 		try {
 			return actecoRepository.findById(id);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "Action no encontrada " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Action no encontrada " + e.getMessage());
 		}
 	}
 
-	public Long countActeco() throws DefException {
+	public Long countActeco() throws SegSucreException {
 		try {
 			return actecoRepository.countAll(Acteco.class);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "Acteco no encontrado " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Acteco no encontrado " + e.getMessage());
 		}
 	}
 
@@ -757,9 +757,9 @@ public class PolizaAgricolaService {
 	 *           resultado es total o paginado
 	 * @return Listado de entidades encontradas
 	 * @author JHON ROMERO - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public List<Acteco> findAllActeco(PaginatedWrapper pw) throws DefException {
+	public List<Acteco> findAllActeco(PaginatedWrapper pw) throws SegSucreException {
 		if (pw == null) {
 			return this.actecoRepository.findAll(Acteco.class);
 		} else {
@@ -782,25 +782,25 @@ public class PolizaAgricolaService {
 	 * @param id Pk de la entidad
 	 * @return Entidad encontradaa
 	 * @author JHON ROMERO - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public Estadocivil findEstadoCivilById(Long id) throws DefException {
+	public Estadocivil findEstadoCivilById(Long id) throws SegSucreException {
 		try {
 			return estadoCivilRepository.findById(id);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "Action no encontrada " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Action no encontrada " + e.getMessage());
 		}
 	}
 
-	public Long countEstadoCivil() throws DefException {
+	public Long countEstadoCivil() throws SegSucreException {
 		try {
 			return estadoCivilRepository.countAll(Estadocivil.class);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "EstadoCivil no encontrado " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "EstadoCivil no encontrado " + e.getMessage());
 		}
 	}
 
@@ -811,9 +811,9 @@ public class PolizaAgricolaService {
 	 *           resultado es total o paginado
 	 * @return Listado de entidades encontradas
 	 * @author JHON ROMERO - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public List<Estadocivil> findAllEstadoCivil(PaginatedWrapper pw) throws DefException {
+	public List<Estadocivil> findAllEstadoCivil(PaginatedWrapper pw) throws SegSucreException {
 		if (pw == null) {
 			return this.estadoCivilRepository.findAll(Estadocivil.class);
 		} else {
@@ -831,15 +831,15 @@ public class PolizaAgricolaService {
 	 * Metodo que cuenta la cantidad de entidades existentes
 	 * 
 	 * @return Cantidad de entidades encontradas
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public Long countCanton() throws DefException {
+	public Long countCanton() throws SegSucreException {
 		try {
 			return cantonRepository.countAll(Canton.class);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "Canton no encontrado " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Canton no encontrado " + e.getMessage());
 		}
 	}
 
@@ -850,9 +850,9 @@ public class PolizaAgricolaService {
 	 *           resultado es total o paginado
 	 * @return Listado de entidades encontradas
 	 * @author SAUL MENDEZ - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public List<Canton> findAllCanton(PaginatedWrapper pw) throws DefException {
+	public List<Canton> findAllCanton(PaginatedWrapper pw) throws SegSucreException {
 		if (pw == null) {
 			return this.cantonRepository.findAll(Canton.class);
 		} else {
@@ -870,9 +870,9 @@ public class PolizaAgricolaService {
 	 * 
 	 * @param provincia Criterio de busqueda
 	 * @return Listado de cantones por provincia
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public List<Canton> findCantonesByProvincia(String provincia, String order) throws DefException {
+	public List<Canton> findCantonesByProvincia(String provincia, String order) throws SegSucreException {
 		return this.cantonRepository.findByProvincia(provincia, order);
 	}
 
@@ -886,25 +886,25 @@ public class PolizaAgricolaService {
 	 * @param id Pk de la entidad
 	 * @return Entidad encontradaa
 	 * @author SAUL MENDEZ - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public Genero findGeneroById(Long id) throws DefException {
+	public Genero findGeneroById(Long id) throws SegSucreException {
 		try {
 			return generoRepository.findById(id);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "Action no encontrada " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Action no encontrada " + e.getMessage());
 		}
 	}
 
-	public Long countGenero() throws DefException {
+	public Long countGenero() throws SegSucreException {
 		try {
 			return generoRepository.countAll(Genero.class);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "Genero no encontrado " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Genero no encontrado " + e.getMessage());
 		}
 	}
 
@@ -915,9 +915,9 @@ public class PolizaAgricolaService {
 	 *           resultado es total o paginado
 	 * @return Listado de entidades encontradas
 	 * @author SAUL MENDEZ - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public List<Genero> findAllGenero(PaginatedWrapper pw) throws DefException {
+	public List<Genero> findAllGenero(PaginatedWrapper pw) throws SegSucreException {
 		if (pw == null) {
 			return this.generoRepository.findAll(Genero.class);
 		} else {
@@ -939,15 +939,15 @@ public class PolizaAgricolaService {
 	 * @param id Pk de la entidad
 	 * @return Entidad encontrada
 	 * @author SAUL MENDEZ - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public Parroquia findParroquiaById(ParroquiaPK id) throws DefException {
+	public Parroquia findParroquiaById(ParroquiaPK id) throws SegSucreException {
 		try {
 			return this.parroquiaRepository.findByPKFixed(id.getProvinciaid(), id.getCantonid(), id.getParroquiaid());
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "Parroquia no encontrada " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Parroquia no encontrada " + e.getMessage());
 		}
 	}
 
@@ -956,14 +956,14 @@ public class PolizaAgricolaService {
 	 * @param provincia
 	 * @param canton
 	 * @return
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
 	public List<Parroquia> findAllParroquiaByProvinciaCanton(String provincia, String canton, String order)
-			throws DefException {
+			throws SegSucreException {
 		try {
 			return this.parroquiaRepository.findByProvinciaAndCanton(provincia, canton, order);
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "Error al cargar parroquias" + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Error al cargar parroquias" + e.getMessage());
 		}
 	}
 
@@ -971,15 +971,15 @@ public class PolizaAgricolaService {
 	 * Metodo que cuenta la cantidad de entidades existentes
 	 * 
 	 * @return Cantidad de entidades encontradas
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public Long countParroquia() throws DefException {
+	public Long countParroquia() throws SegSucreException {
 		try {
 			return parroquiaRepository.countAll(Parroquia.class);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "Parroquia no encontrado " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Parroquia no encontrado " + e.getMessage());
 		}
 	}
 
@@ -990,9 +990,9 @@ public class PolizaAgricolaService {
 	 *           resultado es total o paginado
 	 * @return Listado de entidades encontradas
 	 * @author SAUL MENDEZ - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public List<Parroquia> findAllParroquia(PaginatedWrapper pw) throws DefException {
+	public List<Parroquia> findAllParroquia(PaginatedWrapper pw) throws SegSucreException {
 		if (pw == null) {
 			return this.parroquiaRepository.findAll(Parroquia.class);
 		} else {
@@ -1015,25 +1015,25 @@ public class PolizaAgricolaService {
 	 * @param id Pk de la entidad
 	 * @return Entidad encontradaa
 	 * @author SAUL MENDEZ - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public Condicionpredio findCondicionpredioById(Long id) throws DefException {
+	public Condicionpredio findCondicionpredioById(Long id) throws SegSucreException {
 		try {
 			return condicionPredioRepository.findById(id);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "Action no encontrada " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Action no encontrada " + e.getMessage());
 		}
 	}
 
-	public Long countCondicionpredio() throws DefException {
+	public Long countCondicionpredio() throws SegSucreException {
 		try {
 			return condicionPredioRepository.countAll(Condicionpredio.class);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "Condicionpredio no encontrado " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Condicionpredio no encontrado " + e.getMessage());
 		}
 	}
 
@@ -1044,9 +1044,9 @@ public class PolizaAgricolaService {
 	 *           resultado es total o paginado
 	 * @return Listado de entidades encontradas
 	 * @author SAUL MENDEZ - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public List<Condicionpredio> findAllCondicionpredio(PaginatedWrapper pw) throws DefException {
+	public List<Condicionpredio> findAllCondicionpredio(PaginatedWrapper pw) throws SegSucreException {
 		if (pw == null) {
 			return this.condicionPredioRepository.findAll(Condicionpredio.class);
 		} else {
@@ -1070,25 +1070,25 @@ public class PolizaAgricolaService {
 	 * @param id Pk de la entidad
 	 * @return Entidad encontradaa
 	 * @author SAUL MENDEZ - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public Tiposemilla findTiposemillaById(Long id) throws DefException {
+	public Tiposemilla findTiposemillaById(Long id) throws SegSucreException {
 		try {
 			return tipoSemillaRepository.findById(id);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "Action no encontrada " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Action no encontrada " + e.getMessage());
 		}
 	}
 
-	public Long countTiposemilla() throws DefException {
+	public Long countTiposemilla() throws SegSucreException {
 		try {
 			return tipoSemillaRepository.countAll(Tiposemilla.class);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "Tiposemilla no encontrado " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Tiposemilla no encontrado " + e.getMessage());
 		}
 	}
 
@@ -1099,9 +1099,9 @@ public class PolizaAgricolaService {
 	 *           resultado es total o paginado
 	 * @return Listado de entidades encontradas
 	 * @author SAUL MENDEZ - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public List<Tiposemilla> findAllTiposemilla(PaginatedWrapper pw) throws DefException {
+	public List<Tiposemilla> findAllTiposemilla(PaginatedWrapper pw) throws SegSucreException {
 		if (pw == null) {
 			return this.tipoSemillaRepository.findAll(Tiposemilla.class);
 		} else {
@@ -1125,25 +1125,25 @@ public class PolizaAgricolaService {
 	 * @param id Pk de la entidad
 	 * @return Entidad encontradaa
 	 * @author SAUL MENDEZ - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public Riego findRiegoById(Long id) throws DefException {
+	public Riego findRiegoById(Long id) throws SegSucreException {
 		try {
 			return riegoRepository.findById(id);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "Action no encontrada " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Action no encontrada " + e.getMessage());
 		}
 	}
 
-	public Long countRiego() throws DefException {
+	public Long countRiego() throws SegSucreException {
 		try {
 			return riegoRepository.countAll(Riego.class);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "Riego no encontrado " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Riego no encontrado " + e.getMessage());
 		}
 	}
 
@@ -1154,9 +1154,9 @@ public class PolizaAgricolaService {
 	 *           resultado es total o paginado
 	 * @return Listado de entidades encontradas
 	 * @author SAUL MENDEZ - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public List<Riego> findAllRiego(PaginatedWrapper pw) throws DefException {
+	public List<Riego> findAllRiego(PaginatedWrapper pw) throws SegSucreException {
 		if (pw == null) {
 			return this.riegoRepository.findAll(Riego.class);
 		} else {
@@ -1179,25 +1179,25 @@ public class PolizaAgricolaService {
 	 * @param id Pk de la entidad
 	 * @return Entidad encontradaa
 	 * @author SAUL MENDEZ - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public Pais findPaisById(String id) throws DefException {
+	public Pais findPaisById(String id) throws SegSucreException {
 		try {
 			return paisRepository.findById(id);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "Action no encontrada " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Action no encontrada " + e.getMessage());
 		}
 	}
 
-	public Long countPais() throws DefException {
+	public Long countPais() throws SegSucreException {
 		try {
 			return paisRepository.countAll(Pais.class);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "Pais no encontrado " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Pais no encontrado " + e.getMessage());
 		}
 	}
 
@@ -1208,9 +1208,9 @@ public class PolizaAgricolaService {
 	 *           resultado es total o paginado
 	 * @return Listado de entidades encontradas
 	 * @author SAUL MENDEZ - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public List<Pais> findAllPais(PaginatedWrapper pw) throws DefException {
+	public List<Pais> findAllPais(PaginatedWrapper pw) throws SegSucreException {
 		if (pw == null) {
 			return this.paisRepository.findAll(Pais.class);
 		} else {
@@ -1233,25 +1233,25 @@ public class PolizaAgricolaService {
 	 * @param id Pk de la entidad
 	 * @return Entidad encontrada
 	 * @author LUIS TAMAYO - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public Ramoplan findRamoplanById(RamoplanPK id) throws DefException {
+	public Ramoplan findRamoplanById(RamoplanPK id) throws SegSucreException {
 		try {
 			return ramoPlanRepository.findById(id);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "Ramoplan no encontrada " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Ramoplan no encontrada " + e.getMessage());
 		}
 	}
 
-	public Long countRamoPlan() throws DefException {
+	public Long countRamoPlan() throws SegSucreException {
 		try {
 			return ramoPlanRepository.countAll(Ramoplan.class);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "RamoPlan no encontrado " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "RamoPlan no encontrado " + e.getMessage());
 		}
 	}
 
@@ -1262,9 +1262,9 @@ public class PolizaAgricolaService {
 	 *           resultado es total o paginado
 	 * @return Listado de entidades encontradas
 	 * @author SAUL MENDEZ - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public List<Ramoplan> findAllRamoPlan(PaginatedWrapper pw) throws DefException {
+	public List<Ramoplan> findAllRamoPlan(PaginatedWrapper pw) throws SegSucreException {
 		if (pw == null) {
 			return this.ramoPlanRepository.findAll(Ramoplan.class);
 		} else {
@@ -1286,25 +1286,25 @@ public class PolizaAgricolaService {
 	 * @param id Pk de la entidad
 	 * @return Entidad encontradaa
 	 * @author SAUL MENDEZ - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public Nacionalidad findNacionalidadById(String id) throws DefException {
+	public Nacionalidad findNacionalidadById(String id) throws SegSucreException {
 		try {
 			return nacionalidadRepository.findById(id);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "Action no encontrada " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Action no encontrada " + e.getMessage());
 		}
 	}
 
-	public Long countNacionalidad() throws DefException {
+	public Long countNacionalidad() throws SegSucreException {
 		try {
 			return nacionalidadRepository.countAll(Nacionalidad.class);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "Nacionalidad no encontrado " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Nacionalidad no encontrado " + e.getMessage());
 		}
 	}
 
@@ -1315,9 +1315,9 @@ public class PolizaAgricolaService {
 	 *           resultado es total o paginado
 	 * @return Listado de entidades encontradas
 	 * @author SAUL MENDEZ - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public List<Nacionalidad> findAllNacionalidad(PaginatedWrapper pw) throws DefException {
+	public List<Nacionalidad> findAllNacionalidad(PaginatedWrapper pw) throws SegSucreException {
 		if (pw == null) {
 			return this.nacionalidadRepository.findAll(Nacionalidad.class);
 		} else {
@@ -1342,15 +1342,15 @@ public class PolizaAgricolaService {
 	 * @param id Pk de la entidad
 	 * @return Entidad encontradaa
 	 * @author SAUL MENDEZ - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public TbPaDocumentoPoliza findDocumentoPolizaById(Long id) throws DefException {
+	public TbPaDocumentoPoliza findDocumentoPolizaById(Long id) throws SegSucreException {
 		try {
 			return documentoPolizaRepository.findById(id);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "Action no encontrada " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Action no encontrada " + e.getMessage());
 		}
 	}
 
@@ -1358,15 +1358,15 @@ public class PolizaAgricolaService {
 	 * Metodo que cuenta la cantidad de entidades existentes
 	 * 
 	 * @return Cantidad de entidades encontradas
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public Long countDocumentoPoliza() throws DefException {
+	public Long countDocumentoPoliza() throws SegSucreException {
 		try {
 			return documentoPolizaRepository.countAll(TbPaDocumentoPoliza.class);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ,
+			throw new SegSucreException(Constantes.ERROR_CODE_READ,
 					"DocumentoPolizaRepository no encontrado " + e.getMessage());
 		}
 	}
@@ -1378,9 +1378,9 @@ public class PolizaAgricolaService {
 	 *           resultado es total o paginado
 	 * @return Listado de entidades encontradas
 	 * @author SAUL MENDEZ - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public List<TbPaDocumentoPoliza> findAllDocumentoPoliza(PaginatedWrapper pw) throws DefException {
+	public List<TbPaDocumentoPoliza> findAllDocumentoPoliza(PaginatedWrapper pw) throws SegSucreException {
 		if (pw == null) {
 			return this.documentoPolizaRepository.findAll(TbPaDocumentoPoliza.class);
 		} else {
@@ -1399,9 +1399,9 @@ public class PolizaAgricolaService {
 	 * 
 	 * @param send entidad con la informacion de creacion o actualizacion
 	 * @return Entidad modificada o actualizada
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public TbPaDocumentoPoliza manageDocumentoPoliza(TbPaDocumentoPoliza send) throws DefException {
+	public TbPaDocumentoPoliza manageDocumentoPoliza(TbPaDocumentoPoliza send) throws SegSucreException {
 		try {
 			log.info("==> entra a manage TbPaDocumentoPoliza");
 			TbPaDocumentoPoliza persisted = null;
@@ -1414,27 +1414,27 @@ public class PolizaAgricolaService {
 				send.setFechaCreacion(new Timestamp(System.currentTimeMillis()));
 				return documentoPolizaRepository.add(send);
 			} else {
-				throw new DefException(Constantes.ERROR_CODE_CUSTOM, "Error no se realizo transaccion");
+				throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM, "Error no se realizo transaccion");
 			}
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			e.printStackTrace();
 			throw e;
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_UPDATE,
+			throw new SegSucreException(Constantes.ERROR_CODE_UPDATE,
 					"Error actualizando TbPaDocumentoPoliza " + e.getMessage());
 		}
 	}
 	
-	public void deleteStorage(TbPaDocumentoPoliza doc) throws DefException {
+	public void deleteStorage(TbPaDocumentoPoliza doc) throws SegSucreException {
 		try {
 			TbSaParametro p = this.parametroRepository.findByNombre(SiniestroAgricolaConstantes.STORAGE_PATH);
 			if(p==null) {
-				throw new DefException(Constantes.ERROR_CODE_CUSTOM,"NO SE PUEDE ENCONTRAR STORAGE_PATH EN PARAMETROS");
+				throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM,"NO SE PUEDE ENCONTRAR STORAGE_PATH EN PARAMETROS");
 			}
 			Path path = Paths.get(p.getValor().concat(String.valueOf(doc.getTbPaSolicitudPoliza().getId()).concat(String.valueOf(doc.getTbPaTipoDocumentoPoliza().getId()))));
 			Files.write(path, doc.getArchivo(), StandardOpenOption.DELETE_ON_CLOSE);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			throw e;
@@ -1444,19 +1444,19 @@ public class PolizaAgricolaService {
 			//throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM,"AL BORRAR ARCHIVO EN STORAGE");
 		}
 	}
-	public void guardarFileStorage(TbPaDocumentoPoliza doc) throws IOException, DefException {
+	public void guardarFileStorage(TbPaDocumentoPoliza doc) throws IOException, SegSucreException {
 		TbSaParametro p = this.parametroRepository.findByNombre(SiniestroAgricolaConstantes.STORAGE_PATH);
 		if(p==null) {
-			throw new DefException(Constantes.ERROR_CODE_CUSTOM,"NO SE PUEDE ENCONTRAR STORAGE_PATH EN PARAMETROS");
+			throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM,"NO SE PUEDE ENCONTRAR STORAGE_PATH EN PARAMETROS");
 		}
 		Path path = Paths.get(p.getValor().concat(String.valueOf(doc.getTbPaSolicitudPoliza().getId()).concat(String.valueOf(doc.getTbPaTipoDocumentoPoliza().getId()))));
 		Files.write(path, doc.getArchivo(), StandardOpenOption.CREATE_NEW);
 	}
 	
-	public TbPaDocumentoPoliza abrirFileStorage(TbPaDocumentoPoliza doc) throws IOException, DefException {
+	public TbPaDocumentoPoliza abrirFileStorage(TbPaDocumentoPoliza doc) throws IOException, SegSucreException {
 		TbSaParametro p = this.parametroRepository.findByNombre(SiniestroAgricolaConstantes.STORAGE_PATH);
 		if(p==null) {
-			throw new DefException(Constantes.ERROR_CODE_CUSTOM,"NO SE PUEDE ENCONTRAR STORAGE_PATH EN PARAMETROS");
+			throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM,"NO SE PUEDE ENCONTRAR STORAGE_PATH EN PARAMETROS");
 		}
 		Path path = Paths.get(p.getValor().concat(String.valueOf(doc.getTbPaSolicitudPoliza().getId()).concat(String.valueOf(doc.getTbPaTipoDocumentoPoliza().getId()))));
 		doc.setArchivo(Files.readAllBytes(path));
@@ -1469,9 +1469,9 @@ public class PolizaAgricolaService {
 	 * 
 	 * @param entidad
 	 * @return
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public TbPaDocumentoPoliza upLoadDocumentoPoliza(TbPaDocumentoPoliza entidad) throws DefException {
+	public TbPaDocumentoPoliza upLoadDocumentoPoliza(TbPaDocumentoPoliza entidad) throws SegSucreException {
 		if (entidad != null && entidad.getTbPaSolicitudPoliza() != null
 				&& entidad.getTbPaTipoDocumentoPoliza() != null) {
 			TbPaDocumentoPoliza tmp = this.documentoPolizaRepository.downloadDocumentoPoliza(
@@ -1488,7 +1488,7 @@ public class PolizaAgricolaService {
 			}
 			return this.manageDocumentoPoliza(tmp);
 		} else {
-			throw new DefException(Constantes.ERROR_CODE_CUSTOM, "NO SE PUEDE LEER LA INFORAMCION DEL DOCUMENTO ");
+			throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM, "NO SE PUEDE LEER LA INFORAMCION DEL DOCUMENTO ");
 		}
 
 	}
@@ -1499,25 +1499,25 @@ public class PolizaAgricolaService {
 	 * @param send      informacion enviada para update
 	 * @param persisted entidad existente sobre la que se actualiza
 	 * @return Entidad actualizada
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
 	public TbPaDocumentoPoliza updateDocumentoPoliza(TbPaDocumentoPoliza send, TbPaDocumentoPoliza persisted)
-			throws DefException {
+			throws SegSucreException {
 		try {
 			persisted.setArchivo(send.getArchivo());
 			persisted.setEstado(send.getEstado());
 			persisted.setFechaActualizacion(new Timestamp(System.currentTimeMillis()));
 			persisted.setNombreArchivo(send.getNombreArchivo());
 			return documentoPolizaRepository.update(persisted);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_UPDATE,
+			throw new SegSucreException(Constantes.ERROR_CODE_UPDATE,
 					"Error actualizando DocumentoPolizaRepository " + e.getMessage());
 		}
 	}
 
-	public TbPaDocumentoPoliza downloadDocumentoPoliza(Long idTipoDocumento, Long idPoliza) throws DefException, IOException {
+	public TbPaDocumentoPoliza downloadDocumentoPoliza(Long idTipoDocumento, Long idPoliza) throws SegSucreException, IOException {
 		
 		return this.abrirFileStorage(documentoPolizaRepository.downloadDocumentoPoliza(idTipoDocumento, idPoliza));
 	}
@@ -1532,15 +1532,15 @@ public class PolizaAgricolaService {
 	 * @param id Pk de la entidad
 	 * @return Entidad encontradaa
 	 * @author SAUL MENDEZ - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public TbPaTipoDocumentoPoliza findTipoDocumentoPolizaById(Long id) throws DefException {
+	public TbPaTipoDocumentoPoliza findTipoDocumentoPolizaById(Long id) throws SegSucreException {
 		try {
 			return tipoDocumentoPolizaRepository.findById(id);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "Action no encontrada " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Action no encontrada " + e.getMessage());
 		}
 	}
 
@@ -1548,15 +1548,15 @@ public class PolizaAgricolaService {
 	 * Metodo que cuenta la cantidad de entidades existentes
 	 * 
 	 * @return Cantidad de entidades encontradas
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public Long countTipoDocumentoPoliza() throws DefException {
+	public Long countTipoDocumentoPoliza() throws SegSucreException {
 		try {
 			return tipoDocumentoPolizaRepository.countAll(TbPaTipoDocumentoPoliza.class);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ,
+			throw new SegSucreException(Constantes.ERROR_CODE_READ,
 					"TipoDocumentoPolizaRepository no encontrado " + e.getMessage());
 		}
 	}
@@ -1568,9 +1568,9 @@ public class PolizaAgricolaService {
 	 *           resultado es total o paginado
 	 * @return Listado de entidades encontradas
 	 * @author SAUL MENDEZ - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public List<TbPaTipoDocumentoPoliza> findAllTipoDocumentoPoliza(PaginatedWrapper pw) throws DefException {
+	public List<TbPaTipoDocumentoPoliza> findAllTipoDocumentoPoliza(PaginatedWrapper pw) throws SegSucreException {
 		if (pw == null) {
 			return this.tipoDocumentoPolizaRepository.findAll(TbPaTipoDocumentoPoliza.class);
 		} else {
@@ -1589,9 +1589,9 @@ public class PolizaAgricolaService {
 	 * 
 	 * @param send entidad con la informacion de creacion o actualizacion
 	 * @return Entidad modificada o actualizada
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public TbPaTipoDocumentoPoliza manageTipoDocumentoPoliza(TbPaTipoDocumentoPoliza send) throws DefException {
+	public TbPaTipoDocumentoPoliza manageTipoDocumentoPoliza(TbPaTipoDocumentoPoliza send) throws SegSucreException {
 		try {
 			log.info("==> entra a manage TbPaTipoTipoDocumentoPoliza");
 			TbPaTipoDocumentoPoliza persisted = null;
@@ -1602,20 +1602,20 @@ public class PolizaAgricolaService {
 				send.setFechaCreacion(new Timestamp(System.currentTimeMillis()));
 				return tipoDocumentoPolizaRepository.add(send);
 			} else {
-				throw new DefException(Constantes.ERROR_CODE_CUSTOM, "Error no se realizo transaccion");
+				throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM, "Error no se realizo transaccion");
 			}
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			e.printStackTrace();
 			throw e;
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_UPDATE,
+			throw new SegSucreException(Constantes.ERROR_CODE_UPDATE,
 					"Error actualizando la HistoricoJoya " + e.getMessage());
 		}
 	}
 
 	public List<TbPaTipoDocumentoPoliza> findDocumentoByParams(String tipoDocumento, Long id,
-			String tipoPlantilla) throws DefException {
+			String tipoPlantilla) throws SegSucreException {
 		List<TbPaTipoDocumentoPoliza> tmp;
 		tmp = tipoDocumentoPolizaRepository.findDocumentoByParams(tipoDocumento, id, tipoPlantilla);
 		return tmp;
@@ -1627,23 +1627,23 @@ public class PolizaAgricolaService {
 	 * @param send      informacion enviada para update
 	 * @param persisted entidad existente sobre la que se actualiza
 	 * @return Entidad actualizada
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
 	public TbPaTipoDocumentoPoliza updateTipoDocumentoPoliza(TbPaTipoDocumentoPoliza send,
-			TbPaTipoDocumentoPoliza persisted) throws DefException {
+			TbPaTipoDocumentoPoliza persisted) throws SegSucreException {
 		try {
 			persisted.setEstado(send.getEstado());
 			return tipoDocumentoPolizaRepository.update(persisted);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_UPDATE,
+			throw new SegSucreException(Constantes.ERROR_CODE_UPDATE,
 					"Error actualizando TipoDocumentoPolizaRepository " + e.getMessage());
 		}
 	}
 	
 	public List<TbPaTipoDocumentoPoliza> findAllDocumentoByParams(PaginatedWrapper pw, String tipoDocumento,
-			Long id) throws DefException {
+			Long id) throws SegSucreException {
 		if (pw != null && pw.getIsPaginated() != null && pw.getIsPaginated().equalsIgnoreCase(PaginatedWrapper.YES)) {
 			return this.tipoDocumentoPolizaRepository.findAllByParams(tipoDocumento, id, pw.getCurrentPage(),
 					pw.getPageSize(), pw.getSortFields(), pw.getSortDirections());
@@ -1652,7 +1652,7 @@ public class PolizaAgricolaService {
 		}
 	}
 
-	public Long countAllDocumentoByParams(String tipoDocumento, Long id) throws DefException {
+	public Long countAllDocumentoByParams(String tipoDocumento, Long id) throws SegSucreException {
 		return this.tipoDocumentoPolizaRepository.countAllByParams(tipoDocumento, id);
 
 	}
@@ -1667,23 +1667,23 @@ public class PolizaAgricolaService {
 	 * @param id Pk de la entidad
 	 * @return Entidad encontrada
 	 * @author LUIS TAMAYO - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public TbSaUsuarioCanal findUsuarioCanalById(Long id) throws DefException {
+	public TbSaUsuarioCanal findUsuarioCanalById(Long id) throws SegSucreException {
 		try {
 			return usuarioCanalRepository.findById(id);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "Usuario canton no encontrada " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Usuario canton no encontrada " + e.getMessage());
 		}
 	}
 
-	public TbSaUsuarioCanal findUsuarioCanalByNombreUsuario(String nombreUsuario) throws DefException {
+	public TbSaUsuarioCanal findUsuarioCanalByNombreUsuario(String nombreUsuario) throws SegSucreException {
 		try {
 			return usuarioCanalRepository.findByUsuario(nombreUsuario);
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "Usuario canton no encontrada " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Usuario canton no encontrada " + e.getMessage());
 		}
 	}
 
@@ -1691,15 +1691,15 @@ public class PolizaAgricolaService {
 	 * Metodo que cuenta la cantidad de entidades existentes
 	 * 
 	 * @return Cantidad de entidades encontradas
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public Long countUsuarioCanal() throws DefException {
+	public Long countUsuarioCanal() throws SegSucreException {
 		try {
 			return usuarioCanalRepository.countAll(TbSaUsuarioCanal.class);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "Usuario canton  no encontrado " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Usuario canton  no encontrado " + e.getMessage());
 		}
 	}
 
@@ -1710,9 +1710,9 @@ public class PolizaAgricolaService {
 	 *           resultado es total o paginado
 	 * @return Listado de entidades encontradas
 	 * @author LUIS TAMAYO - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public List<TbSaUsuarioCanal> findAllUsuarioCanal(PaginatedWrapper pw) throws DefException {
+	public List<TbSaUsuarioCanal> findAllUsuarioCanal(PaginatedWrapper pw) throws SegSucreException {
 		if (pw == null) {
 			return this.usuarioCanalRepository.findAll(TbSaUsuarioCanal.class);
 		} else {
@@ -1731,9 +1731,9 @@ public class PolizaAgricolaService {
 	 * 
 	 * @param send entidad con la informacion de creacion o actualizacion
 	 * @return Entidad modificada o actualizada
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public TbSaUsuarioCanal manageUsuarioCanal(TbSaUsuarioCanal send) throws DefException {
+	public TbSaUsuarioCanal manageUsuarioCanal(TbSaUsuarioCanal send) throws SegSucreException {
 		try {
 			TbSaUsuarioCanal persisted = null;
 			if (send != null && send.getId() != null) {
@@ -1744,12 +1744,12 @@ public class PolizaAgricolaService {
 				// send.setFechaCreacion( new Timestamp(System.currentTimeMillis()) );
 				return usuarioCanalRepository.add(send);
 			} else {
-				throw new DefException(Constantes.ERROR_CODE_CUSTOM, "Error no se realizo transaccion");
+				throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM, "Error no se realizo transaccion");
 			}
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_UPDATE,
+			throw new SegSucreException(Constantes.ERROR_CODE_UPDATE,
 					"Error actualizando la InspeccionImagen " + e.getMessage());
 		}
 	}
@@ -1760,10 +1760,10 @@ public class PolizaAgricolaService {
 	 * @param send      informacion enviada para update
 	 * @param persisted entidad existente sobre la que se actualiza
 	 * @return Entidad actualizada
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
 	public TbSaUsuarioCanal updateUsuarioCanal(TbSaUsuarioCanal send, TbSaUsuarioCanal persisted)
-			throws DefException {
+			throws SegSucreException {
 		try {
 			RamocanalPK pk = new RamocanalPK();
 			pk.setRamoid(send.getRamocanal().getId().getRamoid());
@@ -1771,10 +1771,10 @@ public class PolizaAgricolaService {
 			persisted.setRamocanal(this.canalRepository.findById(pk));
 			persisted.setNombreUsuario(send.getNombreUsuario());
 			return usuarioCanalRepository.update(persisted);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_UPDATE,
+			throw new SegSucreException(Constantes.ERROR_CODE_UPDATE,
 					"Error actualizando InspeccionImagen " + e.getMessage());
 		}
 	}
@@ -1789,15 +1789,15 @@ public class PolizaAgricolaService {
 	 * @param id Pk de la entidad
 	 * @return Entidad encontrada
 	 * @author LUIS TAMAYO - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public TbPaCanalSecuencia findCanalSecuenciaById(Long id) throws DefException {
+	public TbPaCanalSecuencia findCanalSecuenciaById(Long id) throws SegSucreException {
 		try {
 			return canalSecuenciaRepository.findById(id);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "Usuario canton no encontrada " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Usuario canton no encontrada " + e.getMessage());
 		}
 	}
 
@@ -1806,15 +1806,15 @@ public class PolizaAgricolaService {
 	 * Metodo que cuenta la cantidad de entidades existentes
 	 * 
 	 * @return Cantidad de entidades encontradas
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public Long countCanalSecuencia() throws DefException {
+	public Long countCanalSecuencia() throws SegSucreException {
 		try {
 			return canalSecuenciaRepository.countAll(TbPaCanalSecuencia.class);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ, "Usuario canton  no encontrado " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, "Usuario canton  no encontrado " + e.getMessage());
 		}
 	}
 
@@ -1825,9 +1825,9 @@ public class PolizaAgricolaService {
 	 *           resultado es total o paginado
 	 * @return Listado de entidades encontradas
 	 * @author LUIS TAMAYO - Relative Engine
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public List<TbPaCanalSecuencia> findAllCanalSecuencia(PaginatedWrapper pw) throws DefException {
+	public List<TbPaCanalSecuencia> findAllCanalSecuencia(PaginatedWrapper pw) throws SegSucreException {
 		if (pw == null) {
 			return this.canalSecuenciaRepository.findAll(TbPaCanalSecuencia.class);
 		} else {
@@ -1846,9 +1846,9 @@ public class PolizaAgricolaService {
 	 * 
 	 * @param send entidad con la informacion de creacion o actualizacion
 	 * @return Entidad modificada o actualizada
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
-	public TbPaCanalSecuencia manageCanalSecuencia(TbPaCanalSecuencia send) throws DefException {
+	public TbPaCanalSecuencia manageCanalSecuencia(TbPaCanalSecuencia send) throws SegSucreException {
 		try {
 			TbPaCanalSecuencia persisted = null;
 			if (send != null && send.getId() != null) {
@@ -1859,12 +1859,12 @@ public class PolizaAgricolaService {
 				send.setFechaCreacion( new Timestamp(System.currentTimeMillis()) );
 				return canalSecuenciaRepository.add(send);
 			} else {
-				throw new DefException(Constantes.ERROR_CODE_CUSTOM, "Error no se realizo transaccion");
+				throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM, "Error no se realizo transaccion");
 			}
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_UPDATE,
+			throw new SegSucreException(Constantes.ERROR_CODE_UPDATE,
 					"Error actualizando la InspeccionImagen " + e.getMessage());
 		}
 	}
@@ -1875,20 +1875,20 @@ public class PolizaAgricolaService {
 	 * @param send      informacion enviada para update
 	 * @param persisted entidad existente sobre la que se actualiza
 	 * @return Entidad actualizada
-	 * @throws DefException
+	 * @throws SegSucreException
 	 */
 	public TbPaCanalSecuencia updateCanalSecuencia(TbPaCanalSecuencia send, TbPaCanalSecuencia persisted)
-			throws DefException {
+			throws SegSucreException {
 		try {
 			persisted.setFechaActualizacion(new Date());
 			persisted.setRamocanal(send.getRamocanal());
 			persisted.setSeqNumeroTramite(send.getSeqNumeroTramite());
 			persisted.setUsuarioActualizacion(send.getUsuarioActualizacion());			
 			return canalSecuenciaRepository.update(persisted);
-		} catch (DefException e) {
+		} catch (SegSucreException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_UPDATE,
+			throw new SegSucreException(Constantes.ERROR_CODE_UPDATE,
 					"Error actualizando InspeccionImagen " + e.getMessage());
 		}
 	}

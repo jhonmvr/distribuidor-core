@@ -1,13 +1,13 @@
-package ec.com.def.pa.wrapper;
+package ec.fin.segurossucre.pa.wrapper;
 
 import java.math.BigDecimal;
 import java.util.Date;
 
-import ec.com.def.core.exception.SegSucreException;
-import ec.com.def.core.util.main.BaseWrapper;
-import ec.com.def.core.util.main.Constantes;
-import ec.com.def.pa.model.Apol;
-import ec.com.def.pa.model.Un01;
+import ec.fin.segurossucre.core.exception.SegSucreException;
+import ec.fin.segurossucre.core.util.main.BaseWrapper;
+import ec.fin.segurossucre.core.util.main.Constantes;
+import ec.fin.segurossucre.pa.model.Apol;
+import ec.fin.segurossucre.pa.model.Un01;
 
 
 public class ApolWrapper extends BaseWrapper<Apol> {

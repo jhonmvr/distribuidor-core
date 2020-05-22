@@ -1,4 +1,4 @@
-package ec.com.def.pa.servlet;
+package ec.fin.segurossucre.pa.servlet;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -17,10 +17,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import ec.com.def.core.util.main.Constantes;
-import ec.com.def.core.util.main.ManagePropertiesFile;
-import ec.com.def.pa.service.ReportService;
-import ec.com.def.pa.util.SiniestroAgricolaConstantes;
+import ec.fin.segurossucre.core.util.main.Constantes;
+import ec.fin.segurossucre.core.util.main.ManagePropertiesFile;
+import ec.fin.segurossucre.pa.service.ReportService;
+import ec.fin.segurossucre.pa.util.SiniestroAgricolaConstantes;
 
 
 

@@ -1,4 +1,4 @@
-package ec.com.def.sa.websocket;
+package ec.fin.segurossucre.sa.websocket;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -16,7 +16,7 @@ import javax.websocket.server.ServerEndpoint;
 
 import com.google.gson.Gson;
 
-import ec.com.def.pa.wrapper.MessageWrapper;
+import ec.fin.segurossucre.pa.wrapper.MessageWrapper;
 
 @ServerEndpoint("/siniestrows/{hash}")
 public class SiniestroWebSocket {

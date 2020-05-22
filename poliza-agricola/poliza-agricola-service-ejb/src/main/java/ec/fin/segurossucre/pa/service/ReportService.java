@@ -1,4 +1,4 @@
-package ec.com.def.pa.service;
+package ec.fin.segurossucre.pa.service;
 
 import java.io.ByteArrayOutputStream;
 import java.sql.SQLException;
@@ -11,9 +11,9 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.sql.DataSource;
 
-import ec.com.def.core.exception.DefException;
-import ec.com.def.core.util.main.Constantes;
-import ec.com.def.pa.util.ReportGenerator;
+import ec.fin.segurossucre.core.exception.SegSucreException;
+import ec.fin.segurossucre.core.util.main.Constantes;
+import ec.fin.segurossucre.pa.util.ReportGenerator;
 
 /**
  * Session Bean implementation class ReportService
@@ -36,7 +36,7 @@ public class ReportService {
     
     
     
-    public byte[] generateReportePDF( Map<String, Object> parameters, String reportFilePath ) throws DefException{
+    public byte[] generateReportePDF( Map<String, Object> parameters, String reportFilePath ) throws SegSucreException{
     	try {
         		log.info( "++++++>> Ingresa en el generateReportPdf con conexion  path " +  reportFilePath );
         		log.info( "++++++>> Ingresa en el generateReportPdf con para,etros " + parameters );
@@ -48,13 +48,13 @@ public class ReportService {
     			}
         	return null;
 		} catch (SQLException e) {
-			throw new DefException(Constantes.ERROR_CODE_READ,"ERROR EN LA GENERACION DE LA CONEXION A LA BDD");
+			throw new SegSucreException(Constantes.ERROR_CODE_READ,"ERROR EN LA GENERACION DE LA CONEXION A LA BDD");
 		}catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ,"ERROR GENERAL generateAvisoSiniestro " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ,"ERROR GENERAL generateAvisoSiniestro " + e.getMessage());
 		}
     }
     
-    public  byte[] generateReporteFromBeanPDF( @SuppressWarnings("rawtypes") List dataSource, Map<String, Object> parameters, String reportFilePath ) throws DefException{
+    public  byte[] generateReporteFromBeanPDF( @SuppressWarnings("rawtypes") List dataSource, Map<String, Object> parameters, String reportFilePath ) throws SegSucreException{
     	try {
     		log.info( "++++++>> Ingresa en el generateReportPdf con conexion " + dataSource + " path " +  reportFilePath );
     		log.info( "++++++>> Ingresa en el generateReportPdf con parametros " + parameters );
@@ -65,11 +65,11 @@ public class ReportService {
 			}
 			return null;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ,"ERROR GENERAL generateAvisoSiniestro " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ,"ERROR GENERAL generateAvisoSiniestro " + e.getMessage());
 		}
     }
     
-    public  byte[] generateReporteFromJSONPDF( String dataSource, Map<String, Object> parameters, String reportFilePath ) throws DefException{
+    public  byte[] generateReporteFromJSONPDF( String dataSource, Map<String, Object> parameters, String reportFilePath ) throws SegSucreException{
     	try {
     		log.info( "++++++>> Ingresa en el generateReportPdf con conexion " + dataSource + " path " +  reportFilePath );
     		log.info( "++++++>> Ingresa en el generateReportPdf con para,etros " + parameters );
@@ -80,12 +80,12 @@ public class ReportService {
 			}
 			return null;
 		} catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ,"ERROR GENERAL generateAvisoSiniestro " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ,"ERROR GENERAL generateAvisoSiniestro " + e.getMessage());
 		}
     }
     
     
-    public byte[] generateReporteExcel( Map<String, Object> parameters, String reportFilePath ) throws DefException{
+    public byte[] generateReporteExcel( Map<String, Object> parameters, String reportFilePath ) throws SegSucreException{
     	try {
     		ReportGenerator rg = new ReportGenerator(sassDS.getConnection(),parameters,reportFilePath);
 			ByteArrayOutputStream baos = rg.generateReportAsExcelJdbc();
@@ -94,13 +94,13 @@ public class ReportService {
 			}
 			return null;
 		} catch (SQLException e) {
-			throw new DefException(Constantes.ERROR_CODE_READ,"ERROR EN LA GENERACION DE LA CONEXION A LA BDD");
+			throw new SegSucreException(Constantes.ERROR_CODE_READ,"ERROR EN LA GENERACION DE LA CONEXION A LA BDD");
 		}catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ,"ERROR GENERAL generateAvisoSiniestro " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ,"ERROR GENERAL generateAvisoSiniestro " + e.getMessage());
 		}
     }
     
-    public byte[] generateReporteBeanExcel(@SuppressWarnings("rawtypes") List dataSource, Map<String, Object> parameters, String reportFilePath ) throws DefException{
+    public byte[] generateReporteBeanExcel(@SuppressWarnings("rawtypes") List dataSource, Map<String, Object> parameters, String reportFilePath ) throws SegSucreException{
     	try {
     		ReportGenerator rg = new ReportGenerator(dataSource,parameters,reportFilePath);
 			ByteArrayOutputStream baos = rg.generateReportExcelWithListDatasource();
@@ -110,11 +110,11 @@ public class ReportService {
 			return null;
 		}catch (Exception e) {
 			e.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_READ,"ERROR GENERAL generateAvisoSiniestro " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ,"ERROR GENERAL generateAvisoSiniestro " + e.getMessage());
 		}
     }
     
-    public byte[] generateReporteBeanCsv(@SuppressWarnings("rawtypes") List dataSource, Map<String, Object> parameters, String reportFilePath ) throws DefException{
+    public byte[] generateReporteBeanCsv(@SuppressWarnings("rawtypes") List dataSource, Map<String, Object> parameters, String reportFilePath ) throws SegSucreException{
     	try {
     		ReportGenerator rg = new ReportGenerator(dataSource,parameters,reportFilePath);
 			ByteArrayOutputStream baos = rg.generateReportCSVWithListDatasource();
@@ -123,11 +123,11 @@ public class ReportService {
 			}
 			return null;
 		}catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ,"ERROR GENERAL generateAvisoSiniestro " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ,"ERROR GENERAL generateAvisoSiniestro " + e.getMessage());
 		}
     }
     
-    public byte[] generateReporteJSONExcel(String dataSource, Map<String, Object> parameters, String reportFilePath ) throws DefException{
+    public byte[] generateReporteJSONExcel(String dataSource, Map<String, Object> parameters, String reportFilePath ) throws SegSucreException{
     	try {
     		ReportGenerator rg = new ReportGenerator(dataSource,parameters,reportFilePath);
 			ByteArrayOutputStream baos = rg.generateReportWithJSONDatasourceExcel();
@@ -136,7 +136,7 @@ public class ReportService {
 			}
 			return null;
 		}catch (Exception e) {
-			throw new DefException(Constantes.ERROR_CODE_READ,"ERROR GENERAL generateAvisoSiniestro " + e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ,"ERROR GENERAL generateAvisoSiniestro " + e.getMessage());
 		}
     }
     

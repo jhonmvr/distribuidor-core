@@ -1,4 +1,4 @@
-package ec.com.def.pa.repository.imp;
+package ec.fin.segurossucre.pa.repository.imp;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -18,15 +18,15 @@ import javax.persistence.criteria.Root;
 
 import org.apache.commons.lang3.StringUtils;
 
-import ec.com.def.core.exception.DefException;
-import ec.com.def.core.persistence.GeneralRepositoryImp;
-import ec.com.def.core.util.main.Constantes;
-import ec.com.def.core.util.main.PaginatedWrapper;
-import ec.com.def.pa.model.Ramocanal;
-import ec.com.def.pa.model.TbPaSolicitudPoliza;
-import ec.com.def.pa.repository.SolicitudPolizaRepository;
-import ec.com.def.pa.wrapper.CatalogosGeneralWrapper;
-import ec.com.def.pa.wrapper.ConsultaSolicitudPolizaWrapper;
+import ec.fin.segurossucre.core.exception.SegSucreException;
+import ec.fin.segurossucre.core.persistence.GeneralRepositoryImp;
+import ec.fin.segurossucre.core.util.main.Constantes;
+import ec.fin.segurossucre.core.util.main.PaginatedWrapper;
+import ec.fin.segurossucre.pa.model.Ramocanal;
+import ec.fin.segurossucre.pa.model.TbPaSolicitudPoliza;
+import ec.fin.segurossucre.pa.repository.SolicitudPolizaRepository;
+import ec.fin.segurossucre.pa.wrapper.CatalogosGeneralWrapper;
+import ec.fin.segurossucre.pa.wrapper.ConsultaSolicitudPolizaWrapper;
 
 @Stateless(mappedName = "solicitudPolizaRepository")
 public class SolicitudPolizaRepositoryImp extends GeneralRepositoryImp<Long, TbPaSolicitudPoliza>
@@ -35,7 +35,7 @@ public class SolicitudPolizaRepositoryImp extends GeneralRepositoryImp<Long, TbP
 	Logger log;
 
 	@Override
-	public BigDecimal generateCodigo(String anio) throws DefException {
+	public BigDecimal generateCodigo(String anio) throws SegSucreException {
 		try {
 			Query query = this.getEntityManager()
 					.createNativeQuery("SELECT nvl(max(regexp_substr(CODIGO,'[^-]+',1,4 )),0)+1 FROM TB_PA_SOLICITUD_POLIZA WHERE regexp_substr(CODIGO,'[^-]+',1,3 ) = '"+
@@ -44,12 +44,12 @@ public class SolicitudPolizaRepositoryImp extends GeneralRepositoryImp<Long, TbP
 
 		} catch (Exception ex) {
 			ex.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_CUSTOM, "GENERAR SECUENCIA " + ex.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM, "GENERAR SECUENCIA " + ex.getMessage());
 		}
 	}
 
 	@Override
-	public BigDecimal generateNumeroTramite(String seqCanal) throws DefException {
+	public BigDecimal generateNumeroTramite(String seqCanal) throws SegSucreException {
 		try {
 			Query query = this.getEntityManager()
 					.createNativeQuery("SELECT nvl(max(regexp_substr(NUMERO_TRAMITE, '[^-]+',1,2 )),0)+1 FROM TB_PA_SOLICITUD_POLIZA WHERE ID_CANAL='"
@@ -58,13 +58,13 @@ public class SolicitudPolizaRepositoryImp extends GeneralRepositoryImp<Long, TbP
 
 		} catch (Exception ex) {
 			ex.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_CUSTOM, "GENERAR SECUENCIA " + ex.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM, "GENERAR SECUENCIA " + ex.getMessage());
 		}
 	}
 
 	@Override
 	public List<ConsultaSolicitudPolizaWrapper> findByParams(PaginatedWrapper pw, String numeroSolicitud,
-			String numeroTramite, Date desde, Date hasta, String canal) throws DefException {
+			String numeroTramite, Date desde, Date hasta, String canal) throws SegSucreException {
 		// TODO Auto-generated method stub
 		try {
 			// ~~> QUERY
@@ -126,12 +126,12 @@ public class SolicitudPolizaRepositoryImp extends GeneralRepositoryImp<Long, TbP
 			// ~~> FIN
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_READ, e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, e.getMessage());
 		}
 	}
 
 	public Integer countBySolicitudesPoliza(PaginatedWrapper pw, String numeroSolicitud, String numeroTramite, Date desde,
-			Date hasta, String canal) throws DefException {
+			Date hasta, String canal) throws SegSucreException {
 		try {
 			CriteriaBuilder cb = getEntityManager().getCriteriaBuilder();
 			CriteriaQuery<Long> query = cb.createQuery(Long.class);
@@ -158,14 +158,14 @@ public class SolicitudPolizaRepositoryImp extends GeneralRepositoryImp<Long, TbP
 			TypedQuery<Long> createQuery = this.getEntityManager().createQuery(query);
 			return createQuery.getSingleResult().intValue();
 		} catch (Exception e) {
-			throw new DefException("" + e);
+			throw new SegSucreException("" + e);
 		}
 	}
 	
 	
 	
 	public List<ConsultaSolicitudPolizaWrapper> setWrapperSolicitudPoliza( String numeroSolicitud,
-			String numeroTramite, Date desde, Date hasta, String canal) throws DefException {
+			String numeroTramite, Date desde, Date hasta, String canal) throws SegSucreException {
 		log.info("===================> ingresa a set el wrapper de solicitud" + numeroSolicitud);
 		List<ConsultaSolicitudPolizaWrapper> list = new ArrayList<>();
 		try {
@@ -223,12 +223,12 @@ public class SolicitudPolizaRepositoryImp extends GeneralRepositoryImp<Long, TbP
 			// ~~> FIN
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_READ, e.getMessage());
+			throw new SegSucreException(Constantes.ERROR_CODE_READ, e.getMessage());
 		}
 	}
 
 	@Override
-	public void upDate() throws DefException {
+	public void upDate() throws SegSucreException {
 		try {
 			StringBuilder str =new StringBuilder();
 			str.append("UPDATE TB_PA_SOLICITUD_POLIZA poliza SET poliza.ESTADO = (SELECT un01.UN01_ESTCALIFINTERNA FROM un01 un01 WHERE un01.UN01_CODIGOTRAMITE IN \r\n" + 
@@ -243,7 +243,7 @@ public class SolicitudPolizaRepositoryImp extends GeneralRepositoryImp<Long, TbP
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_CUSTOM,"AL ACTUALIZAR REGISTROS DESDE EL SISTEMA AGRICOLA");
+			throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM,"AL ACTUALIZAR REGISTROS DESDE EL SISTEMA AGRICOLA");
 		}
 
 		

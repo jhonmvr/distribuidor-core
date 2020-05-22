@@ -1,4 +1,4 @@
-package ec.com.def.pa.rest;
+package ec.fin.segurossucre.pa.rest;
 
 import java.util.List;
 
@@ -12,14 +12,14 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
-import ec.com.def.core.exception.DefException;
-import ec.com.def.core.util.main.PaginatedListWrapper;
-import ec.com.def.core.util.main.PaginatedWrapper;
-import ec.com.def.core.web.util.BaseRestController;
-import ec.com.def.core.web.util.CrudRestControllerInterface;
-import ec.com.def.core.web.util.GenericWrapper;
-import ec.com.def.pa.model.TbPaPredio;
-import ec.com.def.pa.service.SolicitudPolizaService;
+import ec.fin.segurossucre.core.exception.SegSucreException;
+import ec.fin.segurossucre.core.util.main.PaginatedListWrapper;
+import ec.fin.segurossucre.core.util.main.PaginatedWrapper;
+import ec.fin.segurossucre.core.web.util.BaseRestController;
+import ec.fin.segurossucre.core.web.util.CrudRestControllerInterface;
+import ec.fin.segurossucre.core.web.util.GenericWrapper;
+import ec.fin.segurossucre.pa.model.TbPaPredio;
+import ec.fin.segurossucre.pa.service.SolicitudPolizaService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -35,12 +35,12 @@ public class PredioRestController extends BaseRestController implements CrudRest
 	@Inject
 	SolicitudPolizaService sas;
 	
-	public PredioRestController() throws DefException {
+	public PredioRestController() throws SegSucreException {
 		super();
 	}
 
 	@Override
-	public void deleteEntity(String arg0) throws DefException {
+	public void deleteEntity(String arg0) throws SegSucreException {
 		// sinimplementar
 		
 	}
@@ -52,9 +52,9 @@ public class PredioRestController extends BaseRestController implements CrudRest
 	response = GenericWrapper.class)
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Retorno existoso de informacion", response = GenericWrapper.class),
-			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = DefException.class) })
+			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = SegSucreException.class) })
 	public GenericWrapper<TbPaPredio> getEntity(
-			@QueryParam("id") String id) throws DefException {
+			@QueryParam("id") String id) throws SegSucreException {
 		GenericWrapper<TbPaPredio> loc = new GenericWrapper<>();
 		TbPaPredio a =this.sas.findPredioById(Long.valueOf(id));
 		loc.setEntidad(a);
@@ -68,19 +68,19 @@ public class PredioRestController extends BaseRestController implements CrudRest
 	response = PaginatedListWrapper.class)
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Retorno existoso de informacion", response = PaginatedListWrapper.class),
-			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = DefException.class) })
+			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = SegSucreException.class) })
 	public PaginatedListWrapper<TbPaPredio> listAllEntities(
 			@QueryParam("page") @DefaultValue("1") String page,
 			@QueryParam("pageSize") @DefaultValue("10") String pageSize,
 			@QueryParam("sortFields") @DefaultValue("id") String sortFields,
 			@QueryParam("sortDirections") @DefaultValue("asc") String sortDirections,
 			@QueryParam("isPaginated") @DefaultValue("N") String isPaginated
-			) throws DefException {
+			) throws SegSucreException {
 		return findAll(new PaginatedWrapper(Integer.valueOf(page), Integer.valueOf(pageSize), sortFields,
 				sortDirections, isPaginated));
 	}
 
-	private PaginatedListWrapper<TbPaPredio> findAll(PaginatedWrapper pw) throws DefException {
+	private PaginatedListWrapper<TbPaPredio> findAll(PaginatedWrapper pw) throws SegSucreException {
 		PaginatedListWrapper<TbPaPredio> plw = new PaginatedListWrapper<>(pw);
 		List<TbPaPredio> actions = this.sas.findAllPredio(pw);
 		if (actions != null && !actions.isEmpty()) {
@@ -95,7 +95,7 @@ public class PredioRestController extends BaseRestController implements CrudRest
 	@POST
 	@Path("/persistEntity")
 	@ApiOperation(value = "GenericWrapper<TbPaPredio>", notes = "Metodo Post persistEntity Retorna GenericWrapper de informacion de paginacion y listado de entidades encontradas TbPaPredio", response = GenericWrapper.class)
-	public GenericWrapper<TbPaPredio> persistEntity(GenericWrapper<TbPaPredio> wp) throws DefException {
+	public GenericWrapper<TbPaPredio> persistEntity(GenericWrapper<TbPaPredio> wp) throws SegSucreException {
 		GenericWrapper<TbPaPredio> loc = new GenericWrapper<>();
 		loc.setEntidad(this.sas.managePredio(wp.getEntidad()));
 		return loc;

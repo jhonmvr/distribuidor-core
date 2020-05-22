@@ -1,4 +1,4 @@
-package ec.com.def.pa.util;
+package ec.fin.segurossucre.pa.util;
 
 import java.util.ArrayList;
 import java.util.List;

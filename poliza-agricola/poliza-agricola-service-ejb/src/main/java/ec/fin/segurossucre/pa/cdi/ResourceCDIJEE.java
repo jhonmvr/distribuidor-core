@@ -1,4 +1,4 @@
-package ec.com.def.pa.cdi;
+package ec.fin.segurossucre.pa.cdi;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;

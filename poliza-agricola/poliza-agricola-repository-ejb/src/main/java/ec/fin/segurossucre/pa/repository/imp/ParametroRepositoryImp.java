@@ -1,13 +1,13 @@
-package ec.com.def.pa.repository.imp;
+package ec.fin.segurossucre.pa.repository.imp;
 
 import java.util.List;
 import javax.ejb.Stateless;
 
-import ec.com.def.core.exception.DefException;
-import ec.com.def.core.persistence.GeneralRepositoryImp;
-import ec.com.def.pa.model.TbSaParametro;
-import ec.com.def.pa.repository.ParametroRepository;
-import ec.com.def.pa.repository.spec.ParametroByNombreSpec;
+import ec.fin.segurossucre.core.exception.SegSucreException;
+import ec.fin.segurossucre.core.persistence.GeneralRepositoryImp;
+import ec.fin.segurossucre.pa.model.TbSaParametro;
+import ec.fin.segurossucre.pa.repository.ParametroRepository;
+import ec.fin.segurossucre.pa.repository.spec.ParametroByNombreSpec;
 
 
 /**
@@ -29,7 +29,7 @@ public class ParametroRepositoryImp extends GeneralRepositoryImp<Long, TbSaParam
      * @param 
      * @return nombre de parametro
      */
-    public TbSaParametro findByNombre( String nombre ) throws DefException{
+    public TbSaParametro findByNombre( String nombre ) throws SegSucreException{
     	List<TbSaParametro> p= this.findAllBySpecification( new ParametroByNombreSpec(nombre) );
     	if( p != null && !p.isEmpty() ) {
     		return p.get(0);

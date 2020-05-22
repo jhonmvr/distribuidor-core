@@ -1,4 +1,4 @@
-package ec.com.def.sa.web.test.restinterface;
+package ec.fin.segurossucre.sa.web.test.restinterface;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Path;

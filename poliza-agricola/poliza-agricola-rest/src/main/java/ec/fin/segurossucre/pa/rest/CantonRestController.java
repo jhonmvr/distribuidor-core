@@ -1,4 +1,4 @@
-package ec.com.def.pa.rest;
+package ec.fin.segurossucre.pa.rest;
 
 import java.util.List;
 
@@ -11,15 +11,15 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
-import ec.com.def.core.exception.DefException;
-import ec.com.def.core.util.main.PaginatedListWrapper;
-import ec.com.def.core.util.main.PaginatedWrapper;
-import ec.com.def.core.web.util.BaseRestController;
-import ec.com.def.core.web.util.CrudRestControllerInterface;
-import ec.com.def.core.web.util.GenericWrapper;
-import ec.com.def.pa.model.Canton;
-import ec.com.def.pa.model.CantonPK;
-import ec.com.def.pa.service.PolizaAgricolaService;
+import ec.fin.segurossucre.core.exception.SegSucreException;
+import ec.fin.segurossucre.core.util.main.PaginatedListWrapper;
+import ec.fin.segurossucre.core.util.main.PaginatedWrapper;
+import ec.fin.segurossucre.core.web.util.BaseRestController;
+import ec.fin.segurossucre.core.web.util.CrudRestControllerInterface;
+import ec.fin.segurossucre.core.web.util.GenericWrapper;
+import ec.fin.segurossucre.pa.model.Canton;
+import ec.fin.segurossucre.pa.model.CantonPK;
+import ec.fin.segurossucre.pa.service.PolizaAgricolaService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -34,12 +34,12 @@ public class CantonRestController extends BaseRestController implements CrudRest
 	@Inject
 	PolizaAgricolaService sas;
 	
-	public CantonRestController() throws DefException {
+	public CantonRestController() throws SegSucreException {
 		super();
 	}
 
 	@Override
-	public void deleteEntity(String arg0) throws DefException {
+	public void deleteEntity(String arg0) throws SegSucreException {
 		// TODO Auto-generated method stub
 		
 	}
@@ -51,10 +51,10 @@ public class CantonRestController extends BaseRestController implements CrudRest
 	response = GenericWrapper.class)
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Retorno existoso de informacion", response = GenericWrapper.class),
-			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = DefException.class) })
+			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = SegSucreException.class) })
 	public GenericWrapper<Canton> getEntity(
 			@QueryParam("provinciaId") String  provinciaId,
-			@QueryParam("cantoId") String cantonId) throws DefException {
+			@QueryParam("cantoId") String cantonId) throws SegSucreException {
 		GenericWrapper<Canton> loc = new GenericWrapper<>();
 		CantonPK c =new CantonPK();
 		c.setCantonid(cantonId);
@@ -65,7 +65,7 @@ public class CantonRestController extends BaseRestController implements CrudRest
 	}
 	
 	@Override
-	public GenericWrapper<Canton> getEntity( String  id) throws DefException {
+	public GenericWrapper<Canton> getEntity( String  id) throws SegSucreException {
 		return null;
 	}
 
@@ -76,19 +76,19 @@ public class CantonRestController extends BaseRestController implements CrudRest
 	response = PaginatedListWrapper.class)
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Retorno existoso de informacion", response = PaginatedListWrapper.class),
-			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = DefException.class) })
+			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = SegSucreException.class) })
 	public PaginatedListWrapper<Canton> listAllEntities(
 			@QueryParam("page") @DefaultValue("1") String page,
 			@QueryParam("pageSize") @DefaultValue("10") String pageSize,
 			@QueryParam("sortFields") @DefaultValue("id") String sortFields,
 			@QueryParam("sortDirections") @DefaultValue("asc") String sortDirections,
 			@QueryParam("isPaginated") @DefaultValue("N") String isPaginated
-			) throws DefException {
+			) throws SegSucreException {
 		return findAll(new PaginatedWrapper(Integer.valueOf(page), Integer.valueOf(pageSize), sortFields,
 				sortDirections, isPaginated));
 	}
 
-	private PaginatedListWrapper<Canton> findAll(PaginatedWrapper pw) throws DefException {
+	private PaginatedListWrapper<Canton> findAll(PaginatedWrapper pw) throws SegSucreException {
 		PaginatedListWrapper<Canton> plw = new PaginatedListWrapper<>(pw);
 		List<Canton> actions = this.sas.findAllCanton(pw);
 		if (actions != null && !actions.isEmpty()) {
@@ -100,7 +100,7 @@ public class CantonRestController extends BaseRestController implements CrudRest
 	}
 
 	@Override
-	public GenericWrapper<Canton> persistEntity(GenericWrapper<Canton> arg0) throws DefException {
+	public GenericWrapper<Canton> persistEntity(GenericWrapper<Canton> arg0) throws SegSucreException {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -112,10 +112,10 @@ public class CantonRestController extends BaseRestController implements CrudRest
 	response = PaginatedListWrapper.class)
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Retorno existoso de informacion", response = PaginatedListWrapper.class),
-			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = DefException.class) })
+			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = SegSucreException.class) })
 	public PaginatedListWrapper<Canton> listAllEntitiesByProvincia(
 			@QueryParam("provincia") @DefaultValue("01") String provincia,
-			@QueryParam("order") @DefaultValue("asc") String order) throws DefException {
+			@QueryParam("order") @DefaultValue("asc") String order) throws SegSucreException {
 		PaginatedListWrapper<Canton> pw = new PaginatedListWrapper<>();
 		pw.setList( this.sas.findCantonesByProvincia(provincia, order) );
 		return pw;

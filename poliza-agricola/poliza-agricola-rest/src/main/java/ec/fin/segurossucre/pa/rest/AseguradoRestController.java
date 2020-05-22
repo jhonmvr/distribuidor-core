@@ -1,4 +1,4 @@
-package ec.com.def.pa.rest;
+package ec.fin.segurossucre.pa.rest;
 
 import java.util.List;
 
@@ -12,14 +12,14 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
-import ec.com.def.core.exception.DefException;
-import ec.com.def.core.util.main.PaginatedListWrapper;
-import ec.com.def.core.util.main.PaginatedWrapper;
-import ec.com.def.core.web.util.BaseRestController;
-import ec.com.def.core.web.util.CrudRestControllerInterface;
-import ec.com.def.core.web.util.GenericWrapper;
-import ec.com.def.pa.model.TbSaAsegurado;
-import ec.com.def.pa.service.SolicitudPolizaService;
+import ec.fin.segurossucre.core.exception.SegSucreException;
+import ec.fin.segurossucre.core.util.main.PaginatedListWrapper;
+import ec.fin.segurossucre.core.util.main.PaginatedWrapper;
+import ec.fin.segurossucre.core.web.util.BaseRestController;
+import ec.fin.segurossucre.core.web.util.CrudRestControllerInterface;
+import ec.fin.segurossucre.core.web.util.GenericWrapper;
+import ec.fin.segurossucre.pa.model.TbSaAsegurado;
+import ec.fin.segurossucre.pa.service.SolicitudPolizaService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -35,12 +35,12 @@ public class AseguradoRestController extends BaseRestController implements CrudR
 	@Inject
 	SolicitudPolizaService sas;
 	
-	public AseguradoRestController() throws DefException {
+	public AseguradoRestController() throws SegSucreException {
 		super();
 	}
 
 	@Override
-	public void deleteEntity(String arg0) throws DefException {
+	public void deleteEntity(String arg0) throws SegSucreException {
 		// sin implementar
 		
 	}
@@ -52,9 +52,9 @@ public class AseguradoRestController extends BaseRestController implements CrudR
 	response = GenericWrapper.class)
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Retorno existoso de informacion", response = GenericWrapper.class),
-			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = DefException.class) })
+			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = SegSucreException.class) })
 	public GenericWrapper<TbSaAsegurado> getEntity(
-			@QueryParam("id") String id) throws DefException {
+			@QueryParam("id") String id) throws SegSucreException {
 		GenericWrapper<TbSaAsegurado> loc = new GenericWrapper<>();
 		TbSaAsegurado a =this.sas.findAseguradoById(Long.valueOf(id));
 		loc.setEntidad(a);
@@ -68,19 +68,19 @@ public class AseguradoRestController extends BaseRestController implements CrudR
 	response = PaginatedListWrapper.class)
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Retorno existoso de informacion", response = PaginatedListWrapper.class),
-			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = DefException.class) })
+			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = SegSucreException.class) })
 	public PaginatedListWrapper<TbSaAsegurado> listAllEntities(
 			@QueryParam("page") @DefaultValue("1") String page,
 			@QueryParam("pageSize") @DefaultValue("10") String pageSize,
 			@QueryParam("sortFields") @DefaultValue("id") String sortFields,
 			@QueryParam("sortDirections") @DefaultValue("asc") String sortDirections,
 			@QueryParam("isPaginated") @DefaultValue("N") String isPaginated
-			) throws DefException {
+			) throws SegSucreException {
 		return findAll(new PaginatedWrapper(Integer.valueOf(page), Integer.valueOf(pageSize), sortFields,
 				sortDirections, isPaginated));
 	}
 
-	private PaginatedListWrapper<TbSaAsegurado> findAll(PaginatedWrapper pw) throws DefException {
+	private PaginatedListWrapper<TbSaAsegurado> findAll(PaginatedWrapper pw) throws SegSucreException {
 		PaginatedListWrapper<TbSaAsegurado> plw = new PaginatedListWrapper<>(pw);
 		List<TbSaAsegurado> actions = this.sas.findAllAsegurado(pw);
 		if (actions != null && !actions.isEmpty()) {
@@ -95,7 +95,7 @@ public class AseguradoRestController extends BaseRestController implements CrudR
 	@POST
 	@Path("/persistEntity")
 	@ApiOperation(value = "GenericWrapper<TbSaAsegurado>", notes = "Metodo Post persistEntity Retorna GenericWrapper de informacion de paginacion y listado de entidades encontradas TbSaAsegurado", response = GenericWrapper.class)
-	public GenericWrapper<TbSaAsegurado> persistEntity(GenericWrapper<TbSaAsegurado> wp) throws DefException {
+	public GenericWrapper<TbSaAsegurado> persistEntity(GenericWrapper<TbSaAsegurado> wp) throws SegSucreException {
 		GenericWrapper<TbSaAsegurado> loc = new GenericWrapper<>();
 		loc.setEntidad(this.sas.manageAsegurado(wp.getEntidad()));
 		return loc;
@@ -108,9 +108,9 @@ public class AseguradoRestController extends BaseRestController implements CrudR
 	response = GenericWrapper.class)
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Retorno existoso de informacion", response = GenericWrapper.class),
-			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = DefException.class) })
+			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = SegSucreException.class) })
 	public GenericWrapper<TbSaAsegurado> buscarAsegurado(
-			@QueryParam("identificacion") String identificacion) throws DefException {
+			@QueryParam("identificacion") String identificacion) throws SegSucreException {
 		GenericWrapper<TbSaAsegurado> loc = new GenericWrapper<>();
 		TbSaAsegurado a =this.sas.finAseguradoByIdentificacion(identificacion);
 		loc.setEntidad(a);

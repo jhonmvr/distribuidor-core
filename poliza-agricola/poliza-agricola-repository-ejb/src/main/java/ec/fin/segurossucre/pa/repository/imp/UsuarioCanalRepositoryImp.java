@@ -1,13 +1,13 @@
-package ec.com.def.pa.repository.imp;
+package ec.fin.segurossucre.pa.repository.imp;
 
 import java.util.List;
 
 import javax.ejb.Stateless;
 
-import ec.com.def.core.persistence.GeneralRepositoryImp;
-import ec.com.def.pa.model.TbSaUsuarioCanal;
-import ec.com.def.pa.repository.UsuarioCanalRepository;
-import ec.com.def.pa.repository.spec.UsuarioCanalByUsuarioSpec;
+import ec.fin.segurossucre.core.persistence.GeneralRepositoryImp;
+import ec.fin.segurossucre.pa.model.TbSaUsuarioCanal;
+import ec.fin.segurossucre.pa.repository.UsuarioCanalRepository;
+import ec.fin.segurossucre.pa.repository.spec.UsuarioCanalByUsuarioSpec;
 
 /**
  * Session Bean implementation class UsuarioCanalRepositoryImp

@@ -1,20 +1,20 @@
-package ec.com.def.pa.repository.imp;
+package ec.fin.segurossucre.pa.repository.imp;
 import java.util.List;
 
 import javax.ejb.Stateless;
 
-import ec.com.def.core.exception.DefException;
-import ec.com.def.core.persistence.GeneralRepositoryImp;
-import ec.com.def.core.util.main.Constantes;
-import ec.com.def.pa.model.Condicionpredio;
-import ec.com.def.pa.repository.CondicionPredioRepository;
-import ec.com.def.pa.repository.spec.CondicionpredioByCodigoSpec;
+import ec.fin.segurossucre.core.exception.SegSucreException;
+import ec.fin.segurossucre.core.persistence.GeneralRepositoryImp;
+import ec.fin.segurossucre.core.util.main.Constantes;
+import ec.fin.segurossucre.pa.model.Condicionpredio;
+import ec.fin.segurossucre.pa.repository.CondicionPredioRepository;
+import ec.fin.segurossucre.pa.repository.spec.CondicionpredioByCodigoSpec;
 @Stateless(mappedName = "condicionPredioRepository")
 public class CondicionPredioRepositoryImp extends GeneralRepositoryImp<Long, Condicionpredio>
 		implements CondicionPredioRepository {
 
 	@Override
-	public Condicionpredio findByCodigo(String codCondicion) throws DefException {
+	public Condicionpredio findByCodigo(String codCondicion) throws SegSucreException {
 		List<Condicionpredio> tmp;
 		try {
 			tmp = this.findAllBySpecification(new CondicionpredioByCodigoSpec(codCondicion));
@@ -25,7 +25,7 @@ public class CondicionPredioRepositoryImp extends GeneralRepositoryImp<Long, Con
 		} catch (Exception e) {
 			
 			e.printStackTrace();
-			throw new DefException(Constantes.ERROR_CODE_CUSTOM,"AL BUSCAR CONDICION DE PREDIO POR CODIGO");
+			throw new SegSucreException(Constantes.ERROR_CODE_CUSTOM,"AL BUSCAR CONDICION DE PREDIO POR CODIGO");
 		}
 		
 	}

@@ -1,10 +1,10 @@
-package ec.com.def.pa.repository;
+package ec.fin.segurossucre.pa.repository;
 
 import javax.ejb.Local;
 
-import ec.com.def.core.exception.DefException;
-import ec.com.def.core.persistence.CrudRepository;
-import ec.com.def.pa.model.TbSaParametro;
+import ec.fin.segurossucre.core.exception.SegSucreException;
+import ec.fin.segurossucre.core.persistence.CrudRepository;
+import ec.fin.segurossucre.pa.model.TbSaParametro;
 
 @Local
 public interface ParametroRepository extends CrudRepository<Long, TbSaParametro>{
@@ -15,5 +15,5 @@ public interface ParametroRepository extends CrudRepository<Long, TbSaParametro>
      * @param nombre
      * @return nombre
      */
-	public TbSaParametro findByNombre( String nombre )throws DefException;
+	public TbSaParametro findByNombre( String nombre )throws SegSucreException;
 }

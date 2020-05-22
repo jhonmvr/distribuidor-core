@@ -1,4 +1,4 @@
-package ec.com.def.pa.repository.spec;
+package ec.fin.segurossucre.pa.repository.spec;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,10 +7,10 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import ec.com.def.core.persistence.AbstractSpecification;
-import ec.com.def.pa.model.TbPaDocumentoPoliza;
-import ec.com.def.pa.model.TbPaSolicitudPoliza;
-import ec.com.def.pa.model.TbPaTipoDocumentoPoliza;
+import ec.fin.segurossucre.core.persistence.AbstractSpecification;
+import ec.fin.segurossucre.pa.model.TbPaDocumentoPoliza;
+import ec.fin.segurossucre.pa.model.TbPaSolicitudPoliza;
+import ec.fin.segurossucre.pa.model.TbPaTipoDocumentoPoliza;
 
 public class DocumentoPolizaByParamsSpec extends AbstractSpecification<TbPaDocumentoPoliza> {
 	private Long idTipoDocumento;

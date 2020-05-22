@@ -1,13 +1,13 @@
-package ec.com.def.pa.repository;
+package ec.fin.segurossucre.pa.repository;
 
 import java.util.List;
 
 import javax.ejb.Local;
 
-import ec.com.def.core.exception.DefException;
-import ec.com.def.core.persistence.CrudRepository;
-import ec.com.def.pa.model.Ramocanal;
-import ec.com.def.pa.model.RamocanalPK;
+import ec.fin.segurossucre.core.exception.SegSucreException;
+import ec.fin.segurossucre.core.persistence.CrudRepository;
+import ec.fin.segurossucre.pa.model.Ramocanal;
+import ec.fin.segurossucre.pa.model.RamocanalPK;
 
 @Local
 public interface CanalRepository extends CrudRepository<RamocanalPK, Ramocanal>{
@@ -16,6 +16,6 @@ public interface CanalRepository extends CrudRepository<RamocanalPK, Ramocanal>{
     
     public List<Ramocanal> findByRamo( String ramoId );
 
-	public Ramocanal findByCodigo(String canal) throws DefException;
+	public Ramocanal findByCodigo(String canal) throws SegSucreException;
 
 }

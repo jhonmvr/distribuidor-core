@@ -1,11 +1,11 @@
-package ec.com.def.pa.repository.spec;
+package ec.fin.segurossucre.pa.repository.spec;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import ec.com.def.core.persistence.AbstractSpecification;
-import ec.com.def.pa.model.Un01;
+import ec.fin.segurossucre.core.persistence.AbstractSpecification;
+import ec.fin.segurossucre.pa.model.Un01;
 
 public class Un01ByIdentificacionSpec extends AbstractSpecification<Un01> {
 	private String identificacion;

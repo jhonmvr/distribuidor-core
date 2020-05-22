@@ -1,4 +1,4 @@
-package ec.com.def.pa.model;
+package ec.fin.segurossucre.pa.model;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
@@ -16,7 +16,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import ec.com.def.pa.enums.EstadoSiniestroAgricolaEnum;
+import ec.fin.segurossucre.pa.enums.EstadoSiniestroAgricolaEnum;
 
 
 /**

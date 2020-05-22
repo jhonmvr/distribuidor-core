@@ -1,4 +1,4 @@
-package ec.com.def.pa.rest;
+package ec.fin.segurossucre.pa.rest;
 
 import java.util.List;
 
@@ -11,15 +11,15 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
-import ec.com.def.core.exception.DefException;
-import ec.com.def.core.util.main.PaginatedListWrapper;
-import ec.com.def.core.util.main.PaginatedWrapper;
-import ec.com.def.core.web.util.BaseRestController;
-import ec.com.def.core.web.util.CrudRestControllerInterface;
-import ec.com.def.core.web.util.GenericWrapper;
-import ec.com.def.pa.model.Ramoplan;
-import ec.com.def.pa.model.RamoplanPK;
-import ec.com.def.pa.service.PolizaAgricolaService;
+import ec.fin.segurossucre.core.exception.SegSucreException;
+import ec.fin.segurossucre.core.util.main.PaginatedListWrapper;
+import ec.fin.segurossucre.core.util.main.PaginatedWrapper;
+import ec.fin.segurossucre.core.web.util.BaseRestController;
+import ec.fin.segurossucre.core.web.util.CrudRestControllerInterface;
+import ec.fin.segurossucre.core.web.util.GenericWrapper;
+import ec.fin.segurossucre.pa.model.Ramoplan;
+import ec.fin.segurossucre.pa.model.RamoplanPK;
+import ec.fin.segurossucre.pa.service.PolizaAgricolaService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -35,12 +35,12 @@ public class RamoplanRestController extends BaseRestController implements CrudRe
 	@Inject
 	PolizaAgricolaService sas;
 	
-	public RamoplanRestController() throws DefException {
+	public RamoplanRestController() throws SegSucreException {
 		super();
 	}
 
 	@Override
-	public void deleteEntity(String arg0) throws DefException {
+	public void deleteEntity(String arg0) throws SegSucreException {
 		// 
 		
 	}
@@ -51,10 +51,10 @@ public class RamoplanRestController extends BaseRestController implements CrudRe
 	response = GenericWrapper.class)
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Retorno existoso de informacion", response = GenericWrapper.class),
-			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = DefException.class) })
+			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = SegSucreException.class) })
 	public GenericWrapper<Ramoplan> getEntity(
 			@QueryParam("ramoId") String ramoId,
-			@QueryParam("ramoplanId") String ramoplanid) throws DefException {
+			@QueryParam("ramoplanId") String ramoplanid) throws SegSucreException {
 		GenericWrapper<Ramoplan> loc = new GenericWrapper<>();
 		RamoplanPK c =new RamoplanPK();
 		c.setRamoid(ramoId);
@@ -72,19 +72,19 @@ public class RamoplanRestController extends BaseRestController implements CrudRe
 	response = GenericWrapper.class)
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Retorno existoso de informacion", response = GenericWrapper.class),
-			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = DefException.class) })
+			@ApiResponse(code = 500, message = "Retorno con ERROR en la carga de acciones", response = SegSucreException.class) })
 	public PaginatedListWrapper<Ramoplan> listAllEntities(
 			@QueryParam("page") @DefaultValue("1") String page,
 			@QueryParam("pageSize") @DefaultValue("10") String pageSize,
 			@QueryParam("sortFields") @DefaultValue("id") String sortFields,
 			@QueryParam("sortDirections") @DefaultValue("asc") String sortDirections,
 			@QueryParam("isPaginated") @DefaultValue("N") String isPaginated
-			) throws DefException {
+			) throws SegSucreException {
 		return findAll(new PaginatedWrapper(Integer.valueOf(page), Integer.valueOf(pageSize), sortFields,
 				sortDirections, isPaginated));
 	}
 
-	private PaginatedListWrapper<Ramoplan> findAll(PaginatedWrapper pw) throws DefException {
+	private PaginatedListWrapper<Ramoplan> findAll(PaginatedWrapper pw) throws SegSucreException {
 		PaginatedListWrapper<Ramoplan> plw = new PaginatedListWrapper<>(pw);
 		List<Ramoplan> actions = this.sas.findAllRamoPlan(pw);
 		if (actions != null && !actions.isEmpty()) {
@@ -96,13 +96,13 @@ public class RamoplanRestController extends BaseRestController implements CrudRe
 	}
 
 	@Override
-	public GenericWrapper<Ramoplan> persistEntity(GenericWrapper<Ramoplan> arg0) throws DefException {
+	public GenericWrapper<Ramoplan> persistEntity(GenericWrapper<Ramoplan> arg0) throws SegSucreException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public GenericWrapper<Ramoplan> getEntity(String arg0) throws DefException {
+	public GenericWrapper<Ramoplan> getEntity(String arg0) throws SegSucreException {
 		// TODO Auto-generated method stub
 		return null;
 	}

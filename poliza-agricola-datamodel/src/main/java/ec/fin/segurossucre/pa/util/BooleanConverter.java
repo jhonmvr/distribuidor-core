@@ -1,4 +1,4 @@
-package ec.com.def.pa.util;
+package ec.fin.segurossucre.pa.util;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
